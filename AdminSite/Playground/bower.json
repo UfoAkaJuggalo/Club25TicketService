@@ -1,0 +1,23 @@
+{
+  "name": "Club23TicektSystem",
+  "version": "0.0.0",
+  "homepage": "vault25.net",
+  "authors": [
+    "Michal Nawrocki"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass-official": "~3.3.3",
+    "fontawesome": "~4.3.0",
+    "font-awesome": "fontawesome#^4.7.0"
+  },
+  "description": "Playground",
+  "main": ""
+}
