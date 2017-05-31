@@ -37,7 +37,7 @@ gulp.task('css', function() {
 });
 
 gulp.task('sass', function() {
-    return gulp.src(config.sassPath + '/style.scss')
+    return gulp.src(config.sassPath + '/*.scss')
         .pipe(gsass({
                 outputStyle: 'compressed',
                 includePaths: [

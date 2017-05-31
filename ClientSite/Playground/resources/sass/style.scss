@@ -1,16 +1,53 @@
 // Add custom font
-@import url(http://fonts.googleapis.com/css?family=Raleway:400,700,300);
-$font-family-base: 'Raleway', sans-serif;
-
+@import url(https://fonts.googleapis.com/css?family=Audiowide|Exo+2:300,400,500i,700);
+$font-family-base: 'Exo 2',
+sans-serif;
+$font-family-headers: 'Audiowide',
+cursive;
 // Import bootstrap and fontawesome
-@import "bootstrap";
+@import "colors";
+@import "bootover";
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+// @import "bootstrap";
 @import "font-awesome";
-
 // Bootstrap Starter Template Styles
 body {
-  padding-top: 50px;
+    background-color: $main-background;
+    color: $main-text;
 }
-.starter-template {
-  padding: 40px 15px;
-  text-align: center;
+
+header {
+    background-color: $header-background;
+    color: $header-text;
+    h3 {
+        font-family: $font-family-headers;
+    }
+    .list-group-item,
+    .dropdown-menu,
+    .dropdown-item {
+        background-color: $header-background;
+        color: $header-text;
+        border-color: rgba(255, 255, 255, 0.25);
+        border-radius: 0;
+        border-left-style: none;
+        border-right-style: none;
+    }
+    .list-group-item:hover,
+    .dropdown-item:hover {
+        background-color: $header-text;
+        color: $header-background;
+    }
+    .list-group-item.active,
+    .dropdown-item.active {
+        background-color: $header-secondary;
+        border-color: $header-secondary;
+    }
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.font-headers {
+    font-family: $font-family-headers;
 }
