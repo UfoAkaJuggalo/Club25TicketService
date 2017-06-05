@@ -107,3 +107,45 @@
         background-color: transparent;
     }
 }
+
+@-webkit-keyframes greyin {
+    from {
+        filter: grayscale(0%)
+    }
+    to {
+        filter: grayscale(100%)
+    }
+}
+
+
+/* Standard syntax */
+
+@keyframes greyin {
+    from {
+        filter: grayscale(0%)
+    }
+    to {
+        filter: grayscale(100%)
+    }
+}
+
+@-webkit-keyframes greyout {
+    from {
+        filter: grayscale(100%)
+    }
+    to {
+        filter: grayscale(0%)
+    }
+}
+
+
+/* Standard syntax */
+
+@keyframes greyout {
+    from {
+        filter: grayscale(100%)
+    }
+    to {
+        filter: grayscale(0%)
+    }
+}
