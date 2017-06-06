@@ -19,6 +19,38 @@ cursive;
     border-radius: $radius;
 }
 
+@mixin info-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    font-family: $font-family-headers;
+    color: $main-text2;
+    text-align: center;
+    margin: auto;
+}
+
+@mixin menu-item {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin button-ticket($width) {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    width: $width;
+    height: auto;
+    margin: auto;
+    background-color: $main-primary;
+    color: $main-text2;
+    font-family: $font-family-base;
+}
+
 // Bootstrap Starter Template Styles
 body {
     background-color: $main-background;
@@ -31,6 +63,9 @@ header {
     margin-bottom: 2rem;
     h3 {
         font-family: $font-family-headers;
+    }
+    .dropdown {
+        cursor: pointer;
     }
     .list-group-item,
     .dropdown-menu,
@@ -107,38 +142,25 @@ footer {
                 font-size: 0.8rem;
             }
             .menu-item {
-                height: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background-color: transparent;
+                @include menu-item();
                 color: $header-primary;
                 opacity: 1;
                 -webkit-animation: menu-hoover-out 1s forwards;
                 /* Safari 4.0 - 8.0 */
                 animation: menu-hoover-out 1s forwards;
+                cursor: pointer;
             }
             .menu-item:hover {
-                height: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
                 -webkit-animation: menu-hoover-in 1s forwards;
                 /* Safari 4.0 - 8.0 */
                 animation: menu-hoover-in 1s forwards;
             }
             .menu-item-active {
+                @include menu-item();
                 background-color: $header-primary;
-                height: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
                 &>div,
                 &>div>i {
                     color: $header-secondary;
-                    -webkit-text-fill-color: transparent;
-                    background: transparent url("..\\img\\header_background.jpg") center top;
-                    -webkit-background-clip: text;
                 }
                 &::after {
                     content: "";
@@ -206,16 +228,8 @@ footer {
         object-fit: cover;
     }
     .event-header-overlay {
-        position: absolute;
-        left: 0;
-        top: 0;
+        @include info-overlay;
         background-color: rgba($main-primary, .35);
-        width: 100%;
-        height: 100%;
-        font-family: $font-family-headers;
-        color: $main-text2;
-        text-align: center;
-        margin: auto;
     }
     .event-header-info {
         display: flex;
@@ -293,18 +307,9 @@ footer {
         margin-top: 1rem;
     }
     button {
-        animation: fadeout 1s forwards;
-        position: absolute;
-        bottom: 5%;
-        left: 50%;
-        transform: translate3d(-50%, -50%, 0);
-        width: 20%;
-        height: auto;
-        margin: auto;
-        background-color: $main-primary;
-        color: $main-text2;
-        font-family: $font-family-base;
+        @include button-ticket(30%);
         @include round-corners(0.5rem);
+        animation: fadeout 1s forwards;
     }
     &:hover {
         animation: event-small-in 1s forwards;
@@ -499,6 +504,20 @@ footer {
             width: 30%;
             font-size: 1rem;
             padding: 4px 0px;
+        }
+    }
+}
+
+//event info style
+.event-info {
+    &>div>img {
+        @include round-corners(0.5rem);
+    }
+    .event-info-overlay {
+        @include info-overlay;
+        .btn {
+            @include button-ticket(15%);
+            @include round-corners(0.5rem);
         }
     }
 }
