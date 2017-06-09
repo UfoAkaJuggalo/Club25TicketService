@@ -510,8 +510,50 @@ footer {
 
 //event info style
 .event-info {
-    &>div>img {
+    .event-header-big img {
         @include round-corners(0.5rem);
+    }
+    a {
+        cursor: pointer;
+    }
+    .modal-artist {
+        img {
+            max-width: 100%;
+            max-height: 25rem;
+        }
+        table,
+        tr,
+        td {
+            border-color: transparent;
+        }
+        td {
+            padding-top: 0.1rem;
+            padding-bottom: 0.1rem;
+        }
+        td:first-child {
+            width: 1rem;
+            margin-right: 0;
+            padding-right: 0;
+            text-align: center;
+        }
+    }
+    .modal-venue {
+        table,
+        tr,
+        td {
+            border-color: transparent;
+        }
+        td {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+        td:first-child {
+            text-align: right;
+            font-weight: bold;
+        }
+    }
+    .event-description {
+        font-size: 1.25rem;
     }
     .event-info-overlay {
         @include info-overlay;

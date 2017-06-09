@@ -123,21 +123,537 @@
                 <!-- event detail goes here -->
 
                 <div class="event-info">
-                    <div class="event-header-big">
-                        <img class="d-block" src="/mockup_img/2017-Big-Sphongle.jpg" alt="Sphongle">
-                        <div class="event-info-overlay">
-                            <div class="event-header-info display-1">
-                                <h1>Sphongle</h1>
-                                <h2>12.08</h2>
-                                <a href="#tickets" class="btn pt-3 pb-3" role="button">
-                                    <h3>Kup Bilet</h3>
+                    <div class="row">
+                        <div class="col">
+                            <div class="event-header-big">
+                                <img class="d-block" src="/mockup_img/2017-Big-Sphongle.jpg" alt="Sphongle">
+                                <div class="event-info-overlay">
+                                    <div class="event-header-info display-1">
+                                        <h1>Sphongle</h1>
+                                        <h2>12.08</h2>
+                                        <a href="#tickets" class="btn pt-3 pb-3" role="button">
+                                            <h3>Kup Bilet</h3>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4 mb-4">
+                        <div class="col-12 col-sm-6 push-sm-6 col-md-5 push-md-7 col-lg-4 push-lg-8 col-xl-3 push-xl-9">
+                            <h4 class="font-weight-bold">Data i czas</h4>
+                            <h5 class="mb-5">sobota 12.08 22:00</h5>
+                            <h4 class="font-weight-bold">Miejsce</h4>
+                            <a data-toggle="modal" data-target="#venue0">
+                                <h5 class="mb-5">Progresja</h5>
+                            </a>
+                            <div class="modal fade modal-venue" id="venue0" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h3 class="modal-title">Progresja</h3>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d726.6139505379865!2d20.927447659031596!3d52.22470427947446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecb392c316bbb%3A0x15c4814195f799d9!2sProgresja!5e0!3m2!1spl!2spl!4v1496923853268"
+                                                class="hidden-sm-down" width="100%" height="450px" frameborder="0" style="border:0" allowfullscreen>
+                                                </iframe>
+                                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d611.007065998295!2d20.9274477!3d52.2247043!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecb392c316bbb%3A0x15c4814195f799d9!2sProgresja!5e0!3m2!1spl!2spl!4v1496924731082" width="100%" height="300"
+                                                frameborder="0" style="border:0" class="hidden-md-up" allowfullscreen> 
+                                                </iframe>
+                                            <table class="table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Adres:</td>
+                                                        <td>ul. Fort Wola 22 01-258, Warszawa</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Telefon:</td>
+                                                        <td>+48 22 460 57 60, 62, 63 (pon-pt 10-17)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>e-mail:</td>
+                                                        <td>biuro@nazwaklubu.pl</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>www:</td>
+                                                        <td><a href="https://progresja.com" target="_blank">www.progresja.com</a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-5">
+                                <h4 class="font-weight-bold">Bilety</h4>
+                                <h5>50 zł - standard</h5>
+                                <h5>60 zł - kolekcjonerski</h5>
+                                <h5>100 zł - VIP (kolekcjonerski + gift bag)</h5>
+                            </div>
+                            <h4 class="font-weight-bold">Sprzedaż biletów</h4>
+                            <div class="mb-5">
+                                <a href="https://www.biletomat.pl/" target="_blank">
+                                    <h5>Biletomat.pl</h5>
+                                </a>
+                                <a href="https://www.ebilet.pl/" target="_blank">
+                                    <h5>eBilet.pl</h5>
+                                </a>
+                                <a href="https://www.eventim.pl/" target="_blank">
+                                    <h5>Eventim.pl</h5>
+                                </a>
+                                <a href="https://progresja.com/" target="_blank">
+                                    <h5>Progresja</h5>
+                                </a>
+                                <a href="http://www.ticketpro.pl/jnp/home/index.html" target="_blank">
+                                    <h5>Ticketpro.pl</h5>
                                 </a>
                             </div>
+                            <h4 class="font-weight-bold">Lineup</h4>
+                            <div class="mb-5">
+                                <div class="mb-4 mt-3">
+                                    <h5 class="text-uppercase mb-2">Main Stage</h5>
+                                    <h5><strong>22:00 - 23:00</strong> - <a data-toggle="modal" data-target="#artistId1">25</a></h5>
+                                    <h5><strong>23:00 - 0:00</strong> - <a data-toggle="modal" data-target="#artistId2">Panza</a></h5>
+                                    <h5><strong>0:00 - 1:30</strong> - <a data-toggle="modal" data-target="#artistId3">Shpongle</a></h5>
+                                    <h5><strong>1:30 - 2:30</strong> - <a data-toggle="modal" data-target="#artistId4">Hallucinogen</a></h5>
+                                    <h5><strong>2:30 - 3:45</strong> - <a data-toggle="modal" data-target="#artistId5">Zeus</a></h5>
+                                    <h5><strong>3:45 - 5:00</strong> - <a data-toggle="modal" data-target="#artistId6">Satchmo</a></h5>
+                                    <h5><strong>5:00 - 5:25</strong> - <a data-toggle="modal" data-target="#artistId1">25</a></h5>
+                                </div>
+                                <div class="mb-4 mt-3">
+                                    <h5 class="text-uppercase mb-2">Chill Out</h5>
+                                    <h5><strong>22:00 - 23:00</strong> - <a data-toggle="modal" data-target="#artistId7">Kwazar</a></h5>
+                                    <h5><strong>23:00 - 0:00</strong> - <a data-toggle="modal" data-target="#artistId1">25</a></h5>
+                                    <h5><strong>0:00 - 1:30</strong> - <a data-toggle="modal" data-target="#artistId6">Satchmo</a></h5>
+                                    <h5><strong>1:30 - 2:30</strong> - <a data-toggle="modal" data-target="#artistId8">DJ Squid</a></h5>
+                                    <h5><strong>2:30 - 3:45</strong> - <a data-toggle="modal" data-target="#artistId9">Ott</a></h5>
+                                    <h5><strong>3:45 - 5:00</strong> - <a data-toggle="modal" data-target="#artistId10">Aural Planet</a></h5>
+                                    <h5><strong>5:00 - 5:25</strong> - <a data-toggle="modal" data-target="#artistId2">Panza</a></h5>
+                                </div>
+                                <div class="modal fade modal-artist" id="artistId1" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h3 class="modal-title">25</h3>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>
+                                            <div class="modal-body text-center">
+                                                <img src="/mockup_img/Artist-25.jpg">
+                                                <div class="text-left mt-3">
+                                                    <p>Dziesięciu pewny łoś ubior mocne giną Petersburgu Panna stada Gadających. Roskrzyżował przechrzciłby Rzeczpospolita cioci choru ujrzy roskrzyżował rzecz nieuszanowanie Prześladując uwagi orły Spór. Iść
+                                                        przejrzystość silne Przedstawiając nosem Wiele marszałkowską Brał wdał spokojniejszych bezprzykładną Dojeżdżaczowi Zaraz Kolor. Niemen dwóch Jedną Białopiotrowiczem Dziwna jedną. Ochraniasz Rozbierał
+                                                        sklepieniu takie znowu potakiwał obora lokaj niewielkim minut cichu wedle pozostało niéj. Dwadzieścia pocałowanie nowy wola swym nię nieodstępny robi puściliśmy Cara niby. Dolne Kilku raczy Ojcze
+                                                        Stary osoba konia niedostrzegł nieczynności Napełniając włos. Trzy Usta rury Najpiękniejszego najpiękniejszéj Rzeczypospolitéj smyk Panu. Wiwaty Bezładnością wyczha Złoty Wystrzeliliśmy Worończańskim
+                                                        biegł Polski niepowiedziała.</p>
+                                                    <table class="table text-left mt-3 ml-0">
+                                                        <tr>
+                                                            <td><i class="fa fa-globe" aria-hidden="true"></i></td>
+                                                            <td><a href="http://vault25.net/" target="_blank">www</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-youtube" aria-hidden="true"></i></td>
+                                                            <td><a href="https://www.youtube.com/user/JU994LO" target="_blank">youtube</a></td>
+                                                        </tr>
+                                                    </table>
+                                                    <a href="" class="mx-2">goa</a><a href="" class="mx-2">psytrance</a><a href="" class="mx-2">fullon</a><a href="" class="mx-2">progressive</a><a href="" class="mx-2">ambient</a><a href="" class="mx-2">drum'n'bass</a>
+                                                    <a href="" class="mx-2">liquid</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal fade modal-artist" id="artistId2" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h3 class="modal-title">Panza</h3>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>
+                                            <div class="modal-body text-center">
+                                                <img src="/mockup_img/Artist-Panza.jpg">
+                                                <div class="text-left mt-3">
+                                                    <p>Panza is a well known trance dj, producer and promoter from Warsaw. He played alongside top international artists such as: THE ORB, PsySex, DJ Krust + MC Dynamite, Astrix, Coldcut, Oforia, Hallucinogen.</p>
+                                                    <table class="table text-left mt-3 ml-0">
+                                                        <tr>
+                                                            <td><i class="fa fa-globe" aria-hidden="true"></i></td>
+                                                            <td><a href="" target="_blank">www</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-facebook-square" aria-hidden="true"></i></td>
+                                                            <td><a href="https://www.facebook.com/panzalive/" target="_blank">facebook</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-soundcloud" aria-hidden="true"></i></td>
+                                                            <td><a href="" target="_blank">soundcloud</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-cloud" aria-hidden="true"></i></td>
+                                                            <td><a href="" target="_blank">mixcloud</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-youtube" aria-hidden="true"></i></td>
+                                                            <td><a href="" target="_blank">youtube</a></td>
+                                                        </tr>
+                                                    </table>
+                                                    <a href="" class="mx-2">psytrance</a><a href="" class="mx-2">fullon</a><a href="" class="mx-2">progressive</a><a href="" class="mx-2">drum'n'bass</a><a href="" class="mx-2">break beat</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal fade modal-artist" id="artistId3" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h3 class="modal-title">Shpongle</h3>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>
+                                            <div class="modal-body text-center">
+                                                <img src="/mockup_img/Artist-Shpongle.jpg">
+                                                <div class="text-left mt-3">
+                                                    <p>Shpongle – jedna z najbardziej znaczących grup muzycznych grających psychedelic downtempo/ambient. Jest to projekt dwóch muzyków: Simona Posforda (tworzy od od lat 90. XX wieku, najbardziej znany z solowego
+                                                        projektu Hallucinogen oraz ze współpracy z wieloma innymi artystami) i Ronalda Rothfielda (znany jako Raja Ram, właściciel wytwórni TIP World). Muzykę, którą grają, sami określają jako psybient.
+                                                        W swoich utworach łączą cyfrowe brzmienia tworzone przez Posforda i elementy grane na fletach przez Raję Rama. Dodatkowo często wspierają się instrumentami i brzmieniami etnicznymi z różnych stron
+                                                        świata. Współpracują z różnymi artystami (wokale na Tales of the Inexpressible nagrywała Michele Adamson). Do tej pory wydali pięć albumów studyjnych i nagranie z remiksami ich utworów.</p>
+                                                    <table class="table text-left mt-3 ml-0">
+                                                        <tr>
+                                                            <td><i class="fa fa-globe" aria-hidden="true"></i></td>
+                                                            <td><a href="http://shponglemusic.com/home/" target="_blank">www</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-facebook-square" aria-hidden="true"></i></td>
+                                                            <td><a href="https://www.facebook.com/shpongle" target="_blank">facebook</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-youtube" aria-hidden="true"></i></td>
+                                                            <td><a href="http://www.youtube.com/ShpongleMusic" target="_blank">youtube</a></td>
+                                                        </tr>
+                                                    </table>
+                                                    <a href="" class="mx-2">ambient</a><a href="" class="mx-2">psy ambient</a><a href="" class="mx-2">downtempo</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal fade modal-artist" id="artistId4" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h3 class="modal-title">Hallucinogen</h3>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>
+                                            <div class="modal-body text-center">
+                                                <img src="/mockup_img/Artist-Hallucinogen.jpg">
+                                                <div class="text-left mt-3">
+                                                    <p>Hallucinogen – sceniczny pseudonim Simona Posforda, angielskiego wykonawcy psychedelic trance. Simon Posford jest jednym z założycieli Twisted Records, jednej z bardziej wpływowych wytwórni płytowych
+                                                        z muzyką psychedelic trance. W 1996 roku założył zespół Shpongle tworzący w tym nurcie, a od 2003 roku razem z Benjim Vaughanem współtworzy grupę Younger Brother.</p>
+                                                    <table class="table text-left mt-3 ml-0">
+                                                        <tr>
+                                                            <td><i class="fa fa-facebook-square" aria-hidden="true"></i></td>
+                                                            <td><a href="https://www.facebook.com/shpongle/" target="_blank">facebook</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-soundcloud" aria-hidden="true"></i></td>
+                                                            <td><a href="https://soundcloud.com/twistedmusic" target="_blank">soundcloud</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-youtube" aria-hidden="true"></i></td>
+                                                            <td><a href="https://youtu.be/iIsVzSMRw8E?list=PLpEDG6DYKJsLuli1WqedyHA1pD0y0fEIi" target="_blank">youtube</a></td>
+                                                        </tr>
+                                                    </table>
+                                                    <a href="" class="mx-2">psytrance</a><a href="" class="mx-2">goa</a><a href="" class="mx-2">ambient</a><a href="" class="mx-2">psy ambient</a><a href="" class="mx-2">downtempo</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal fade modal-artist" id="artistId5" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h3 class="modal-title">Panza</h3>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>
+                                            <div class="modal-body text-center">
+                                                <img src="/mockup_img/Artist-Panza.jpg">
+                                                <div class="text-left mt-3">
+                                                    <p>Panza is a well known trance dj, producer and promoter from Warsaw. He played alongside top international artists such as: THE ORB, PsySex, DJ Krust + MC Dynamite, Astrix, Coldcut, Oforia, Hallucinogen.</p>
+                                                    <table class="table text-left mt-3 ml-0">
+                                                        <tr>
+                                                            <td><i class="fa fa-globe" aria-hidden="true"></i></td>
+                                                            <td><a href="" target="_blank">www</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-facebook-square" aria-hidden="true"></i></td>
+                                                            <td><a href="https://www.facebook.com/panzalive/" target="_blank">facebook</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-soundcloud" aria-hidden="true"></i></td>
+                                                            <td><a href="" target="_blank">soundcloud</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-cloud" aria-hidden="true"></i></td>
+                                                            <td><a href="" target="_blank">mixcloud</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-youtube" aria-hidden="true"></i></td>
+                                                            <td><a href="" target="_blank">youtube</a></td>
+                                                        </tr>
+                                                    </table>
+                                                    <a href="" class="mx-2">psytrance</a><a href="" class="mx-2">fullon</a><a href="" class="mx-2">progressive</a><a href="" class="mx-2">drum'n'bass</a><a href="" class="mx-2">break beat</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal fade modal-artist" id="artistId6" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h3 class="modal-title">Panza</h3>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>
+                                            <div class="modal-body text-center">
+                                                <img src="/mockup_img/Artist-Panza.jpg">
+                                                <div class="text-left mt-3">
+                                                    <p>Panza is a well known trance dj, producer and promoter from Warsaw. He played alongside top international artists such as: THE ORB, PsySex, DJ Krust + MC Dynamite, Astrix, Coldcut, Oforia, Hallucinogen.</p>
+                                                    <table class="table text-left mt-3 ml-0">
+                                                        <tr>
+                                                            <td><i class="fa fa-globe" aria-hidden="true"></i></td>
+                                                            <td><a href="" target="_blank">www</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-facebook-square" aria-hidden="true"></i></td>
+                                                            <td><a href="https://www.facebook.com/panzalive/" target="_blank">facebook</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-soundcloud" aria-hidden="true"></i></td>
+                                                            <td><a href="" target="_blank">soundcloud</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-cloud" aria-hidden="true"></i></td>
+                                                            <td><a href="" target="_blank">mixcloud</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-youtube" aria-hidden="true"></i></td>
+                                                            <td><a href="" target="_blank">youtube</a></td>
+                                                        </tr>
+                                                    </table>
+                                                    <a href="" class="mx-2">psytrance</a><a href="" class="mx-2">fullon</a><a href="" class="mx-2">progressive</a><a href="" class="mx-2">drum'n'bass</a><a href="" class="mx-2">break beat</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal fade modal-artist" id="artistId7" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h3 class="modal-title">Panza</h3>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>
+                                            <div class="modal-body text-center">
+                                                <img src="/mockup_img/Artist-Panza.jpg">
+                                                <div class="text-left mt-3">
+                                                    <p>Panza is a well known trance dj, producer and promoter from Warsaw. He played alongside top international artists such as: THE ORB, PsySex, DJ Krust + MC Dynamite, Astrix, Coldcut, Oforia, Hallucinogen.</p>
+                                                    <table class="table text-left mt-3 ml-0">
+                                                        <tr>
+                                                            <td><i class="fa fa-globe" aria-hidden="true"></i></td>
+                                                            <td><a href="" target="_blank">www</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-facebook-square" aria-hidden="true"></i></td>
+                                                            <td><a href="https://www.facebook.com/panzalive/" target="_blank">facebook</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-soundcloud" aria-hidden="true"></i></td>
+                                                            <td><a href="" target="_blank">soundcloud</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-cloud" aria-hidden="true"></i></td>
+                                                            <td><a href="" target="_blank">mixcloud</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-youtube" aria-hidden="true"></i></td>
+                                                            <td><a href="" target="_blank">youtube</a></td>
+                                                        </tr>
+                                                    </table>
+                                                    <a href="" class="mx-2">psytrance</a><a href="" class="mx-2">fullon</a><a href="" class="mx-2">progressive</a><a href="" class="mx-2">drum'n'bass</a><a href="" class="mx-2">break beat</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal fade modal-artist" id="artistId8" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h3 class="modal-title">Panza</h3>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>
+                                            <div class="modal-body text-center">
+                                                <img src="/mockup_img/Artist-Panza.jpg">
+                                                <div class="text-left mt-3">
+                                                    <p>Panza is a well known trance dj, producer and promoter from Warsaw. He played alongside top international artists such as: THE ORB, PsySex, DJ Krust + MC Dynamite, Astrix, Coldcut, Oforia, Hallucinogen.</p>
+                                                    <table class="table text-left mt-3 ml-0">
+                                                        <tr>
+                                                            <td><i class="fa fa-globe" aria-hidden="true"></i></td>
+                                                            <td><a href="" target="_blank">www</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-facebook-square" aria-hidden="true"></i></td>
+                                                            <td><a href="https://www.facebook.com/panzalive/" target="_blank">facebook</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-soundcloud" aria-hidden="true"></i></td>
+                                                            <td><a href="" target="_blank">soundcloud</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-cloud" aria-hidden="true"></i></td>
+                                                            <td><a href="" target="_blank">mixcloud</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-youtube" aria-hidden="true"></i></td>
+                                                            <td><a href="" target="_blank">youtube</a></td>
+                                                        </tr>
+                                                    </table>
+                                                    <a href="" class="mx-2">psytrance</a><a href="" class="mx-2">fullon</a><a href="" class="mx-2">progressive</a><a href="" class="mx-2">drum'n'bass</a><a href="" class="mx-2">break beat</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal fade modal-artist" id="artistId9" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h3 class="modal-title">Panza</h3>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>
+                                            <div class="modal-body text-center">
+                                                <img src="/mockup_img/Artist-Panza.jpg">
+                                                <div class="text-left mt-3">
+                                                    <p>Panza is a well known trance dj, producer and promoter from Warsaw. He played alongside top international artists such as: THE ORB, PsySex, DJ Krust + MC Dynamite, Astrix, Coldcut, Oforia, Hallucinogen.</p>
+                                                    <table class="table text-left mt-3 ml-0">
+                                                        <tr>
+                                                            <td><i class="fa fa-globe" aria-hidden="true"></i></td>
+                                                            <td><a href="" target="_blank">www</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-facebook-square" aria-hidden="true"></i></td>
+                                                            <td><a href="https://www.facebook.com/panzalive/" target="_blank">facebook</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-soundcloud" aria-hidden="true"></i></td>
+                                                            <td><a href="" target="_blank">soundcloud</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-cloud" aria-hidden="true"></i></td>
+                                                            <td><a href="" target="_blank">mixcloud</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-youtube" aria-hidden="true"></i></td>
+                                                            <td><a href="" target="_blank">youtube</a></td>
+                                                        </tr>
+                                                    </table>
+                                                    <a href="" class="mx-2">psytrance</a><a href="" class="mx-2">fullon</a><a href="" class="mx-2">progressive</a><a href="" class="mx-2">drum'n'bass</a><a href="" class="mx-2">break beat</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal fade modal-artist" id="artistId10" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h3 class="modal-title">Panza</h3>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>
+                                            <div class="modal-body text-center">
+                                                <img src="/mockup_img/Artist-Panza.jpg">
+                                                <div class="text-left mt-3">
+                                                    <p>Panza is a well known trance dj, producer and promoter from Warsaw. He played alongside top international artists such as: THE ORB, PsySex, DJ Krust + MC Dynamite, Astrix, Coldcut, Oforia, Hallucinogen.</p>
+                                                    <table class="table text-left mt-3 ml-0">
+                                                        <tr>
+                                                            <td><i class="fa fa-globe" aria-hidden="true"></i></td>
+                                                            <td><a href="" target="_blank">www</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-facebook-square" aria-hidden="true"></i></td>
+                                                            <td><a href="https://www.facebook.com/panzalive/" target="_blank">facebook</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-soundcloud" aria-hidden="true"></i></td>
+                                                            <td><a href="" target="_blank">soundcloud</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-cloud" aria-hidden="true"></i></td>
+                                                            <td><a href="" target="_blank">mixcloud</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-youtube" aria-hidden="true"></i></td>
+                                                            <td><a href="" target="_blank">youtube</a></td>
+                                                        </tr>
+                                                    </table>
+                                                    <a href="" class="mx-2">psytrance</a><a href="" class="mx-2">fullon</a><a href="" class="mx-2">progressive</a><a href="" class="mx-2">drum'n'bass</a><a href="" class="mx-2">break beat</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <h5 class="mb-5">Progresja</h5>
+                            <h5 class="mb-5">Progresja</h5>
+                            <h4 class="font-weight-bold">Sponsorzy</h4>
+                            <h5 class="mb-5">Progresja</h5>
+                            <h4 class="font-weight-bold">Patroni medialni</h4>
+                            <h5 class="mb-5">Progresja</h5>
+                            <h4 class="font-weight-bold">Tagi</h4>
+                            <h5 class="mb-5">Progresja</h5>
+                        </div>
+                        <div class="col-12 col-sm-6 pull-sm-6 col-md-7 pull-md-5 col-lg-8 pull-lg-4 col-xl-9 pull-xl-3 event-description">
+                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small
+                                river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/8oL6u9eujSU?rel=0" frameborder="0" allowfullscreen></iframe>
+
+                            <p>It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of
+                                blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+
+                            <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the
+                                belt and made herself on the way. When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her
+                                own road, the Line Lane. Pityful a rethoric question ran over her cheek, then</p>
                         </div>
                     </div>
                 </div>
 
+
                 <!-- end of event detail -->
+
+
 
                 <!-- end of content -->
             </div>
