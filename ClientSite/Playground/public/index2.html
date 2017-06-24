@@ -670,38 +670,81 @@
                     </div>
                 </div>
 
+                <form class="ticket-form mb-4" id="tickets">
+                    <h3 class="text-center mt-5 mb-4 pr-2 pl-2">Kup bilet</h3>
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <label class="mt-2">Kategoria biletu i cena</label><br>
+                            <select name="ticket-type" class="custom-select-sm col mb-1">
+                                <option selected disabled data-next="Wybierz inną kategorię">Wybierz rodzaj biletu</option>
+                                <option value="1">Normalny: 50 zł</option>
+                                <option value="2" disabled>Kolekcjonerski: 60 zł (wyprzedane)</option>
+                                <option value="3">VIP (specjalna strefa + giftbag z podpisaną płytą): 100 zł</option>
+                            </select>
+                            <label class="mt-2 mb-0">Imię</label><br>
+                            <input class="form-control mb-3 mt-0" type="text" name="ticket-name">
+                            <label class="mt-2 mb-0">Email</label><br>
+                            <input class="form-control mb-3 mt-0" type="email" name="ticket-email">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="row mt-2 mb-2">
+                                <div class="col-6">
+                                    <label>Ilość</label><br>
+                                    <input class="form-control mt-0 pb-1 pt-1" type="number" value="-" name="ticket-quantity" min="1" max="10">
+                                </div>
+                                <div class="col-6">
+                                    <label>Cena</label><br>
+                                    <input class="form-control mt-0 pb-1 pt-1" readonly type="text" name="ticket-price">
+                                </div>
+                            </div>
+                            <label class="mt-1 mb-0">Nazwisko</label><br>
+                            <input class="form-control mb-3 mt-0" type="text" name="ticket-surname">
+                            <label class="mt-2 mb-0">Numer telefonu</label><br>
+                            <input class="form-control mb-3 mt-0" type="tel" name="ticket-phone">
+                        </div>
+                    </div>
+                    <h3 class="text-center font-italic text-info m-4 mb-5">W tym miejscu znajduje się API firmy obsługującej płatności</h3>
+                    <label class="custom-control custom-checkbox mb-3">
+                        <input type="checkbox" class="custom-control-input" checked name="newsletter">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">Zgadzam się na dołączenie do listy mailingowej</span>
+                    </label><br>
+                    <button type="submit" class="btn btn-primary col">Zapłać za bilet</button>
+            </div>
+            </form>
 
-                <!-- end of event detail -->
+
+            <!-- end of event detail -->
 
 
 
-                <!-- end of content -->
+            <!-- end of content -->
+        </div>
+    </div>
+    <footer class="row justify-content-center ml-0 mr-0 pt-4 pb-4">
+        <div class="col align-self-center text-center mt-3 mb-3">
+            <div class="btn-group">
+                <a class="btn btn-warning" href="#">
+                    <i class="fa fa-facebook-square fa-2x" title="Facebook"></i>
+                </a>
+                <a class="btn btn-warning" href="#">
+                    <i class="fa fa-twitter-square fa-2x" title="Twitter"></i>
+                </a>
+                <a class="btn btn-warning" href="#">
+                    <i class="fa fa-google-plus-square fa-2x" title="Google plus"></i>
+                </a>
+                <a class="btn btn-warning" href="#">
+                    <i class="fa fa-instagram fa-2x" title="Instagram"></i>
+                </a>
             </div>
         </div>
-        <footer class="row justify-content-center ml-0 mr-0 pt-4 pb-4">
-            <div class="col align-self-center text-center mt-3 mb-3">
-                <div class="btn-group">
-                    <a class="btn btn-warning" href="#">
-                        <i class="fa fa-facebook-square fa-2x" title="Facebook"></i>
-                    </a>
-                    <a class="btn btn-warning" href="#">
-                        <i class="fa fa-twitter-square fa-2x" title="Twitter"></i>
-                    </a>
-                    <a class="btn btn-warning" href="#">
-                        <i class="fa fa-google-plus-square fa-2x" title="Google plus"></i>
-                    </a>
-                    <a class="btn btn-warning" href="#">
-                        <i class="fa fa-instagram fa-2x" title="Instagram"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="col align-self-center text-center mt-3 mb-3">
-                <img src="/img/logo.png" alt="logo">
-            </div>
-            <div class="col align-self-center text-right font-italic mt-3 mb-3">
-                <p class="mb-0"><i class="fa fa-copyright" aria-hidden="true"></i> 2017 Michał Nawrocki</p>
-            </div>
-        </footer>
+        <div class="col align-self-center text-center mt-3 mb-3">
+            <img src="/img/logo.png" alt="logo">
+        </div>
+        <div class="col align-self-center text-right font-italic mt-3 mb-3">
+            <p class="mb-0"><i class="fa fa-copyright" aria-hidden="true"></i> 2017 Michał Nawrocki</p>
+        </div>
+    </footer>
     </div>
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
