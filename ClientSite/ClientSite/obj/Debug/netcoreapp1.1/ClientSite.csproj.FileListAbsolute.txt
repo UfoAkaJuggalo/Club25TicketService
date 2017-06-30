@@ -6,3 +6,4 @@ D:\My Documents\Projekty WWW\Club25TicketService\ClientSite\ClientSite\bin\Debug
 D:\My Documents\Projekty WWW\Club25TicketService\ClientSite\ClientSite\obj\Debug\netcoreapp1.1\ClientSite.AssemblyInfo.cs
 D:\My Documents\Projekty WWW\Club25TicketService\ClientSite\ClientSite\obj\Debug\netcoreapp1.1\ClientSite.dll
 D:\My Documents\Projekty WWW\Club25TicketService\ClientSite\ClientSite\obj\Debug\netcoreapp1.1\ClientSite.pdb
+D:\My Documents\Projekty WWW\Club25TicketService\ClientSite\ClientSite\obj\Debug\netcoreapp1.1\ClientSite.csprojResolveAssemblyReference.cache
