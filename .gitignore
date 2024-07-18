@@ -3,3 +3,9 @@
 /ClientSite/ClientSite/node_modules
 /ClientSite/.vs
 /ClientSite/.vscode
+api/.idea
+api/.vs
+api/Club25_Domain/bin
+api/Club25_Domain/obj
+api/Infrastructure-EF-SQLdB/bin
+api/Infrastructure-EF-SQLdB/obj
