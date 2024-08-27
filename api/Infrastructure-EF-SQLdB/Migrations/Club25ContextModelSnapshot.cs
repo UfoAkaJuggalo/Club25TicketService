@@ -22,95 +22,175 @@ namespace Infrastructure_EF_SQLdB.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Club25_Domain.Agregates.BandAgregate.Entities.Artist", b =>
+            modelBuilder.Entity("ArtistBand", b =>
+                {
+                    b.Property<int>("BandsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MembersId")
+                        .HasColumnType("int");
+
+                    b.HasKey("BandsId", "MembersId");
+
+                    b.HasIndex("MembersId");
+
+                    b.ToTable("ArtistBand");
+                });
+
+            modelBuilder.Entity("ArtistTag", b =>
+                {
+                    b.Property<int>("ArtistsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TagsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ArtistsId", "TagsId");
+
+                    b.HasIndex("TagsId");
+
+                    b.ToTable("ArtistTag");
+                });
+
+            modelBuilder.Entity("BandTag", b =>
+                {
+                    b.Property<int>("BandsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TagsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("BandsId", "TagsId");
+
+                    b.HasIndex("TagsId");
+
+                    b.ToTable("BandTag");
+                });
+
+            modelBuilder.Entity("Club25_Domain.Agregates.AgencyAgregate.Agency", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("id");
+                        .HasColumnName("id")
+                        .HasColumnOrder(0);
 
-                    b.Property<string>("BookingInfo")
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)")
-                        .HasColumnName("booking_info");
-
-                    b.Property<string>("BookingMail")
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)")
-                        .HasColumnName("booking_mail");
-
-                    b.Property<string>("BookingPhone")
-                        .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)")
-                        .HasColumnName("booking_phone");
-
-                    b.Property<int?>("IdPriceMax")
-                        .HasColumnType("int")
-                        .HasColumnName("idPrice_max");
-
-                    b.Property<int?>("IdPriceMin")
-                        .HasColumnType("int")
-                        .HasColumnName("idPrice_min");
-
-                    b.Property<string>("Mixcloud")
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)")
-                        .HasColumnName("mixcloud");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)")
-                        .HasColumnName("name");
-
-                    b.Property<byte[]>("Photo")
-                        .IsRequired()
-                        .HasColumnType("varbinary(max)")
-                        .HasColumnName("photo");
-
-                    b.Property<string>("Soundcloud")
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)")
-                        .HasColumnName("soundcloud");
-
-                    b.Property<string>("Www")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasColumnName("www");
-
-                    b.Property<string>("Youtube")
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)")
-                        .HasColumnName("youtube");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("name")
+                        .HasColumnOrder(1);
 
                     b.HasKey("Id");
 
-                    b.HasIndex("IdPriceMax");
+                    b.ToTable("Agency", (string)null);
+                });
 
-                    b.HasIndex("IdPriceMin");
+            modelBuilder.Entity("Club25_Domain.Agregates.AgencyAgregate.Entities.Agent", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AgencyId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)")
+                        .HasColumnName("name")
+                        .HasColumnOrder(0);
+
+                    b.Property<string>("Surname")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)")
+                        .HasColumnName("surname")
+                        .HasColumnOrder(1);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AgencyId");
+
+                    b.ToTable("Agent", (string)null);
+                });
+
+            modelBuilder.Entity("Club25_Domain.Agregates.AgencyAgregate.Entities.Artist", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("int")
+                        .HasColumnName("id")
+                        .HasColumnOrder(0);
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)")
+                        .HasColumnName("name")
+                        .HasColumnOrder(1);
+
+                    b.Property<int?>("PriceId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PriceId1")
+                        .HasColumnType("int");
+
+                    b.Property<string>("StageName")
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)")
+                        .HasColumnName("stagename")
+                        .HasColumnOrder(3);
+
+                    b.Property<string>("Surname")
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)")
+                        .HasColumnName("surname")
+                        .HasColumnOrder(2);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PriceId");
+
+                    b.HasIndex("PriceId1");
 
                     b.ToTable("Artist", (string)null);
                 });
 
-            modelBuilder.Entity("Club25_Domain.Agregates.BandAgregate.Entities.ArtistDescription", b =>
+            modelBuilder.Entity("Club25_Domain.Agregates.AgencyAgregate.Entities.Band", b =>
                 {
-                    b.Property<string>("Description")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("id")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AgencyId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AgentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("description");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("name")
+                        .HasColumnOrder(1);
 
-                    b.Property<int>("IdArtist")
-                        .HasColumnType("int")
-                        .HasColumnName("idArtist");
+                    b.HasKey("Id");
 
-                    b.Property<int>("IdLanguage")
-                        .HasColumnType("int")
-                        .HasColumnName("idLanguage");
+                    b.HasIndex("AgencyId");
 
-                    b.HasIndex("IdArtist");
+                    b.HasIndex("AgentId");
 
-                    b.HasIndex("IdLanguage");
-
-                    b.ToTable("ArtistDescription", (string)null);
+                    b.ToTable("Band", (string)null);
                 });
 
             modelBuilder.Entity("Club25_Domain.Agregates.ClientAgregate.Client", b =>
@@ -528,23 +608,6 @@ namespace Infrastructure_EF_SQLdB.Migrations
                     b.ToTable("Sponsor", (string)null);
                 });
 
-            modelBuilder.Entity("Club25_Domain.Agregates.TagAgregate.Tag", b =>
-                {
-                    b.Property<int>("Id")
-                        .HasColumnType("int")
-                        .HasColumnName("id");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasColumnName("name");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Tag", (string)null);
-                });
-
             modelBuilder.Entity("Club25_Domain.Agregates.TicketPoolAgregate.Entities.Ticket", b =>
                 {
                     b.Property<int>("Id")
@@ -905,40 +968,349 @@ namespace Infrastructure_EF_SQLdB.Migrations
                     b.ToTable("Venue", (string)null);
                 });
 
-            modelBuilder.Entity("Club25_Domain.Agregates.BandAgregate.Entities.Artist", b =>
+            modelBuilder.Entity("Club25_Domain.CommonEntities.Description", b =>
                 {
-                    b.HasOne("Club25_Domain.Agregates.EventAgregate.Entities.Price", "IdPriceMaxNavigation")
-                        .WithMany("ArtistIdPriceMaxNavigations")
-                        .HasForeignKey("IdPriceMax")
-                        .HasConstraintName("FK_Artist_Price1");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("id");
 
-                    b.HasOne("Club25_Domain.Agregates.EventAgregate.Entities.Price", "IdPriceMinNavigation")
-                        .WithMany("ArtistIdPriceMinNavigations")
-                        .HasForeignKey("IdPriceMin")
-                        .HasConstraintName("FK_Artist_Price");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Navigation("IdPriceMaxNavigation");
+                    b.Property<string>("DescriptionText")
+                        .HasMaxLength(2048)
+                        .HasColumnType("nvarchar(2048)")
+                        .HasColumnName("descriptiontext");
 
-                    b.Navigation("IdPriceMinNavigation");
+                    b.Property<string>("LanguageCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("banddescription");
+
+                    b.HasKey("Id");
+
+                    b.ToTable((string)null);
+
+                    b.UseTpcMappingStrategy();
                 });
 
-            modelBuilder.Entity("Club25_Domain.Agregates.BandAgregate.Entities.ArtistDescription", b =>
+            modelBuilder.Entity("Club25_Domain.CommonEntities.Link", b =>
                 {
-                    b.HasOne("Club25_Domain.Agregates.BandAgregate.Entities.Artist", "IdArtistNavigation")
-                        .WithMany()
-                        .HasForeignKey("IdArtist")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("ArtistId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("BandId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LinkType")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Url")
                         .IsRequired()
-                        .HasConstraintName("FK_ArtistDescription_Artist");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasOne("Club25_Domain.Agregates.EventAgregate.Entities.Language", "IdLanguageNavigation")
-                        .WithMany()
-                        .HasForeignKey("IdLanguage")
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArtistId");
+
+                    b.HasIndex("BandId");
+
+                    b.ToTable("Link");
+                });
+
+            modelBuilder.Entity("Club25_Domain.CommonEntities.Tag", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("int")
+                        .HasColumnName("id");
+
+                    b.Property<string>("Name")
                         .IsRequired()
-                        .HasConstraintName("FK_ArtistDescription_Language");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("name");
 
-                    b.Navigation("IdArtistNavigation");
+                    b.HasKey("Id");
 
-                    b.Navigation("IdLanguageNavigation");
+                    b.ToTable("Tag", (string)null);
+                });
+
+            modelBuilder.Entity("Club25_Domain.Agregates.AgencyAgregate.Entities.ArtistDescription", b =>
+                {
+                    b.HasBaseType("Club25_Domain.CommonEntities.Description");
+
+                    b.Property<int>("ArtistId")
+                        .HasColumnType("int");
+
+                    b.HasIndex("ArtistId");
+
+                    b.ToTable("ArtistDescription", (string)null);
+                });
+
+            modelBuilder.Entity("Club25_Domain.Agregates.AgencyAgregate.Entities.BandDescription", b =>
+                {
+                    b.HasBaseType("Club25_Domain.CommonEntities.Description");
+
+                    b.Property<int>("BandId")
+                        .HasColumnType("int");
+
+                    b.HasIndex("BandId");
+
+                    b.ToTable("BandDescription", (string)null);
+                });
+
+            modelBuilder.Entity("Club25_Domain.CommonEntities.LinkDescription", b =>
+                {
+                    b.HasBaseType("Club25_Domain.CommonEntities.Description");
+
+                    b.Property<int>("LinkId")
+                        .HasColumnType("int");
+
+                    b.HasIndex("LinkId");
+
+                    b.ToTable("LinkDescription", (string)null);
+                });
+
+            modelBuilder.Entity("ArtistBand", b =>
+                {
+                    b.HasOne("Club25_Domain.Agregates.AgencyAgregate.Entities.Band", null)
+                        .WithMany()
+                        .HasForeignKey("BandsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Club25_Domain.Agregates.AgencyAgregate.Entities.Artist", null)
+                        .WithMany()
+                        .HasForeignKey("MembersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ArtistTag", b =>
+                {
+                    b.HasOne("Club25_Domain.Agregates.AgencyAgregate.Entities.Artist", null)
+                        .WithMany()
+                        .HasForeignKey("ArtistsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Club25_Domain.CommonEntities.Tag", null)
+                        .WithMany()
+                        .HasForeignKey("TagsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("BandTag", b =>
+                {
+                    b.HasOne("Club25_Domain.Agregates.AgencyAgregate.Entities.Band", null)
+                        .WithMany()
+                        .HasForeignKey("BandsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Club25_Domain.CommonEntities.Tag", null)
+                        .WithMany()
+                        .HasForeignKey("TagsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Club25_Domain.Agregates.AgencyAgregate.Agency", b =>
+                {
+                    b.OwnsOne("Club25_Domain.Agregates.AgencyAgregate.ValueObjects.ContactVO", "Contact", b1 =>
+                        {
+                            b1.Property<int>("AgencyId")
+                                .HasColumnType("int");
+
+                            b1.Property<string>("Address")
+                                .HasMaxLength(100)
+                                .HasColumnType("nvarchar(100)")
+                                .HasColumnName("address")
+                                .HasColumnOrder(6);
+
+                            b1.Property<string>("City")
+                                .HasMaxLength(64)
+                                .HasColumnType("nvarchar(64)")
+                                .HasColumnName("city")
+                                .HasColumnOrder(5);
+
+                            b1.Property<string>("Country")
+                                .HasMaxLength(64)
+                                .HasColumnType("nvarchar(64)")
+                                .HasColumnName("country")
+                                .HasColumnOrder(4);
+
+                            b1.Property<string>("Email")
+                                .IsRequired()
+                                .HasMaxLength(32)
+                                .HasColumnType("nvarchar(32)")
+                                .HasColumnName("email")
+                                .HasColumnOrder(2);
+
+                            b1.Property<string>("Phone")
+                                .HasMaxLength(16)
+                                .HasColumnType("nvarchar(16)")
+                                .HasColumnName("phone")
+                                .HasColumnOrder(3);
+
+                            b1.HasKey("AgencyId");
+
+                            b1.ToTable("Agency");
+
+                            b1.WithOwner()
+                                .HasForeignKey("AgencyId");
+                        });
+
+                    b.Navigation("Contact")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Club25_Domain.Agregates.AgencyAgregate.Entities.Agent", b =>
+                {
+                    b.HasOne("Club25_Domain.Agregates.AgencyAgregate.Agency", "Agency")
+                        .WithMany("Agents")
+                        .HasForeignKey("AgencyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.OwnsOne("Club25_Domain.Agregates.AgencyAgregate.ValueObjects.ContactVO", "Contact", b1 =>
+                        {
+                            b1.Property<int>("AgentId")
+                                .HasColumnType("int");
+
+                            b1.Property<string>("Address")
+                                .HasMaxLength(100)
+                                .HasColumnType("nvarchar(100)")
+                                .HasColumnName("address")
+                                .HasColumnOrder(6);
+
+                            b1.Property<string>("City")
+                                .HasMaxLength(64)
+                                .HasColumnType("nvarchar(64)")
+                                .HasColumnName("city")
+                                .HasColumnOrder(5);
+
+                            b1.Property<string>("Country")
+                                .HasMaxLength(64)
+                                .HasColumnType("nvarchar(64)")
+                                .HasColumnName("country")
+                                .HasColumnOrder(4);
+
+                            b1.Property<string>("Email")
+                                .IsRequired()
+                                .HasMaxLength(32)
+                                .HasColumnType("nvarchar(32)")
+                                .HasColumnName("email")
+                                .HasColumnOrder(2);
+
+                            b1.Property<string>("Phone")
+                                .HasMaxLength(16)
+                                .HasColumnType("nvarchar(16)")
+                                .HasColumnName("phone")
+                                .HasColumnOrder(3);
+
+                            b1.HasKey("AgentId");
+
+                            b1.ToTable("Agent");
+
+                            b1.WithOwner()
+                                .HasForeignKey("AgentId");
+                        });
+
+                    b.Navigation("Agency");
+
+                    b.Navigation("Contact")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Club25_Domain.Agregates.AgencyAgregate.Entities.Artist", b =>
+                {
+                    b.HasOne("Club25_Domain.Agregates.EventAgregate.Entities.Price", null)
+                        .WithMany("ArtistIdPriceMaxNavigations")
+                        .HasForeignKey("PriceId");
+
+                    b.HasOne("Club25_Domain.Agregates.EventAgregate.Entities.Price", null)
+                        .WithMany("ArtistIdPriceMinNavigations")
+                        .HasForeignKey("PriceId1");
+                });
+
+            modelBuilder.Entity("Club25_Domain.Agregates.AgencyAgregate.Entities.Band", b =>
+                {
+                    b.HasOne("Club25_Domain.Agregates.AgencyAgregate.Agency", "Agency")
+                        .WithMany("Bands")
+                        .HasForeignKey("AgencyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Club25_Domain.Agregates.AgencyAgregate.Entities.Agent", "Agent")
+                        .WithMany("Bands")
+                        .HasForeignKey("AgentId")
+                        .IsRequired()
+                        .HasConstraintName("FK_Band_Agent");
+
+                    b.OwnsOne("Club25_Domain.Agregates.AgencyAgregate.ValueObjects.PriceVO", "PriceMax", b1 =>
+                        {
+                            b1.Property<int>("BandId")
+                                .HasColumnType("int");
+
+                            b1.Property<string>("Currency")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)")
+                                .HasColumnOrder(5);
+
+                            b1.Property<decimal>("Price")
+                                .HasPrecision(10, 2)
+                                .HasColumnType("decimal(10,2)")
+                                .HasColumnOrder(4);
+
+                            b1.HasKey("BandId");
+
+                            b1.ToTable("Band");
+
+                            b1.WithOwner()
+                                .HasForeignKey("BandId");
+                        });
+
+                    b.OwnsOne("Club25_Domain.Agregates.AgencyAgregate.ValueObjects.PriceVO", "PriceMin", b1 =>
+                        {
+                            b1.Property<int>("BandId")
+                                .HasColumnType("int");
+
+                            b1.Property<string>("Currency")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)")
+                                .HasColumnOrder(3);
+
+                            b1.Property<decimal>("Price")
+                                .HasPrecision(10, 2)
+                                .HasColumnType("decimal(10,2)")
+                                .HasColumnOrder(2);
+
+                            b1.HasKey("BandId");
+
+                            b1.ToTable("Band");
+
+                            b1.WithOwner()
+                                .HasForeignKey("BandId");
+                        });
+
+                    b.Navigation("Agency");
+
+                    b.Navigation("Agent");
+
+                    b.Navigation("PriceMax");
+
+                    b.Navigation("PriceMin");
                 });
 
             modelBuilder.Entity("Club25_Domain.Agregates.ClientAgregate.Client", b =>
@@ -973,7 +1345,7 @@ namespace Infrastructure_EF_SQLdB.Migrations
 
             modelBuilder.Entity("Club25_Domain.Agregates.EventAgregate.Entities.EventArtist", b =>
                 {
-                    b.HasOne("Club25_Domain.Agregates.BandAgregate.Entities.Artist", "IdArtistNavigation")
+                    b.HasOne("Club25_Domain.Agregates.AgencyAgregate.Entities.Artist", "IdArtistNavigation")
                         .WithMany()
                         .HasForeignKey("IdArtist")
                         .IsRequired()
@@ -1069,7 +1441,7 @@ namespace Infrastructure_EF_SQLdB.Migrations
                         .IsRequired()
                         .HasConstraintName("FK_EventTag_Event");
 
-                    b.HasOne("Club25_Domain.Agregates.TagAgregate.Tag", "IdTagNavigation")
+                    b.HasOne("Club25_Domain.CommonEntities.Tag", "IdTagNavigation")
                         .WithMany()
                         .HasForeignKey("IdTag")
                         .IsRequired()
@@ -1093,7 +1465,7 @@ namespace Infrastructure_EF_SQLdB.Migrations
 
             modelBuilder.Entity("Club25_Domain.Agregates.EventAgregate.Entities.Lineup", b =>
                 {
-                    b.HasOne("Club25_Domain.Agregates.BandAgregate.Entities.Artist", "IdArtistNavigation")
+                    b.HasOne("Club25_Domain.Agregates.AgencyAgregate.Entities.Artist", "IdArtistNavigation")
                         .WithMany()
                         .HasForeignKey("IdArtist")
                         .HasConstraintName("FK_Lineup_Artist");
@@ -1281,6 +1653,74 @@ namespace Infrastructure_EF_SQLdB.Migrations
                     b.Navigation("IdVenueNavigation");
                 });
 
+            modelBuilder.Entity("Club25_Domain.CommonEntities.Link", b =>
+                {
+                    b.HasOne("Club25_Domain.Agregates.AgencyAgregate.Entities.Artist", null)
+                        .WithMany("Links")
+                        .HasForeignKey("ArtistId");
+
+                    b.HasOne("Club25_Domain.Agregates.AgencyAgregate.Entities.Band", null)
+                        .WithMany("Links")
+                        .HasForeignKey("BandId");
+                });
+
+            modelBuilder.Entity("Club25_Domain.Agregates.AgencyAgregate.Entities.ArtistDescription", b =>
+                {
+                    b.HasOne("Club25_Domain.Agregates.AgencyAgregate.Entities.Artist", "Artist")
+                        .WithMany("ArtistDescriptions")
+                        .HasForeignKey("ArtistId")
+                        .IsRequired();
+
+                    b.Navigation("Artist");
+                });
+
+            modelBuilder.Entity("Club25_Domain.Agregates.AgencyAgregate.Entities.BandDescription", b =>
+                {
+                    b.HasOne("Club25_Domain.Agregates.AgencyAgregate.Entities.Band", "Band")
+                        .WithMany("Descriptions")
+                        .HasForeignKey("BandId")
+                        .IsRequired();
+
+                    b.Navigation("Band");
+                });
+
+            modelBuilder.Entity("Club25_Domain.CommonEntities.LinkDescription", b =>
+                {
+                    b.HasOne("Club25_Domain.CommonEntities.Link", "Link")
+                        .WithMany("LinkDescriptions")
+                        .HasForeignKey("LinkId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Link");
+                });
+
+            modelBuilder.Entity("Club25_Domain.Agregates.AgencyAgregate.Agency", b =>
+                {
+                    b.Navigation("Agents");
+
+                    b.Navigation("Bands");
+                });
+
+            modelBuilder.Entity("Club25_Domain.Agregates.AgencyAgregate.Entities.Agent", b =>
+                {
+                    b.Navigation("Bands");
+                });
+
+            modelBuilder.Entity("Club25_Domain.Agregates.AgencyAgregate.Entities.Artist", b =>
+                {
+                    b.Navigation("ArtistDescriptions");
+
+                    b.Navigation("Links");
+                });
+
+            modelBuilder.Entity("Club25_Domain.Agregates.AgencyAgregate.Entities.Band", b =>
+                {
+                    b.Navigation("Descriptions");
+
+                    b.Navigation("Links");
+                });
+
             modelBuilder.Entity("Club25_Domain.Agregates.ClientAgregate.Client", b =>
                 {
                     b.Navigation("Tickets");
@@ -1353,6 +1793,11 @@ namespace Infrastructure_EF_SQLdB.Migrations
                     b.Navigation("Events");
 
                     b.Navigation("Stages");
+                });
+
+            modelBuilder.Entity("Club25_Domain.CommonEntities.Link", b =>
+                {
+                    b.Navigation("LinkDescriptions");
                 });
 #pragma warning restore 612, 618
         }
