@@ -1,18 +1,19 @@
 ﻿using System.Reflection;
-using Club25_Domain.Agregates.BandAgregate.Entities;
+using Club25_Domain.Agregates.AgencyAgregate;
+using Club25_Domain.Agregates.AgencyAgregate.Entities;
 using Club25_Domain.Agregates.ClientAgregate;
 using Club25_Domain.Agregates.ClientAgregate.Entities;
 using Club25_Domain.Agregates.EventAgregate;
 using Club25_Domain.Agregates.EventAgregate.Entities;
 using Club25_Domain.Agregates.SponsorAgregate;
 using Club25_Domain.Agregates.SponsorAgregate.Entities;
-using Club25_Domain.Agregates.TagAgregate;
 using Club25_Domain.Agregates.TicketPoolAgregate;
 using Club25_Domain.Agregates.TicketPoolAgregate.Entities;
 using Club25_Domain.Agregates.UserAgregate;
 using Club25_Domain.Agregates.UserAgregate.Entities;
 using Club25_Domain.Agregates.VenueAgregate;
 using Club25_Domain.Agregates.VenueAgregate.Entities;
+using Club25_Domain.CommonEntities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure_EF_SQLdB.Contexts;
@@ -28,9 +29,15 @@ public partial class Club25Context : DbContext
 	{
 	}
 
+	public virtual DbSet<Agency> Agencies { get; set; }
+
+	public virtual DbSet<Agent> Agents { get; set; }
+
 	public virtual DbSet<Artist> Artists { get; set; }
 
-	public virtual DbSet<ArtistDescription> ArtistDescriptions { get; set; }
+	public virtual DbSet<Band> Bands { get; set; }
+
+	public virtual DbSet<Description> Descriptions { get; set; }
 
 	public virtual DbSet<Client> Clients { get; set; }
 
@@ -93,7 +100,16 @@ public partial class Club25Context : DbContext
 		=> optionsBuilder.UseSqlServer(
 			"Data Source=HOFFMAN;Initial Catalog=Club25;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
 
-	protected override void OnModelCreating(ModelBuilder modelBuilder) => modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+	protected override void OnModelCreating(ModelBuilder modelBuilder)
+	{
+		modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+		modelBuilder.Entity<ArtistDescription>()
+		            .ToTable(nameof(ArtistDescription));
+		modelBuilder.Entity<BandDescription>()
+		            .ToTable(nameof(BandDescription));
+		modelBuilder.Entity<LinkDescription>()
+		            .ToTable(nameof(LinkDescription));
+	}
 
 	partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }
