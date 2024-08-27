@@ -1,4 +1,4 @@
-﻿using Club25_Domain.Agregates.TagAgregate;
+﻿using Club25_Domain.CommonEntities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -8,13 +8,13 @@ public sealed class TagConfiguration : IEntityTypeConfiguration<Tag>
 {
 	public void Configure(EntityTypeBuilder<Tag> builder)
 	{
-		builder.ToTable("Tag");
+		builder.ToTable(nameof(Tag));
 
 		builder.Property(e => e.Id)
 		       .ValueGeneratedNever()
-		       .HasColumnName("id");
+		       .HasColumnName(nameof(Tag.Id).ToLower());
 		builder.Property(e => e.Name)
 		       .HasMaxLength(20)
-		       .HasColumnName("name");
+		       .HasColumnName(nameof(Tag.Name).ToLower());
 	}
 }
