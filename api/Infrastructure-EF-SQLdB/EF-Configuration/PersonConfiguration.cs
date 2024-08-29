@@ -1,4 +1,4 @@
-﻿using Club25_Domain.Agregates.ClientAgregate.Entities;
+﻿using Club25_Domain.CommonEntities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -8,19 +8,24 @@ public sealed class PersonConfiguration : IEntityTypeConfiguration<Person>
 {
 	public void Configure(EntityTypeBuilder<Person> builder)
 	{
-		builder.ToTable("Person");
+		var columnOrder = 0;
+		builder.UseTpcMappingStrategy();
 
 		builder.Property(e => e.Id)
 		       .ValueGeneratedNever()
-		       .HasColumnName("id");
-		builder.Property(e => e.Email)
-		       .HasMaxLength(50)
-		       .HasColumnName("email");
-		builder.Property(e => e.Name)
-		       .HasMaxLength(20)
-		       .HasColumnName("name");
-		builder.Property(e => e.Surname)
-		       .HasMaxLength(50)
-		       .HasColumnName("surname");
+		       .HasColumnName(nameof(Person.Id).ToLower())
+		       .HasColumnOrder(columnOrder++);
+
+		builder.Property(x => x.Name)
+		       .IsRequired()
+		       .HasColumnOrder(columnOrder++)
+		       .HasColumnName(nameof(Person.Name).ToLower())
+		       .HasMaxLength(64);
+
+		builder.Property(x => x.Surname)
+		       .IsRequired()
+		       .HasColumnOrder(columnOrder++)
+		       .HasColumnName(nameof(Person.Surname).ToLower())
+		       .HasMaxLength(64);
 	}
 }

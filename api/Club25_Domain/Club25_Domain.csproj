@@ -7,19 +7,20 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Folder Include="Agregates\AgencyAgregate\Events\"/>
-        <Folder Include="Agregates\ClientAgregate\Events\"/>
-        <Folder Include="Agregates\ClientAgregate\ValueObjects\"/>
-        <Folder Include="Agregates\EventAgregate\Events\"/>
-        <Folder Include="Agregates\EventAgregate\ValueObjects\"/>
-        <Folder Include="Agregates\SponsorAgregate\Events\"/>
-        <Folder Include="Agregates\SponsorAgregate\ValueObjects\"/>
-        <Folder Include="Agregates\TicketPoolAgregate\Events\"/>
-        <Folder Include="Agregates\TicketPoolAgregate\ValueObjects\"/>
-        <Folder Include="Agregates\UserAgregate\Events\"/>
-        <Folder Include="Agregates\UserAgregate\ValueObjects\"/>
-        <Folder Include="Agregates\VenueAgregate\Events\"/>
-        <Folder Include="Agregates\VenueAgregate\ValueObjects\"/>
+        <Folder Include="Agregates\PromoterAgencyAggregate\Events\" />
+        <Folder Include="Agregates\ClientAggregate\Events\" />
+        <Folder Include="Agregates\ClientAggregate\ValueObjects\" />
+        <Folder Include="Agregates\EventAggregate\Events\" />
+        <Folder Include="Agregates\EventAggregate\ValueObjects\" />
+        <Folder Include="Agregates\SponsorAggregate\Events\" />
+        <Folder Include="Agregates\SponsorAggregate\ValueObjects\" />
+        <Folder Include="Agregates\TicketAgencyAggregate\" />
+        <Folder Include="Agregates\TicketPoolAggregate\Events\" />
+        <Folder Include="Agregates\TicketPoolAggregate\ValueObjects\" />
+        <Folder Include="Agregates\UserAggregate\Events\" />
+        <Folder Include="Agregates\UserAggregate\ValueObjects\" />
+        <Folder Include="Agregates\VenueAggregate\Events\" />
+        <Folder Include="Agregates\VenueAggregate\ValueObjects\" />
     </ItemGroup>
 
     <ItemGroup>
