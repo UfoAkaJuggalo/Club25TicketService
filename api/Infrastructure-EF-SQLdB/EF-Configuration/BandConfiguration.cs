@@ -1,4 +1,4 @@
-﻿using Club25_Domain.Agregates.AgencyAgregate.Entities;
+﻿using Club25_Domain.Aggregates.PromoterAgencyAggregate.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -25,11 +25,14 @@ public sealed class BandConfiguration : IEntityTypeConfiguration<Band>
 		builder.HasMany(m => m.Tags)
 		       .WithMany(m => m.Bands);
 
-		builder.HasOne(m => m.Agent)
+		builder.HasOne(m => m.PromoterAgency)
 		       .WithMany(m => m.Bands)
 		       .HasForeignKey(k => k.AgentId)
 		       .OnDelete(DeleteBehavior.ClientSetNull)
 		       .HasConstraintName("FK_Band_Agent");
+
+		builder.HasMany(m => m.Promoters)
+		       .WithMany(m => m.Bands);
 
 		var columnOrder = 0;
 
