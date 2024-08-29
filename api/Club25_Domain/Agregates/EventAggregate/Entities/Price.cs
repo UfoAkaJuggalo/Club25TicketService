@@ -1,4 +1,4 @@
-﻿using Club25_Domain.Agregates.AgencyAgregate.Entities;
+﻿using Club25_Domain.Agregates.PromoterAgencyAgregate.Entities;
 using Club25_Domain.Agregates.TicketPoolAgregate;
 using Club25_Domain.Agregates.VenueAgregate.Entities;
 
