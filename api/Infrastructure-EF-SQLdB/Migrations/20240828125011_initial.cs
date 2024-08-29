@@ -12,24 +12,6 @@ namespace Infrastructure_EF_SQLdB.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Agency",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    email = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
-                    phone = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: true),
-                    country = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
-                    city = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
-                    address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Agency", x => x.id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Currency",
                 columns: table => new
                 {
@@ -80,6 +62,24 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Person", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PromoterAgency",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    email = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
+                    phone = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: true),
+                    country = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    city = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PromoterAgency", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -187,32 +187,6 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Agent",
-                columns: table => new
-                {
-                    name = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
-                    surname = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
-                    email = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
-                    phone = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: true),
-                    country = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
-                    city = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
-                    address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    AgencyId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Agent", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Agent_Agency_AgencyId",
-                        column: x => x.AgencyId,
-                        principalTable: "Agency",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Price",
                 columns: table => new
                 {
@@ -274,6 +248,55 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Band",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    PriceMin_Price = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: true),
+                    PriceMin_Currency = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PriceMax_Price = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: true),
+                    PriceMax_Currency = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AgencyId = table.Column<int>(type: "int", nullable: false),
+                    AgentId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Band", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_Band_Agent",
+                        column: x => x.AgencyId,
+                        principalTable: "PromoterAgency",
+                        principalColumn: "id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Promoter",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false),
+                    name = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
+                    surname = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
+                    email = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
+                    phone = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: true),
+                    country = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    city = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    PromoterAgencyId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Promoter", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_Promoter_PromoterAgency_PromoterAgencyId",
+                        column: x => x.PromoterAgencyId,
+                        principalTable: "PromoterAgency",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Policy",
                 columns: table => new
                 {
@@ -299,6 +322,8 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 columns: table => new
                 {
                     id = table.Column<int>(type: "int", nullable: false),
+                    name = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
+                    surname = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
                     id_person = table.Column<int>(type: "int", nullable: false),
                     id_group = table.Column<int>(type: "int", nullable: false),
                     password = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false)
@@ -339,49 +364,20 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Band",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    PriceMin_Price = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: true),
-                    PriceMin_Currency = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PriceMax_Price = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: true),
-                    PriceMax_Currency = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    AgencyId = table.Column<int>(type: "int", nullable: false),
-                    AgentId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Band", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_Band_Agency_AgencyId",
-                        column: x => x.AgencyId,
-                        principalTable: "Agency",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Band_Agent",
-                        column: x => x.AgentId,
-                        principalTable: "Agent",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Artist",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false),
-                    name = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
-                    surname = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     stagename = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
                     PriceId = table.Column<int>(type: "int", nullable: true),
-                    PriceId1 = table.Column<int>(type: "int", nullable: true)
+                    PriceId1 = table.Column<int>(type: "int", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Surname = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Artist", x => x.id);
+                    table.PrimaryKey("PK_Artist", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Artist_Price_PriceId",
                         column: x => x.PriceId,
@@ -448,6 +444,98 @@ namespace Infrastructure_EF_SQLdB.Migrations
                         column: x => x.id_venue,
                         principalTable: "Venue",
                         principalColumn: "id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "BandDescription",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    descriptiontext = table.Column<string>(type: "nvarchar(2048)", maxLength: 2048, nullable: true),
+                    banddescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BandId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BandDescription", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_BandDescription_Band_BandId",
+                        column: x => x.BandId,
+                        principalTable: "Band",
+                        principalColumn: "id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "BandTag",
+                columns: table => new
+                {
+                    BandsId = table.Column<int>(type: "int", nullable: false),
+                    TagsId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BandTag", x => new { x.BandsId, x.TagsId });
+                    table.ForeignKey(
+                        name: "FK_BandTag_Band_BandsId",
+                        column: x => x.BandsId,
+                        principalTable: "Band",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_BandTag_Tag_TagsId",
+                        column: x => x.TagsId,
+                        principalTable: "Tag",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "BandPromoter",
+                columns: table => new
+                {
+                    BandsId = table.Column<int>(type: "int", nullable: false),
+                    PromotersId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BandPromoter", x => new { x.BandsId, x.PromotersId });
+                    table.ForeignKey(
+                        name: "FK_BandPromoter_Band_BandsId",
+                        column: x => x.BandsId,
+                        principalTable: "Band",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_BandPromoter_Promoter_PromotersId",
+                        column: x => x.PromotersId,
+                        principalTable: "Promoter",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Accountants",
+                columns: table => new
+                {
+                    AccountantsId = table.Column<int>(type: "int", nullable: false),
+                    PromoterAgenciesId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Accountants", x => new { x.AccountantsId, x.PromoterAgenciesId });
+                    table.ForeignKey(
+                        name: "FK_Accountants_PromoterAgency_PromoterAgenciesId",
+                        column: x => x.PromoterAgenciesId,
+                        principalTable: "PromoterAgency",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Accountants_User_AccountantsId",
+                        column: x => x.AccountantsId,
+                        principalTable: "User",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -609,50 +697,6 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "BandDescription",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    banddescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    descriptiontext = table.Column<string>(type: "nvarchar(2048)", maxLength: 2048, nullable: true),
-                    BandId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_BandDescription", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_BandDescription_Band_BandId",
-                        column: x => x.BandId,
-                        principalTable: "Band",
-                        principalColumn: "id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "BandTag",
-                columns: table => new
-                {
-                    BandsId = table.Column<int>(type: "int", nullable: false),
-                    TagsId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_BandTag", x => new { x.BandsId, x.TagsId });
-                    table.ForeignKey(
-                        name: "FK_BandTag_Band_BandsId",
-                        column: x => x.BandsId,
-                        principalTable: "Band",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_BandTag_Tag_TagsId",
-                        column: x => x.TagsId,
-                        principalTable: "Tag",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "ArtistBand",
                 columns: table => new
                 {
@@ -666,7 +710,7 @@ namespace Infrastructure_EF_SQLdB.Migrations
                         name: "FK_ArtistBand_Artist_MembersId",
                         column: x => x.MembersId,
                         principalTable: "Artist",
-                        principalColumn: "id",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_ArtistBand_Band_BandsId",
@@ -682,8 +726,8 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 {
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    banddescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     descriptiontext = table.Column<string>(type: "nvarchar(2048)", maxLength: 2048, nullable: true),
+                    banddescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ArtistId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -693,7 +737,7 @@ namespace Infrastructure_EF_SQLdB.Migrations
                         name: "FK_ArtistDescription_Artist_ArtistId",
                         column: x => x.ArtistId,
                         principalTable: "Artist",
-                        principalColumn: "id");
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -710,7 +754,7 @@ namespace Infrastructure_EF_SQLdB.Migrations
                         name: "FK_ArtistTag_Artist_ArtistsId",
                         column: x => x.ArtistsId,
                         principalTable: "Artist",
-                        principalColumn: "id",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_ArtistTag_Tag_TagsId",
@@ -733,7 +777,7 @@ namespace Infrastructure_EF_SQLdB.Migrations
                         name: "FK_EventArtists_Artist",
                         column: x => x.idArtist,
                         principalTable: "Artist",
-                        principalColumn: "id");
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_EventArtists_Event",
                         column: x => x.idEvent,
@@ -760,7 +804,7 @@ namespace Infrastructure_EF_SQLdB.Migrations
                         name: "FK_Link_Artist_ArtistId",
                         column: x => x.ArtistId,
                         principalTable: "Artist",
-                        principalColumn: "id");
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Link_Band_BandId",
                         column: x => x.BandId,
@@ -785,7 +829,7 @@ namespace Infrastructure_EF_SQLdB.Migrations
                         name: "FK_Lineup_Artist",
                         column: x => x.idArtist,
                         principalTable: "Artist",
-                        principalColumn: "id");
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Lineup_Event",
                         column: x => x.idEvent,
@@ -830,8 +874,8 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 {
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    banddescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     descriptiontext = table.Column<string>(type: "nvarchar(2048)", maxLength: 2048, nullable: true),
+                    banddescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LinkId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -846,9 +890,9 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Agent_AgencyId",
-                table: "Agent",
-                column: "AgencyId");
+                name: "IX_Accountants_PromoterAgenciesId",
+                table: "Accountants",
+                column: "PromoterAgenciesId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Artist_PriceId",
@@ -881,14 +925,14 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 column: "AgencyId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Band_AgentId",
-                table: "Band",
-                column: "AgentId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_BandDescription_BandId",
                 table: "BandDescription",
                 column: "BandId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BandPromoter_PromotersId",
+                table: "BandPromoter",
+                column: "PromotersId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_BandTag_TagsId",
@@ -1036,6 +1080,11 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 column: "idCurrency");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Promoter_PromoterAgencyId",
+                table: "Promoter",
+                column: "PromoterAgencyId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Stage_id_venue",
                 table: "Stage",
                 column: "id_venue");
@@ -1100,6 +1149,9 @@ namespace Infrastructure_EF_SQLdB.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Accountants");
+
+            migrationBuilder.DropTable(
                 name: "ArtistBand");
 
             migrationBuilder.DropTable(
@@ -1110,6 +1162,9 @@ namespace Infrastructure_EF_SQLdB.Migrations
 
             migrationBuilder.DropTable(
                 name: "BandDescription");
+
+            migrationBuilder.DropTable(
+                name: "BandPromoter");
 
             migrationBuilder.DropTable(
                 name: "BandTag");
@@ -1152,6 +1207,9 @@ namespace Infrastructure_EF_SQLdB.Migrations
 
             migrationBuilder.DropTable(
                 name: "User");
+
+            migrationBuilder.DropTable(
+                name: "Promoter");
 
             migrationBuilder.DropTable(
                 name: "Language");
@@ -1205,16 +1263,13 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 name: "Price");
 
             migrationBuilder.DropTable(
-                name: "Agent");
+                name: "PromoterAgency");
 
             migrationBuilder.DropTable(
                 name: "Venue");
 
             migrationBuilder.DropTable(
                 name: "Currency");
-
-            migrationBuilder.DropTable(
-                name: "Agency");
         }
     }
 }
