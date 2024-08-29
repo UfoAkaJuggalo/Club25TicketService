@@ -1,4 +1,4 @@
-﻿using Club25_Domain.Agregates.PromoterAgencyAgregate.Entities;
+﻿using Club25_Domain.Aggregates.PromoterAgencyAggregate.Entities;
 
 namespace Club25_Domain.Common.Entities;
 

@@ -1,4 +1,4 @@
-﻿using Club25_Domain.Agregates.ClientAgregate;
+﻿using Club25_Domain.Aggregates.ClientAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

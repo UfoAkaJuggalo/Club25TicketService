@@ -1,4 +1,4 @@
-﻿using Club25_Domain.Agregates.VenueAgregate;
+﻿using Club25_Domain.Aggregates.VenueAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

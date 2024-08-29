@@ -1,4 +1,4 @@
-﻿using Club25_Domain.Agregates.TicketPoolAgregate;
+﻿using Club25_Domain.Aggregates.TicketPoolAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

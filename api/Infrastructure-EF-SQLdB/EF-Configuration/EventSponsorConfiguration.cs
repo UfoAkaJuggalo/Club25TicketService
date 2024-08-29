@@ -1,4 +1,4 @@
-﻿using Club25_Domain.Agregates.EventAgregate.Entities;
+﻿using Club25_Domain.Aggregates.EventAggregate.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
