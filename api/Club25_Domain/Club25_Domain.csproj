@@ -7,20 +7,22 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Folder Include="Agregates\PromoterAgencyAggregate\Events\" />
-        <Folder Include="Agregates\ClientAggregate\Events\" />
-        <Folder Include="Agregates\ClientAggregate\ValueObjects\" />
-        <Folder Include="Agregates\EventAggregate\Events\" />
-        <Folder Include="Agregates\EventAggregate\ValueObjects\" />
-        <Folder Include="Agregates\SponsorAggregate\Events\" />
-        <Folder Include="Agregates\SponsorAggregate\ValueObjects\" />
-        <Folder Include="Agregates\TicketAgencyAggregate\" />
-        <Folder Include="Agregates\TicketPoolAggregate\Events\" />
-        <Folder Include="Agregates\TicketPoolAggregate\ValueObjects\" />
-        <Folder Include="Agregates\UserAggregate\Events\" />
-        <Folder Include="Agregates\UserAggregate\ValueObjects\" />
-        <Folder Include="Agregates\VenueAggregate\Events\" />
-        <Folder Include="Agregates\VenueAggregate\ValueObjects\" />
+        <Folder Include="Agregates\PromoterAgencyAggregate\Events\"/>
+        <Folder Include="Agregates\ClientAggregate\Events\"/>
+        <Folder Include="Agregates\ClientAggregate\ValueObjects\"/>
+        <Folder Include="Agregates\EventAggregate\Events\"/>
+        <Folder Include="Agregates\EventAggregate\ValueObjects\"/>
+        <Folder Include="Agregates\SponsorAggregate\Events\"/>
+        <Folder Include="Agregates\SponsorAggregate\ValueObjects\"/>
+        <Folder Include="Agregates\TicketAgencyAggregate\Entities\"/>
+        <Folder Include="Agregates\TicketAgencyAggregate\Events\"/>
+        <Folder Include="Agregates\TicketAgencyAggregate\ValueObjects\"/>
+        <Folder Include="Agregates\TicketPoolAggregate\Events\"/>
+        <Folder Include="Agregates\TicketPoolAggregate\ValueObjects\"/>
+        <Folder Include="Agregates\UserAggregate\Events\"/>
+        <Folder Include="Agregates\UserAggregate\ValueObjects\"/>
+        <Folder Include="Agregates\VenueAggregate\Events\"/>
+        <Folder Include="Agregates\VenueAggregate\ValueObjects\"/>
     </ItemGroup>
 
     <ItemGroup>

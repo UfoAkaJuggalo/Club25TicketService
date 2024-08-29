@@ -1,6 +1,6 @@
 ﻿using Club25_Domain.Agregates.PromoterAgencyAgregate.Entities;
 
-namespace Club25_Domain.CommonEntities;
+namespace Club25_Domain.Common.Entities;
 
 public sealed class Tag
 {

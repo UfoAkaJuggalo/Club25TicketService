@@ -1,4 +1,4 @@
-﻿namespace Club25_Domain.CommonEntities;
+﻿namespace Club25_Domain.Common.Entities;
 
 public sealed class LinkDescription : Description
 {

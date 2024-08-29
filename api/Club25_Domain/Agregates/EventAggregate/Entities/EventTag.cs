@@ -1,4 +1,4 @@
-﻿using Tag = Club25_Domain.CommonEntities.Tag;
+﻿using Tag = Club25_Domain.Common.Entities.Tag;
 
 namespace Club25_Domain.Agregates.EventAgregate.Entities;
 

@@ -1,7 +1,7 @@
 ﻿using Club25_Domain.Agregates.ClientAgregate.Entities;
 using Club25_Domain.Agregates.PromoterAgencyAgregate;
 using Club25_Domain.Agregates.UserAgregate.Entities;
-using Club25_Domain.CommonEntities;
+using Club25_Domain.Common.Entities;
 
 namespace Club25_Domain.Agregates.UserAgregate;
 
