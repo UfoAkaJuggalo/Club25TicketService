@@ -1,6 +1,6 @@
-﻿using Club25_Domain.CommonEntities;
+﻿using Club25_Domain.Common.Entities;
 
-namespace Club25_Domain.Agregates.AgencyAgregate.Entities;
+namespace Club25_Domain.Aggregates.PromoterAgencyAggregate.Entities;
 
 public sealed class BandDescription : Description
 {

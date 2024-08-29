@@ -1,19 +1,18 @@
 ﻿using System.Reflection;
-using Club25_Domain.Agregates.AgencyAgregate;
-using Club25_Domain.Agregates.AgencyAgregate.Entities;
-using Club25_Domain.Agregates.ClientAgregate;
-using Club25_Domain.Agregates.ClientAgregate.Entities;
-using Club25_Domain.Agregates.EventAgregate;
-using Club25_Domain.Agregates.EventAgregate.Entities;
-using Club25_Domain.Agregates.SponsorAgregate;
-using Club25_Domain.Agregates.SponsorAgregate.Entities;
-using Club25_Domain.Agregates.TicketPoolAgregate;
-using Club25_Domain.Agregates.TicketPoolAgregate.Entities;
-using Club25_Domain.Agregates.UserAgregate;
-using Club25_Domain.Agregates.UserAgregate.Entities;
-using Club25_Domain.Agregates.VenueAgregate;
-using Club25_Domain.Agregates.VenueAgregate.Entities;
-using Club25_Domain.CommonEntities;
+using Club25_Domain.Aggregates.ClientAggregate;
+using Club25_Domain.Aggregates.EventAggregate;
+using Club25_Domain.Aggregates.EventAggregate.Entities;
+using Club25_Domain.Aggregates.PromoterAgencyAggregate;
+using Club25_Domain.Aggregates.PromoterAgencyAggregate.Entities;
+using Club25_Domain.Aggregates.SponsorAggregate;
+using Club25_Domain.Aggregates.SponsorAggregate.Entities;
+using Club25_Domain.Aggregates.TicketPoolAggregate;
+using Club25_Domain.Aggregates.TicketPoolAggregate.Entities;
+using Club25_Domain.Aggregates.UserAggregate;
+using Club25_Domain.Aggregates.UserAggregate.Entities;
+using Club25_Domain.Aggregates.VenueAggregate;
+using Club25_Domain.Aggregates.VenueAggregate.Entities;
+using Club25_Domain.Common.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure_EF_SQLdB.Contexts;
@@ -29,9 +28,9 @@ public partial class Club25Context : DbContext
 	{
 	}
 
-	public virtual DbSet<Agency> Agencies { get; set; }
+	public virtual DbSet<PromoterAgency> PromoterAgencies { get; set; }
 
-	public virtual DbSet<Agent> Agents { get; set; }
+	public virtual DbSet<Promoter> Promoters { get; set; }
 
 	public virtual DbSet<Artist> Artists { get; set; }
 
@@ -67,7 +66,7 @@ public partial class Club25Context : DbContext
 
 	public virtual DbSet<Permission> Permissions { get; set; }
 
-	public virtual DbSet<Person> People { get; set; }
+	//public virtual DbSet<Person> People { get; set; }
 
 	public virtual DbSet<Policy> Policies { get; set; }
 
