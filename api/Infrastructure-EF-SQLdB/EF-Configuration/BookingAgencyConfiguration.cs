@@ -1,27 +1,27 @@
-﻿using Club25_Domain.Aggregates.PromoterAgencyAggregate;
+﻿using Club25_Domain.Aggregates.BookingAgencyAggregate;
 using Club25_Domain.Common.VObase;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infrastructure_EF_SQLdB.EF_Configuration;
 
-public sealed class PromoterAgencyConfiguration : IEntityTypeConfiguration<PromoterAgency>
+public sealed class BookingAgencyConfiguration : IEntityTypeConfiguration<BookingAgency>
 {
-	public void Configure(EntityTypeBuilder<PromoterAgency> builder)
+	public void Configure(EntityTypeBuilder<BookingAgency> builder)
 	{
-		builder.ToTable(nameof(PromoterAgency))
+		builder.ToTable(nameof(BookingAgency))
 		       .HasKey(k => k.Id);
 
 		var columnOrder = 0;
 
 		builder.HasMany(m => m.Bands)
-		       .WithOne(o => o.PromoterAgency)
+		       .WithOne(o => o.BookingAgency)
 		       .HasForeignKey(k => k.AgencyId)
 		       .IsRequired();
 
-		builder.HasMany(m => m.Promoters)
-		       .WithOne(o => o.PromoterAgency)
-		       .HasForeignKey(f => f.PromoterAgencyId)
+		builder.HasMany(m => m.Bookers)
+		       .WithOne(o => o.BookingAgency)
+		       .HasForeignKey(f => f.BookingAgencyId)
 		       .IsRequired();
 
 		builder.HasMany(m => m.Accountants)
@@ -30,14 +30,14 @@ public sealed class PromoterAgencyConfiguration : IEntityTypeConfiguration<Promo
 
 		builder.Property(p => p.Id)
 		       .HasColumnOrder(columnOrder++)
-		       .HasColumnName(nameof(PromoterAgency.Id).ToLower())
+		       .HasColumnName(nameof(BookingAgency.Id).ToLower())
 		       .UseIdentityColumn();
 
 		builder.Property(p => p.Name)
 		       .IsRequired()
 		       .HasColumnOrder(columnOrder++)
 		       .HasMaxLength(100)
-		       .HasColumnName(nameof(PromoterAgency.Name).ToLower());
+		       .HasColumnName(nameof(BookingAgency.Name).ToLower());
 
 		builder.OwnsOne(o => o.Contact, navigationBuilder =>
 		{

@@ -1,15 +1,15 @@
-﻿using Club25_Domain.Aggregates.PromoterAgencyAggregate.Entities;
+﻿using Club25_Domain.Aggregates.BookingAgencyAggregate.Entities;
 using Club25_Domain.Common.VObase;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infrastructure_EF_SQLdB.EF_Configuration;
 
-public sealed class PromoterConfiguration : IEntityTypeConfiguration<Promoter>
+public sealed class BookerConfiguration : IEntityTypeConfiguration<Booker>
 {
-	public void Configure(EntityTypeBuilder<Promoter> builder)
+	public void Configure(EntityTypeBuilder<Booker> builder)
 	{
-		builder.ToTable(nameof(Promoter));
+		builder.ToTable(nameof(Booker));
 
 		builder.OwnsOne(o => o.Contact, navigationBuilder =>
 		{
