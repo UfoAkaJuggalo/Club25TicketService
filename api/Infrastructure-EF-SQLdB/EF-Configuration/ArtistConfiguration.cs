@@ -1,4 +1,4 @@
-﻿using Club25_Domain.Aggregates.PromoterAgencyAggregate.Entities;
+﻿using Club25_Domain.Aggregates.BookingAgencyAggregate.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
