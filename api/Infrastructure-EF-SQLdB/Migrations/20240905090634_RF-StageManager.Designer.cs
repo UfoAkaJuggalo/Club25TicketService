@@ -4,6 +4,7 @@ using Infrastructure_EF_SQLdB.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure_EF_SQLdB.Migrations
 {
     [DbContext(typeof(Club25Context))]
-    partial class Club25ContextModelSnapshot : ModelSnapshot
+    [Migration("20240905090634_RF-StageManager")]
+    partial class RFStageManager
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -938,21 +941,6 @@ namespace Infrastructure_EF_SQLdB.Migrations
                     b.ToTable("Stage", (string)null);
                 });
 
-            modelBuilder.Entity("Club25_Domain.Aggregates.VenueAggregate.Entities.StageToStageManager", b =>
-                {
-                    b.Property<int>("StageId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("StageManagerId")
-                        .HasColumnType("int");
-
-                    b.HasKey("StageId", "StageManagerId");
-
-                    b.HasIndex("StageManagerId");
-
-                    b.ToTable("StageToStageManager", (string)null);
-                });
-
             modelBuilder.Entity("Club25_Domain.Common.Entities.Description", b =>
                 {
                     b.Property<int>("Id")
@@ -1270,8 +1258,13 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 {
                     b.HasBaseType("Club25_Domain.Common.Entities.Person");
 
+                    b.Property<int?>("StageId")
+                        .HasColumnType("int");
+
                     b.Property<int>("VenueId")
                         .HasColumnType("int");
+
+                    b.HasIndex("StageId");
 
                     b.HasIndex("VenueId");
 
@@ -1802,25 +1795,6 @@ namespace Infrastructure_EF_SQLdB.Migrations
                     b.Navigation("Venue");
                 });
 
-            modelBuilder.Entity("Club25_Domain.Aggregates.VenueAggregate.Entities.StageToStageManager", b =>
-                {
-                    b.HasOne("Club25_Domain.Aggregates.VenueAggregate.Entities.Stage", "Stage")
-                        .WithMany("StageManagers")
-                        .HasForeignKey("StageId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Club25_Domain.Aggregates.VenueAggregate.Entities.StageManager", "StageManager")
-                        .WithMany("Stages")
-                        .HasForeignKey("StageManagerId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("Stage");
-
-                    b.Navigation("StageManager");
-                });
-
             modelBuilder.Entity("Club25_Domain.Common.Entities.Link", b =>
                 {
                     b.HasOne("Club25_Domain.Aggregates.BandAggregate.Entities.Artist", null)
@@ -2271,6 +2245,10 @@ namespace Infrastructure_EF_SQLdB.Migrations
 
             modelBuilder.Entity("Club25_Domain.Aggregates.VenueAggregate.Entities.StageManager", b =>
                 {
+                    b.HasOne("Club25_Domain.Aggregates.VenueAggregate.Entities.Stage", null)
+                        .WithMany("StageManagers")
+                        .HasForeignKey("StageId");
+
                     b.HasOne("Club25_Domain.Aggregates.VenueAggregate.Venue", "Venue")
                         .WithMany("StageManagers")
                         .HasForeignKey("VenueId")
@@ -2445,11 +2423,6 @@ namespace Infrastructure_EF_SQLdB.Migrations
 
                     b.Navigation("StageManagers");
 
-                    b.Navigation("Stages");
-                });
-
-            modelBuilder.Entity("Club25_Domain.Aggregates.VenueAggregate.Entities.StageManager", b =>
-                {
                     b.Navigation("Stages");
                 });
 #pragma warning restore 612, 618
