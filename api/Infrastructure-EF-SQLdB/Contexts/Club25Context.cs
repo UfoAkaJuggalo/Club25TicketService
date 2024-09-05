@@ -1,11 +1,17 @@
 ﻿using System.Reflection;
+using Club25_Domain.Aggregates.BandAggregate;
+using Club25_Domain.Aggregates.BandAggregate.Entities;
 using Club25_Domain.Aggregates.BookingAgencyAggregate;
 using Club25_Domain.Aggregates.BookingAgencyAggregate.Entities;
 using Club25_Domain.Aggregates.ClientAggregate;
 using Club25_Domain.Aggregates.EventAggregate;
 using Club25_Domain.Aggregates.EventAggregate.Entities;
+using Club25_Domain.Aggregates.PromoterAgencyAggregate;
+using Club25_Domain.Aggregates.PromoterAgencyAggregate.Entities;
 using Club25_Domain.Aggregates.SponsorAggregate;
 using Club25_Domain.Aggregates.SponsorAggregate.Entities;
+using Club25_Domain.Aggregates.TicketAgencyAggregate;
+using Club25_Domain.Aggregates.TicketAgencyAggregate.Entities;
 using Club25_Domain.Aggregates.TicketPoolAggregate;
 using Club25_Domain.Aggregates.TicketPoolAggregate.Entities;
 using Club25_Domain.Aggregates.UserAggregate;
@@ -28,9 +34,11 @@ public partial class Club25Context : DbContext
 	{
 	}
 
-	public virtual DbSet<BookingAgency> PromoterAgencies { get; set; }
+	public virtual DbSet<BookingAgency> BookingAgencies { get; set; }
 
-	public virtual DbSet<Booker> Promoters { get; set; }
+	public virtual DbSet<Booker> Bookers { get; set; }
+
+	public virtual DbSet<BookingAgencyBand> BookingAgencyBands { get; set; }
 
 	public virtual DbSet<Artist> Artists { get; set; }
 
@@ -66,6 +74,10 @@ public partial class Club25Context : DbContext
 
 	public virtual DbSet<Permission> Permissions { get; set; }
 
+	public virtual DbSet<Promoter> Promoters { get; set; }
+
+	public virtual DbSet<PromoterAgency> PromoterAgencies { get; set; }
+
 	//public virtual DbSet<Person> People { get; set; }
 
 	public virtual DbSet<Policy> Policies { get; set; }
@@ -76,9 +88,19 @@ public partial class Club25Context : DbContext
 
 	public virtual DbSet<Stage> Stages { get; set; }
 
+	public virtual DbSet<StageManager> StageManagers { get; set; }
+
+	public virtual DbSet<Sector> Sectors { get; set; }
+
+	public virtual DbSet<Seat> Seats { get; set; }
+
 	public virtual DbSet<Tag> Tags { get; set; }
 
 	public virtual DbSet<Ticket> Tickets { get; set; }
+
+	public virtual DbSet<TicketAgency> TicketAgencies { get; set; }
+
+	public virtual DbSet<TicketAgent> TicketAgents { get; set; }
 
 	public virtual DbSet<TicketMediaType> TicketMediaTypes { get; set; }
 
