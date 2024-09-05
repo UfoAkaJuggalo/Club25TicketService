@@ -3,13 +3,16 @@ using Club25_Domain.Common.VObase;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Infrastructure_EF_SQLdB.EF_Configuration;
+namespace Infrastructure_EF_SQLdB.EF_Configuration.TicketAgencyAggregate;
 
 public sealed class TicketAgentConfiguration : IEntityTypeConfiguration<TicketAgent>
 {
 	public void Configure(EntityTypeBuilder<TicketAgent> builder)
 	{
 		builder.ToTable(nameof(TicketAgent));
+
+		builder.HasMany(m => m.PromoterAgencies)
+		       .WithMany(m => m.Accountants);
 
 		builder.OwnsOne(o => o.Contact, navigationBuilder =>
 		{
