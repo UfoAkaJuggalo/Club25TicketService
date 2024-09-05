@@ -1,6 +1,5 @@
-﻿namespace Club25_Domain.Aggregates.VenueAggregate.ValueObjects;
+﻿using Club25_Domain.Common.VObase;
 
-public class VenuePriceVO
-{
-	
-}
+namespace Club25_Domain.Aggregates.VenueAggregate.ValueObjects;
+
+public class VenuePriceVO : PriceVO;

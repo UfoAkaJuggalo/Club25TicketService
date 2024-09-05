@@ -1,26 +1,16 @@
-﻿using Club25_Domain.Aggregates.EventAggregate.Entities;
+﻿using Club25_Domain.Aggregates.VenueAggregate.ValueObjects;
 
 namespace Club25_Domain.Aggregates.VenueAggregate.Entities;
 
-public class Stage
+public sealed class Stage
 {
-	public int Id { get; set; }
-
-	public string? Name { get; set; }
-
-	public int? MinCapacity { get; set; }
-
-	public int? MaxCapacity { get; set; }
-
-	public int IdVenue { get; set; }
-
-	public int? IdPriceMin { get; set; }
-
-	public int? IdPriceMax { get; set; }
-
-	public virtual Price? IdPriceMaxNavigation { get; set; }
-
-	public virtual Price? IdPriceMinNavigation { get; set; }
-
-	public virtual Venue IdVenueNavigation { get; set; } = null!;
+	public int Id { get; init; }
+	public string? Name { get; init; }
+	public int? Capacity { get; init; }
+	public VenuePriceVO? PriceMin { get; init; }
+	public VenuePriceVO? PriceMax { get; init; }
+	public Venue Venue { get; init; } = null!;
+	public int VenueId { get; init; }
+	public ICollection<Sector> Sectors { get; init; } = new List<Sector>();
+	public ICollection<StageToStageManager> StageManagers { get; init; } = new List<StageToStageManager>();
 }

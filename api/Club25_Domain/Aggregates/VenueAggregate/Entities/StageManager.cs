@@ -1,6 +1,12 @@
-﻿namespace Club25_Domain.Aggregates.VenueAggregate.Entities;
+﻿using Club25_Domain.Aggregates.VenueAggregate.ValueObjects;
+using Club25_Domain.Common.Entities;
 
-public class StageManager
+namespace Club25_Domain.Aggregates.VenueAggregate.Entities;
+
+public sealed class StageManager : Person
 {
-	
+	public required VenueContactVO Contact { get; init; }
+	public required Venue Venue { get; init; }
+	public required int VenueId { get; init; }
+	public ICollection<StageToStageManager> Stages { get; init; } = new List<StageToStageManager>();
 }
