@@ -5,13 +5,13 @@ namespace Club25_Domain.Aggregates.ClientAggregate;
 
 public class Client
 {
-	public int Id { get; set; }
+	public int Id { get; init; }
 
-	public int IdPerson { get; set; }
+	public int IdPerson { get; init; }
 
-	public string? Phone { get; set; }
+	public string? Phone { get; init; }
 
-	public virtual PersonObsolete IdPersonNavigation { get; set; } = null!;
+	public virtual PersonObsolete IdPersonNavigation { get; init; } = null!;
 
-	public virtual ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
+	public virtual ICollection<Ticket> Tickets { get; init; } = new List<Ticket>();
 }

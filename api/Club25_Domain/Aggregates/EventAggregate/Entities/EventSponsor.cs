@@ -4,15 +4,15 @@ namespace Club25_Domain.Aggregates.EventAggregate.Entities;
 
 public class EventSponsor
 {
-	public int IdSponsor { get; set; }
+	public int IdSponsor { get; init; }
 
-	public int IdEvent { get; set; }
+	public int IdEvent { get; init; }
 
-	public int? IdPrice { get; set; }
+	public int? IdPrice { get; init; }
 
-	public virtual Event IdEventNavigation { get; set; } = null!;
+	public virtual Event IdEventNavigation { get; init; } = null!;
 
-	public virtual Price? IdPriceNavigation { get; set; }
+	public virtual Price? IdPriceNavigation { get; init; }
 
-	public virtual Sponsor IdSponsorNavigation { get; set; } = null!;
+	public virtual Sponsor IdSponsorNavigation { get; init; } = null!;
 }

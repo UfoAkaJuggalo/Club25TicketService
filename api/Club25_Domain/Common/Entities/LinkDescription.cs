@@ -2,6 +2,6 @@
 
 public sealed class LinkDescription : Description
 {
-	public Link Link { get; set; }
-	public int LinkId { get; set; }
+	public Link Link { get; init; }
+	public int LinkId { get; init; }
 }

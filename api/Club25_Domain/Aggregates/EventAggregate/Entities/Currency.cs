@@ -2,13 +2,13 @@
 
 public class Currency
 {
-	public int Id { get; set; }
+	public int Id { get; init; }
 
-	public string Name { get; set; } = null!;
+	public string Name { get; init; } = null!;
 
-	public string Shortname { get; set; } = null!;
+	public string Shortname { get; init; } = null!;
 
-	public virtual ICollection<Culture> Cultures { get; set; } = new List<Culture>();
+	public virtual ICollection<Culture> Cultures { get; init; } = new List<Culture>();
 
-	public virtual ICollection<Price> Prices { get; set; } = new List<Price>();
+	public virtual ICollection<Price> Prices { get; init; } = new List<Price>();
 }

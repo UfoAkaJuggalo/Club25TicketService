@@ -6,35 +6,35 @@ namespace Club25_Domain.Aggregates.TicketPoolAggregate;
 
 public class TicketPool
 {
-	public int Id { get; set; }
+	public int Id { get; init; }
 
-	public int IdTicketType { get; set; }
+	public int IdTicketType { get; init; }
 
-	public int IdTicketMedia { get; set; }
+	public int IdTicketMedia { get; init; }
 
-	public int IdEvent { get; set; }
+	public int IdEvent { get; init; }
 
-	public int IdVendor { get; set; }
+	public int IdVendor { get; init; }
 
-	public int IdPrice { get; set; }
+	public int IdPrice { get; init; }
 
-	public int Amount { get; set; }
+	public int Amount { get; init; }
 
-	public DateTime? DateStart { get; set; }
+	public DateTime? DateStart { get; init; }
 
-	public DateTime DateEnd { get; set; }
+	public DateTime DateEnd { get; init; }
 
-	public decimal? Profit { get; set; }
+	public decimal? Profit { get; init; }
 
-	public virtual Event IdEventNavigation { get; set; } = null!;
+	public virtual Event IdEventNavigation { get; init; } = null!;
 
-	public virtual Price IdPriceNavigation { get; set; } = null!;
+	public virtual Price IdPriceNavigation { get; init; } = null!;
 
-	public virtual TicketMediaType IdTicketMediaNavigation { get; set; } = null!;
+	public virtual TicketMediaType IdTicketMediaNavigation { get; init; } = null!;
 
-	public virtual TicketType IdTicketTypeNavigation { get; set; } = null!;
+	public virtual TicketType IdTicketTypeNavigation { get; init; } = null!;
 
-	public virtual Vendor IdVendorNavigation { get; set; } = null!;
+	public virtual Vendor IdVendorNavigation { get; init; } = null!;
 
-	public virtual ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
+	public virtual ICollection<Ticket> Tickets { get; init; } = new List<Ticket>();
 }

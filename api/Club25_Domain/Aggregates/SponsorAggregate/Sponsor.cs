@@ -2,19 +2,19 @@
 
 public class Sponsor
 {
-	public int Id { get; set; }
+	public int Id { get; init; }
 
-	public string Name { get; set; } = null!;
+	public string Name { get; init; } = null!;
 
-	public string? Www { get; set; }
+	public string? Www { get; init; }
 
-	public string? Phone { get; set; }
+	public string? Phone { get; init; }
 
-	public string? Email { get; set; }
+	public string? Email { get; init; }
 
-	public string? Details { get; set; }
+	public string? Details { get; init; }
 
-	public byte[] Logo { get; set; } = null!;
+	public byte[] Logo { get; init; } = null!;
 
-	public byte[] LogoBlack { get; set; } = null!;
+	public byte[] LogoBlack { get; init; } = null!;
 }

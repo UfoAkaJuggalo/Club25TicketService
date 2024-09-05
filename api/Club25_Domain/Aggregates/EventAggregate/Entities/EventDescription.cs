@@ -2,13 +2,13 @@
 
 public class EventDescription
 {
-	public int IdEvent { get; set; }
+	public int IdEvent { get; init; }
 
-	public int IdLanguage { get; set; }
+	public int IdLanguage { get; init; }
 
-	public string Description { get; set; } = null!;
+	public string Description { get; init; } = null!;
 
-	public virtual Event IdEventNavigation { get; set; } = null!;
+	public virtual Event IdEventNavigation { get; init; } = null!;
 
-	public virtual Language IdLanguageNavigation { get; set; } = null!;
+	public virtual Language IdLanguageNavigation { get; init; } = null!;
 }

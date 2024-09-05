@@ -2,9 +2,9 @@
 
 public class UserGroup
 {
-	public int Id { get; set; }
+	public int Id { get; init; }
 
-	public string Name { get; set; } = null!;
+	public string Name { get; init; } = null!;
 
-	public virtual ICollection<User> Users { get; set; } = new List<User>();
+	public virtual ICollection<User> Users { get; init; } = new List<User>();
 }

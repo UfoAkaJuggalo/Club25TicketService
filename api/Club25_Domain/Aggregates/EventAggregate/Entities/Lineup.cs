@@ -1,25 +1,25 @@
-﻿using Club25_Domain.Aggregates.BookingAgencyAggregate.Entities;
+﻿using Club25_Domain.Aggregates.BandAggregate.Entities;
 using Club25_Domain.Aggregates.VenueAggregate.Entities;
 
 namespace Club25_Domain.Aggregates.EventAggregate.Entities;
 
 public class Lineup
 {
-	public int IdEvent { get; set; }
+	public int IdEvent { get; init; }
 
-	public int? IdStage { get; set; }
+	public int? IdStage { get; init; }
 
-	public int? IdArtist { get; set; }
+	public int? IdArtist { get; init; }
 
-	public DateTime StartTime { get; set; }
+	public DateTime StartTime { get; init; }
 
-	public DateTime StopTime { get; set; }
+	public DateTime StopTime { get; init; }
 
-	public string? Description { get; set; }
+	public string? Description { get; init; }
 
-	public virtual Artist? IdArtistNavigation { get; set; }
+	public virtual Artist? IdArtistNavigation { get; init; }
 
-	public virtual Event IdEventNavigation { get; set; } = null!;
+	public virtual Event IdEventNavigation { get; init; } = null!;
 
-	public virtual Stage? IdStageNavigation { get; set; }
+	public virtual Stage? IdStageNavigation { get; init; }
 }

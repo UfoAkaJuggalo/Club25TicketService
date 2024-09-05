@@ -6,15 +6,15 @@ namespace Club25_Domain.Aggregates.UserAggregate;
 
 public class User : Person
 {
-	public int Id { get; set; }
+	public int Id { get; init; }
 
-	public int IdPerson { get; set; }
+	public int IdPerson { get; init; }
 
-	public int IdGroup { get; set; }
+	public int IdGroup { get; init; }
 
-	public string Password { get; set; } = null!;
+	public string Password { get; init; } = null!;
 
-	public virtual UserGroup IdGroupNavigation { get; set; } = null!;
+	public virtual UserGroup IdGroupNavigation { get; init; } = null!;
 
-	public virtual PersonObsolete IdPersonNavigation { get; set; } = null!;
+	public virtual PersonObsolete IdPersonNavigation { get; init; } = null!;
 }

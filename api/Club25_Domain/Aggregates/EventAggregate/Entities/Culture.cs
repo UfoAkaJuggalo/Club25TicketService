@@ -2,17 +2,17 @@
 
 public class Culture
 {
-	public int Id { get; set; }
+	public int Id { get; init; }
 
-	public string Name { get; set; } = null!;
+	public string Name { get; init; } = null!;
 
-	public string ShortName { get; set; } = null!;
+	public string ShortName { get; init; } = null!;
 
-	public int IdCurrency { get; set; }
+	public int IdCurrency { get; init; }
 
-	public int IdLanguage { get; set; }
+	public int IdLanguage { get; init; }
 
-	public virtual Currency IdCurrencyNavigation { get; set; } = null!;
+	public virtual Currency IdCurrencyNavigation { get; init; } = null!;
 
-	public virtual Language IdLanguageNavigation { get; set; } = null!;
+	public virtual Language IdLanguageNavigation { get; init; } = null!;
 }

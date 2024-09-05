@@ -4,17 +4,17 @@ namespace Club25_Domain.Aggregates.SponsorAggregate.Entities;
 
 public class MainSponsor
 {
-	public int IdSponsor { get; set; }
+	public int IdSponsor { get; init; }
 
-	public DateTime? DateStart { get; set; }
+	public DateTime? DateStart { get; init; }
 
-	public DateTime? DateEnd { get; set; }
+	public DateTime? DateEnd { get; init; }
 
-	public int? IdPrice { get; set; }
+	public int? IdPrice { get; init; }
 
-	public string? Description { get; set; }
+	public string? Description { get; init; }
 
-	public virtual Price? IdPriceNavigation { get; set; }
+	public virtual Price? IdPriceNavigation { get; init; }
 
-	public virtual Sponsor IdSponsorNavigation { get; set; } = null!;
+	public virtual Sponsor IdSponsorNavigation { get; init; } = null!;
 }

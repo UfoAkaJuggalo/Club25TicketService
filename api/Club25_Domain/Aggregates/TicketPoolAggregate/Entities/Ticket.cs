@@ -4,19 +4,19 @@ namespace Club25_Domain.Aggregates.TicketPoolAggregate.Entities;
 
 public class Ticket
 {
-	public int Id { get; set; }
+	public int Id { get; init; }
 
-	public int IdClient { get; set; }
+	public int IdClient { get; init; }
 
-	public DateTime SoldDate { get; set; }
+	public DateTime SoldDate { get; init; }
 
-	public int IdTicketPool { get; set; }
+	public int IdTicketPool { get; init; }
 
-	public int? SeatNumber { get; set; }
+	public int? SeatNumber { get; init; }
 
-	public string Hash { get; set; } = null!;
+	public string Hash { get; init; } = null!;
 
-	public virtual Client IdClientNavigation { get; set; } = null!;
+	public virtual Client IdClientNavigation { get; init; } = null!;
 
-	public virtual TicketPool IdTicketPoolNavigation { get; set; } = null!;
+	public virtual TicketPool IdTicketPoolNavigation { get; init; } = null!;
 }

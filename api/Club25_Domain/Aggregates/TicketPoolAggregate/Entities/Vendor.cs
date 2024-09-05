@@ -2,23 +2,23 @@
 
 public class Vendor
 {
-	public int Id { get; set; }
+	public int Id { get; init; }
 
-	public string Name { get; set; } = null!;
+	public string Name { get; init; } = null!;
 
-	public string? Adres { get; set; }
+	public string? Adres { get; init; }
 
-	public string? City { get; set; }
+	public string? City { get; init; }
 
-	public string? Email { get; set; }
+	public string? Email { get; init; }
 
-	public string? Phone { get; set; }
+	public string? Phone { get; init; }
 
-	public string Www { get; set; } = null!;
+	public string Www { get; init; } = null!;
 
-	public string Hash { get; set; } = null!;
+	public string Hash { get; init; } = null!;
 
-	public decimal? AverageProfit { get; set; }
+	public decimal? AverageProfit { get; init; }
 
-	public virtual ICollection<TicketPool> TicketPools { get; set; } = new List<TicketPool>();
+	public virtual ICollection<TicketPool> TicketPools { get; init; } = new List<TicketPool>();
 }

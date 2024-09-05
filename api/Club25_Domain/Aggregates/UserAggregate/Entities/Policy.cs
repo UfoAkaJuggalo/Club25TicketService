@@ -2,11 +2,11 @@
 
 public class Policy
 {
-	public int IdUserGroup { get; set; }
+	public int IdUserGroup { get; init; }
 
-	public int IdPermission { get; set; }
+	public int IdPermission { get; init; }
 
-	public virtual Permission IdPermissionNavigation { get; set; } = null!;
+	public virtual Permission IdPermissionNavigation { get; init; } = null!;
 
-	public virtual UserGroup IdUserGroupNavigation { get; set; } = null!;
+	public virtual UserGroup IdUserGroupNavigation { get; init; } = null!;
 }

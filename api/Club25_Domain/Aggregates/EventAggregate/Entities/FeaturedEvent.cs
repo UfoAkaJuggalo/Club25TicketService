@@ -2,7 +2,7 @@
 
 public class FeaturedEvent
 {
-	public int IdEvent { get; set; }
+	public int IdEvent { get; init; }
 
-	public virtual Event IdEventNavigation { get; set; } = null!;
+	public virtual Event IdEventNavigation { get; init; } = null!;
 }
