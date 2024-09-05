@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Infrastructure_EF_SQLdB.EF_Configuration;
+namespace Infrastructure_EF_SQLdB.EF_Configuration.Common;
 
 public sealed class PersonConfiguration : IEntityTypeConfiguration<Person>
 {

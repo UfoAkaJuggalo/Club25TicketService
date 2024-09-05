@@ -1,9 +1,9 @@
-﻿using Club25_Domain.Aggregates.BookingAgencyAggregate.Entities;
+﻿using Club25_Domain.Aggregates.BandAggregate.Entities;
 using Club25_Domain.Common.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Infrastructure_EF_SQLdB.EF_Configuration;
+namespace Infrastructure_EF_SQLdB.EF_Configuration.Common;
 
 public sealed class DescriptionConfiguration : IEntityTypeConfiguration<Description>
 {

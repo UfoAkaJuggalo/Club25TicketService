@@ -7,11 +7,14 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Folder Include="Aggregates\BandAggregate\Events\"/>
+        <Folder Include="Aggregates\BandAggregate\ValueObjects\"/>
         <Folder Include="Aggregates\BookingAgencyAggregate\Events\"/>
         <Folder Include="Aggregates\ClientAggregate\Events\"/>
         <Folder Include="Aggregates\ClientAggregate\ValueObjects\"/>
         <Folder Include="Aggregates\EventAggregate\Events\"/>
         <Folder Include="Aggregates\EventAggregate\ValueObjects\"/>
+        <Folder Include="Aggregates\PromoterAgencyAggregate\Events\"/>
         <Folder Include="Aggregates\SponsorAggregate\Events\"/>
         <Folder Include="Aggregates\SponsorAggregate\ValueObjects\"/>
         <Folder Include="Aggregates\TicketAgencyAggregate\Events\"/>
@@ -20,7 +23,6 @@
         <Folder Include="Aggregates\UserAggregate\Events\"/>
         <Folder Include="Aggregates\UserAggregate\ValueObjects\"/>
         <Folder Include="Aggregates\VenueAggregate\Events\"/>
-        <Folder Include="Aggregates\VenueAggregate\ValueObjects\"/>
     </ItemGroup>
 
     <ItemGroup>
