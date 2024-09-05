@@ -8,5 +8,5 @@ public sealed class Booker : Person
 	public required BookingAgency BookingAgency { get; init; }
 	public required BookingAgencyContactVO Contact { get; init; }
 	public required int BookingAgencyId { get; init; }
-	public ICollection<Band> Bands { get; } = new List<Band>();
+	public ICollection<BookingAgencyBand> Bands { get; } = new List<BookingAgencyBand>();
 }

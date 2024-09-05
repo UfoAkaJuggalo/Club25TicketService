@@ -2,34 +2,14 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Infrastructure_EF_SQLdB.EF_Configuration;
+namespace Infrastructure_EF_SQLdB.EF_Configuration.BookingAgencyAggregate;
 
-public sealed class BandConfiguration : IEntityTypeConfiguration<Band>
+public sealed class BookingAgencyBandConfiguration : IEntityTypeConfiguration<BookingAgencyBand>
 {
-	public void Configure(EntityTypeBuilder<Band> builder)
+	public void Configure(EntityTypeBuilder<BookingAgencyBand> builder)
 	{
-		builder.ToTable(nameof(Band))
-		       .HasKey(k => k.Id);
-
-		builder.HasMany(m => m.Members)
-		       .WithMany(m => m.Bands);
-
-		builder.HasMany(m => m.Descriptions)
-		       .WithOne(o => o.Band)
-		       .HasForeignKey(k => k.BandId)
-		       .OnDelete(DeleteBehavior.ClientSetNull);
-
-		builder.HasMany(m => m.Links)
-		       .WithOne();
-
-		builder.HasMany(m => m.Tags)
-		       .WithMany(m => m.Bands);
-
-		builder.HasOne(m => m.BookingAgency)
-		       .WithMany(m => m.Bands)
-		       .HasForeignKey(k => k.AgencyId)
-		       .OnDelete(DeleteBehavior.ClientSetNull)
-		       .HasConstraintName("FK_Band_Agent"); //needs go to m2m
+		builder.ToTable(nameof(BookingAgencyBand))
+		       .HasKey(l => l.Id);
 
 		builder.HasMany(m => m.Bookers)
 		       .WithMany(m => m.Bands);
@@ -38,14 +18,8 @@ public sealed class BandConfiguration : IEntityTypeConfiguration<Band>
 
 		builder.Property(p => p.Id)
 		       .HasColumnOrder(columnOrder++)
-		       .HasColumnName(nameof(Band.Id).ToLower())
+		       .HasColumnName(nameof(BookingAgencyBand.Id).ToLower())
 		       .UseIdentityColumn();
-
-		builder.Property(p => p.Name)
-		       .IsRequired()
-		       .HasColumnOrder(columnOrder++)
-		       .HasMaxLength(100)
-		       .HasColumnName(nameof(Band.Name).ToLower());
 
 		builder.OwnsOne(o => o.PriceMin, navigationBuilder =>
 		{

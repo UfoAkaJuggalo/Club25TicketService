@@ -3,7 +3,7 @@ using Club25_Domain.Common.VObase;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Infrastructure_EF_SQLdB.EF_Configuration;
+namespace Infrastructure_EF_SQLdB.EF_Configuration.BookingAgencyAggregate;
 
 public sealed class BookerConfiguration : IEntityTypeConfiguration<Booker>
 {
