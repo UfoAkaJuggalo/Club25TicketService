@@ -10,12 +10,12 @@ public sealed class EventConfiguration : IEntityTypeConfiguration<Event>
 	{
 		builder.ToTable("Event");
 
-		builder.HasOne(d => d.IdVenueNavigation).WithMany(p => p.Events)
-		       .HasForeignKey(d => d.IdVenue)
+		builder.HasOne(d => d.Venue).WithMany(p => p.Events)
+		       .HasForeignKey(d => d.VenueId)
 		       .OnDelete(DeleteBehavior.ClientSetNull)
 		       .HasConstraintName("FK_Event_Venue");
 
-		builder.Property(e => e.IdVenue).HasColumnName("idVenue");
+		builder.Property(e => e.VenueId).HasColumnName("idVenue");
 		builder.Property(e => e.Id)
 		       .ValueGeneratedNever()
 		       .HasColumnName("id");

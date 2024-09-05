@@ -5,17 +5,17 @@ namespace Club25_Domain.Aggregates.EventAggregate;
 
 public class Event
 {
-	public int Id { get; set; }
+	public int Id { get; init; }
 
-	public DateTime Date { get; set; }
+	public DateTime Date { get; init; }
 
-	public int IdVenue { get; set; }
+	public int VenueId { get; init; }
 
-	public string? FbEvent { get; set; }
+	public string? FbEvent { get; init; }
 
-	public byte[] Flyer { get; set; } = null!;
+	public byte[] Flyer { get; init; } = null!;
 
-	public virtual Venue IdVenueNavigation { get; set; } = null!;
+	public virtual Venue Venue { get; init; } = null!;
 
-	public virtual ICollection<TicketPool> TicketPools { get; set; } = new List<TicketPool>();
+	public virtual ICollection<TicketPool> TicketPools { get; init; } = new List<TicketPool>();
 }
