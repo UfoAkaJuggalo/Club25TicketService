@@ -1,20 +1,14 @@
-﻿namespace Club25_Domain.Aggregates.SponsorAggregate;
+﻿using Club25_Domain.Aggregates.SponsorAggregate.Entities;
+using Club25_Domain.Aggregates.SponsorAggregate.ValueObjects;
+using Club25_Domain.Common.Entities;
 
-public class Sponsor
+namespace Club25_Domain.Aggregates.SponsorAggregate;
+
+public class Sponsor : Organization
 {
-	public int Id { get; init; }
-
-	public string Name { get; init; } = null!;
-
-	public string? Www { get; init; }
-
-	public string? Phone { get; init; }
-
-	public string? Email { get; init; }
-
-	public string? Details { get; init; }
-
-	public byte[] Logo { get; init; } = null!;
-
-	public byte[] LogoBlack { get; init; } = null!;
+	public SponsorContactVO Contact { get; set; }
+	public ICollection<SponsorDescription> Descriptions { get; set; } = new List<SponsorDescription>();
+	public ICollection<Link> Links { get; set; } = new List<Link>();
+	public ICollection<SponsorRepresentative> SponsorAgents { get; set; } = new List<SponsorRepresentative>();
+	public ICollection<SponsorContract> SponsorContracts { get; set; } = new List<SponsorContract>();
 }
