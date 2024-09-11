@@ -16,7 +16,6 @@
         <Folder Include="Aggregates\EventAggregate\ValueObjects\"/>
         <Folder Include="Aggregates\PromoterAgencyAggregate\Events\"/>
         <Folder Include="Aggregates\SponsorAggregate\Events\"/>
-        <Folder Include="Aggregates\SponsorAggregate\ValueObjects\"/>
         <Folder Include="Aggregates\TicketAgencyAggregate\Events\"/>
         <Folder Include="Aggregates\TicketPoolAggregate\Events\"/>
         <Folder Include="Aggregates\TicketPoolAggregate\ValueObjects\"/>

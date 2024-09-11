@@ -8,5 +8,6 @@ public enum LinkType
 	facebook,
 	instagram,
 	soundcloud,
-	mixcloud
+	mixcloud,
+	eventPhoto
 }

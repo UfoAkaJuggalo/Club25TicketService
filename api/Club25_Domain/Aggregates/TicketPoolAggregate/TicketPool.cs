@@ -1,6 +1,4 @@
-﻿using Club25_Domain.Aggregates.EventAggregate;
-using Club25_Domain.Aggregates.EventAggregate.Entities;
-using Club25_Domain.Aggregates.TicketPoolAggregate.Entities;
+﻿using Club25_Domain.Aggregates.TicketPoolAggregate.Entities;
 
 namespace Club25_Domain.Aggregates.TicketPoolAggregate;
 
@@ -12,7 +10,6 @@ public class TicketPool
 
 	public int IdTicketMedia { get; init; }
 
-	public int IdEvent { get; init; }
 
 	public int IdVendor { get; init; }
 
@@ -26,9 +23,8 @@ public class TicketPool
 
 	public decimal? Profit { get; init; }
 
-	public virtual Event IdEventNavigation { get; init; } = null!;
 
-	public virtual Price IdPriceNavigation { get; init; } = null!;
+	//public virtual Price IdPriceNavigation { get; init; } = null!;
 
 	public virtual TicketMediaType IdTicketMediaNavigation { get; init; } = null!;
 

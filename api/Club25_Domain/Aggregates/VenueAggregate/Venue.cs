@@ -1,4 +1,5 @@
 ﻿using Club25_Domain.Aggregates.EventAggregate;
+using Club25_Domain.Aggregates.SponsorAggregate.Entities;
 using Club25_Domain.Aggregates.VenueAggregate.Entities;
 using Club25_Domain.Aggregates.VenueAggregate.ValueObjects;
 using Club25_Domain.Common.Entities;
@@ -14,4 +15,5 @@ public sealed class Venue : Organization
 	public ICollection<Stage> Stages { get; } = new List<Stage>();
 	public ICollection<StageManager> StageManagers { get; } = new List<StageManager>();
 	public ICollection<Link>? Links { get; init; }
+	public ICollection<SponsorVenueContract> SponsorContracts { get; set; } = new List<SponsorVenueContract>();
 }

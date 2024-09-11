@@ -31,6 +31,12 @@ public sealed class BandConfiguration : IEntityTypeConfiguration<Band>
 		       .IsRequired()
 		       .OnDelete(DeleteBehavior.ClientSetNull);
 
+		builder.HasMany(m => m.LineupEntries)
+		       .WithOne(o => o.Band)
+		       .HasForeignKey(k => k.BandId)
+		       .IsRequired()
+		       .OnDelete(DeleteBehavior.ClientSetNull);
+
 		var columnOrder = 0;
 
 		builder.Property(p => p.Id)

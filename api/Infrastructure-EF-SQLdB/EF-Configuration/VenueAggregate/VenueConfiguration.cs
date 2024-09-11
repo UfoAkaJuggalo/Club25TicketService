@@ -13,18 +13,23 @@ public sealed class VenueConfiguration : IEntityTypeConfiguration<Venue>
 
 		builder.HasMany(m => m.Stages)
 		       .WithOne(m => m.Venue)
-		       .HasForeignKey(f => f.VenueId);
+		       .HasForeignKey(f => f.VenueId)
+		       .OnDelete(DeleteBehavior.ClientSetNull);
 
 		builder.HasMany(m => m.StageManagers)
 		       .WithOne(m => m.Venue)
 		       .HasForeignKey(f => f.VenueId);
 
-		builder.HasMany(m => m.Events)
-		       .WithOne(m => m.Venue)
-		       .HasForeignKey(f => f.VenueId);
+		// builder.HasMany(m => m.Events)
+		//        .WithOne(m => m.Venue)
+		//        .HasForeignKey(f => f.VenueId);
 
 		builder.HasMany(m => m.Links)
 		       .WithOne();
+
+		builder.HasMany(m => m.SponsorContracts)
+		       .WithOne(m => m.Venue)
+		       .HasForeignKey(f => f.VenueId);
 
 		builder.Property(e => e.GpsLatitude)
 		       .HasPrecision(18, 15)
