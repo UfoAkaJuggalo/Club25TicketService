@@ -10,16 +10,6 @@ public sealed class TicketPoolConfiguration : IEntityTypeConfiguration<TicketPoo
 	{
 		builder.ToTable("TicketPool");
 
-		builder.HasOne(d => d.IdEventNavigation).WithMany(p => p.TicketPools)
-		       .HasForeignKey(d => d.IdEvent)
-		       .OnDelete(DeleteBehavior.ClientSetNull)
-		       .HasConstraintName("FK_TicketPool_Event");
-
-		builder.HasOne(d => d.IdPriceNavigation).WithMany(p => p.TicketPools)
-		       .HasForeignKey(d => d.IdPrice)
-		       .OnDelete(DeleteBehavior.ClientSetNull)
-		       .HasConstraintName("FK_TicketPool_Price");
-
 		builder.HasOne(d => d.IdTicketMediaNavigation).WithMany(p => p.TicketPools)
 		       .HasForeignKey(d => d.IdTicketMedia)
 		       .OnDelete(DeleteBehavior.ClientSetNull)
@@ -41,7 +31,6 @@ public sealed class TicketPoolConfiguration : IEntityTypeConfiguration<TicketPoo
 		builder.Property(e => e.Amount).HasColumnName("amount");
 		builder.Property(e => e.DateEnd).HasColumnName("dateEnd");
 		builder.Property(e => e.DateStart).HasColumnName("dateStart");
-		builder.Property(e => e.IdEvent).HasColumnName("idEvent");
 		builder.Property(e => e.IdPrice).HasColumnName("idPrice");
 		builder.Property(e => e.IdTicketMedia).HasColumnName("idTicketMedia");
 		builder.Property(e => e.IdTicketType).HasColumnName("idTicketType");

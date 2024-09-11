@@ -48,29 +48,11 @@ public partial class Club25Context : DbContext
 
 	public virtual DbSet<Client> Clients { get; set; }
 
-	public virtual DbSet<Culture> Cultures { get; set; }
-
-	public virtual DbSet<Currency> Currencies { get; set; }
-
 	public virtual DbSet<Event> Events { get; set; }
 
-	public virtual DbSet<EventArtist> EventArtists { get; set; }
+	public virtual DbSet<EventStageLineup> Lineups { get; set; }
 
-	public virtual DbSet<EventDescription> EventDescriptions { get; set; }
-
-	public virtual DbSet<EventMediaPartner> EventMediaPartners { get; set; }
-
-	public virtual DbSet<EventSponsor> EventSponsors { get; set; }
-
-	public virtual DbSet<EventTag> EventTags { get; set; }
-
-	public virtual DbSet<FeaturedEvent> FeaturedEvents { get; set; }
-
-	public virtual DbSet<Language> Languages { get; set; }
-
-	public virtual DbSet<Lineup> Lineups { get; set; }
-
-	public virtual DbSet<MainSponsor> MainSponsors { get; set; }
+	public virtual DbSet<LineupEntry> LineupEntries { get; set; }
 
 	public virtual DbSet<Permission> Permissions { get; set; }
 
@@ -82,9 +64,11 @@ public partial class Club25Context : DbContext
 
 	public virtual DbSet<Policy> Policies { get; set; }
 
-	public virtual DbSet<Price> Prices { get; set; }
-
 	public virtual DbSet<Sponsor> Sponsors { get; set; }
+
+	public virtual DbSet<SponsorRepresentative> SponsorRepresentatives { get; set; }
+
+	public virtual DbSet<SponsorContract> SponsorContracts { get; set; }
 
 	public virtual DbSet<Stage> Stages { get; set; }
 
@@ -116,6 +100,8 @@ public partial class Club25Context : DbContext
 
 	public virtual DbSet<Venue> Venues { get; set; }
 
+	public virtual DbSet<SponsorVenueContract> SponsorVenueContracts { get; set; }
+
 	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https: //go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
 		=> optionsBuilder.UseSqlServer(
@@ -124,12 +110,19 @@ public partial class Club25Context : DbContext
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{
 		modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
 		modelBuilder.Entity<ArtistDescription>()
 		            .ToTable(nameof(ArtistDescription));
 		modelBuilder.Entity<BandDescription>()
 		            .ToTable(nameof(BandDescription));
 		modelBuilder.Entity<LinkDescription>()
 		            .ToTable(nameof(LinkDescription));
+		modelBuilder.Entity<SponsorDescription>()
+		            .ToTable(nameof(SponsorDescription));
+		modelBuilder.Entity<SponsorContractDescription>()
+		            .ToTable(nameof(SponsorContractDescription));
+		modelBuilder.Entity<EventStageDescription>()
+		            .ToTable(nameof(EventStageDescription));
 	}
 
 	partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
