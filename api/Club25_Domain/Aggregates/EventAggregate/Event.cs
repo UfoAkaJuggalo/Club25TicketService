@@ -1,21 +1,22 @@
-﻿using Club25_Domain.Aggregates.TicketPoolAggregate;
+﻿using Club25_Domain.Aggregates.EventAggregate.Entities;
+using Club25_Domain.Aggregates.SponsorAggregate.Entities;
 using Club25_Domain.Aggregates.VenueAggregate;
+using Club25_Domain.Common.Entities;
 
 namespace Club25_Domain.Aggregates.EventAggregate;
 
-public class Event
+public sealed class Event : Organization
 {
-	public int Id { get; init; }
+	public DateTime StartDate { get; init; }
+	public DateTime EndDate { get; init; }
+	public ICollection<Venue> Venues { get; set; } = new List<Venue>();
+	public ICollection<Link> Links { get; init; } = new List<Link>();
+	public ICollection<EventDescription> Descriptions { get; set; } = new List<EventDescription>();
 
-	public DateTime Date { get; init; }
+	public ICollection<Tag> Tags { get; set; } = new List<Tag>();
 
-	public int VenueId { get; init; }
+	public ICollection<EventStageLineup> Lineups { get; set; } = new List<EventStageLineup>();
 
-	public string? FbEvent { get; init; }
-
-	public byte[] Flyer { get; init; } = null!;
-
-	public virtual Venue Venue { get; init; } = null!;
-
-	public virtual ICollection<TicketPool> TicketPools { get; init; } = new List<TicketPool>();
+	public ICollection<SponsorEventContract> SponsorContracts { get; set; } = new List<SponsorEventContract>();
+	//public ICollection<TicketPool> TicketPools { get; init; } = new List<TicketPool>(); powinien byc podpiety do Ticket, a dopiero Ticket do TicketPool
 }

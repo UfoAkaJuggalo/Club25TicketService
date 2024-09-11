@@ -1,14 +1,9 @@
-﻿namespace Club25_Domain.Aggregates.EventAggregate.Entities;
+﻿using Club25_Domain.Common.Entities;
 
-public class EventDescription
+namespace Club25_Domain.Aggregates.EventAggregate.Entities;
+
+public sealed class EventDescription : Description
 {
-	public int IdEvent { get; init; }
-
-	public int IdLanguage { get; init; }
-
-	public string Description { get; init; } = null!;
-
-	public virtual Event IdEventNavigation { get; init; } = null!;
-
-	public virtual Language IdLanguageNavigation { get; init; } = null!;
+	public Event Event { get; init; }
+	public int EventId { get; init; }
 }
