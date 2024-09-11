@@ -86,17 +86,11 @@ public partial class Club25Context : DbContext
 
 	public virtual DbSet<TicketAgent> TicketAgents { get; set; }
 
-	public virtual DbSet<TicketMediaType> TicketMediaTypes { get; set; }
-
 	public virtual DbSet<TicketPool> TicketPools { get; set; }
-
-	public virtual DbSet<TicketType> TicketTypes { get; set; }
 
 	public virtual DbSet<User> Users { get; set; }
 
 	public virtual DbSet<UserGroup> UserGroups { get; set; }
-
-	public virtual DbSet<Vendor> Vendors { get; set; }
 
 	public virtual DbSet<Venue> Venues { get; set; }
 
