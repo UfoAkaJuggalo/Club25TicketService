@@ -46,6 +46,8 @@ public partial class Club25Context : DbContext
 
 	public virtual DbSet<Description> Descriptions { get; set; }
 
+	public virtual DbSet<Discount> Discounts { get; set; }
+
 	public virtual DbSet<Client> Clients { get; set; }
 
 	public virtual DbSet<Event> Events { get; set; }
@@ -117,6 +119,10 @@ public partial class Club25Context : DbContext
 		            .ToTable(nameof(SponsorContractDescription));
 		modelBuilder.Entity<EventStageDescription>()
 		            .ToTable(nameof(EventStageDescription));
+		modelBuilder.Entity<DiscountDescription>()
+		            .ToTable(nameof(DiscountDescription));
+		modelBuilder.Entity<TicketDescription>()
+		            .ToTable(nameof(TicketDescription));
 	}
 
 	partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
