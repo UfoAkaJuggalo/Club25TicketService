@@ -57,13 +57,26 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Discount",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    multipler = table.Column<decimal>(type: "decimal(4,4)", precision: 4, scale: 4, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Discount", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Event",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "int", nullable: false),
                     name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    startdate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    enddate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    startdate = table.Column<string>(type: "nvarchar(48)", nullable: false),
+                    enddate = table.Column<string>(type: "nvarchar(48)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -161,30 +174,6 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TicketMediaType",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "int", nullable: false),
-                    name = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_TicketMediaType", x => x.id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "TicketType",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "int", nullable: false),
-                    name = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_TicketType", x => x.id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "UserGroup",
                 columns: table => new
                 {
@@ -194,25 +183,6 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_UserGroup", x => x.id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Vendor",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "int", nullable: false),
-                    name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    adres = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
-                    city = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
-                    email = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: true),
-                    phone = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: true),
-                    www = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
-                    hash = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
-                    averageProfit = table.Column<decimal>(type: "decimal(18,0)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Vendor", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -352,28 +322,49 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "EventArtist",
+                name: "DiscountDescription",
                 columns: table => new
                 {
-                    idEvent = table.Column<int>(type: "int", nullable: false),
-                    idArtist = table.Column<int>(type: "int", nullable: false)
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    descriptiontext = table.Column<string>(type: "nvarchar(2048)", maxLength: 2048, nullable: true),
+                    banddescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DiscountId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
+                    table.PrimaryKey("PK_DiscountDescription", x => x.id);
                     table.ForeignKey(
-                        name: "FK_EventArtists_Artist",
-                        column: x => x.idArtist,
-                        principalTable: "Artist",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_EventArtists_Event",
-                        column: x => x.idEvent,
-                        principalTable: "Event",
-                        principalColumn: "id");
+                        name: "FK_DiscountDescription_Discount_DiscountId",
+                        column: x => x.DiscountId,
+                        principalTable: "Discount",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "EventDescriptions",
+                name: "DiscountName",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    descriptiontext = table.Column<string>(type: "nvarchar(2048)", maxLength: 2048, nullable: true),
+                    banddescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DiscountId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DiscountName", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_DiscountName_Discount_DiscountId",
+                        column: x => x.DiscountId,
+                        principalTable: "Discount",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "EventDescription",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "int", nullable: false)
@@ -384,26 +375,10 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EventDescriptions", x => x.id);
+                    table.PrimaryKey("PK_EventDescription", x => x.id);
                     table.ForeignKey(
-                        name: "FK_EventDescriptions_Event_EventId",
+                        name: "FK_EventDescription_Event_EventId",
                         column: x => x.EventId,
-                        principalTable: "Event",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "FeaturedEvent",
-                columns: table => new
-                {
-                    idEvent = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.ForeignKey(
-                        name: "FK_FeaturedEvents_Event",
-                        column: x => x.idEvent,
                         principalTable: "Event",
                         principalColumn: "id");
                 });
@@ -618,6 +593,40 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "TicketPool",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    datestart = table.Column<string>(type: "nvarchar(48)", nullable: true),
+                    profit = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: true),
+                    eventstart = table.Column<string>(type: "nvarchar(48)", nullable: true),
+                    eventend = table.Column<string>(type: "nvarchar(48)", nullable: true),
+                    tickettype = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    mediatypes = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DateEnd = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    price = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
+                    currency = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TicketAgencyId = table.Column<int>(type: "int", nullable: false),
+                    EventId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TicketPool", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_TicketPool_Event_EventId",
+                        column: x => x.EventId,
+                        principalTable: "Event",
+                        principalColumn: "id");
+                    table.ForeignKey(
+                        name: "FK_TicketPool_TicketAgency_TicketAgencyId",
+                        column: x => x.TicketAgencyId,
+                        principalTable: "TicketAgency",
+                        principalColumn: "id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Policy",
                 columns: table => new
                 {
@@ -661,40 +670,6 @@ namespace Infrastructure_EF_SQLdB.Migrations
                         name: "FK_User_UserGroup",
                         column: x => x.id_group,
                         principalTable: "UserGroup",
-                        principalColumn: "id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "TicketPool",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "int", nullable: false),
-                    idTicketType = table.Column<int>(type: "int", nullable: false),
-                    idTicketMedia = table.Column<int>(type: "int", nullable: false),
-                    idVendor = table.Column<int>(type: "int", nullable: false),
-                    idPrice = table.Column<int>(type: "int", nullable: false),
-                    amount = table.Column<int>(type: "int", nullable: false),
-                    dateStart = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    dateEnd = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    profit = table.Column<decimal>(type: "decimal(18,0)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_TicketPool", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_TicketPool_TicketMediaType",
-                        column: x => x.idTicketMedia,
-                        principalTable: "TicketMediaType",
-                        principalColumn: "id");
-                    table.ForeignKey(
-                        name: "FK_TicketPool_TicketType",
-                        column: x => x.idTicketType,
-                        principalTable: "TicketType",
-                        principalColumn: "id");
-                    table.ForeignKey(
-                        name: "FK_TicketPool_Vendor",
-                        column: x => x.idVendor,
-                        principalTable: "Vendor",
                         principalColumn: "id");
                 });
 
@@ -864,29 +839,102 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "DiscountTicketPool",
+                columns: table => new
+                {
+                    AvailableDiscountsId = table.Column<int>(type: "int", nullable: false),
+                    TicketPoolId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DiscountTicketPool", x => new { x.AvailableDiscountsId, x.TicketPoolId });
+                    table.ForeignKey(
+                        name: "FK_DiscountTicketPool_Discount_AvailableDiscountsId",
+                        column: x => x.AvailableDiscountsId,
+                        principalTable: "Discount",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_DiscountTicketPool_TicketPool_TicketPoolId",
+                        column: x => x.TicketPoolId,
+                        principalTable: "TicketPool",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Ticket",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false),
-                    idClient = table.Column<int>(type: "int", nullable: false),
-                    soldDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    idTicketPool = table.Column<int>(type: "int", nullable: false),
-                    seatNumber = table.Column<int>(type: "int", nullable: true),
-                    hash = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    solddate = table.Column<string>(type: "nvarchar(48)", nullable: false),
+                    seatnumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ticketstatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    mediatype = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    price = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
+                    currency = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TicketPoolId = table.Column<int>(type: "int", nullable: false),
+                    ClientId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Ticket", x => x.id);
                     table.ForeignKey(
-                        name: "FK_Ticket_Client",
-                        column: x => x.idClient,
+                        name: "FK_Ticket_Client_ClientId",
+                        column: x => x.ClientId,
                         principalTable: "Client",
                         principalColumn: "id");
                     table.ForeignKey(
-                        name: "FK_Ticket_TicketPool",
-                        column: x => x.idTicketPool,
+                        name: "FK_Ticket_TicketPool_TicketPoolId",
+                        column: x => x.TicketPoolId,
                         principalTable: "TicketPool",
-                        principalColumn: "id");
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TicketAgentTicketPool",
+                columns: table => new
+                {
+                    TicketAgentsId = table.Column<int>(type: "int", nullable: false),
+                    TicketPoolsId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TicketAgentTicketPool", x => new { x.TicketAgentsId, x.TicketPoolsId });
+                    table.ForeignKey(
+                        name: "FK_TicketAgentTicketPool_TicketAgent_TicketAgentsId",
+                        column: x => x.TicketAgentsId,
+                        principalTable: "TicketAgent",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_TicketAgentTicketPool_TicketPool_TicketPoolsId",
+                        column: x => x.TicketPoolsId,
+                        principalTable: "TicketPool",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TicketDescription",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    descriptiontext = table.Column<string>(type: "nvarchar(2048)", maxLength: 2048, nullable: true),
+                    banddescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TicketPoolId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TicketDescription", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_TicketDescription_TicketPool_TicketPoolId",
+                        column: x => x.TicketPoolId,
+                        principalTable: "TicketPool",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -932,38 +980,29 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Lineup",
+                name: "EventStageLineup",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    idEvent = table.Column<int>(type: "int", nullable: false),
-                    idStage = table.Column<int>(type: "int", nullable: true),
-                    idArtist = table.Column<int>(type: "int", nullable: true),
-                    startTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    stopTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    description = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
-                    IdEventNavigationId = table.Column<int>(type: "int", nullable: false)
+                    name = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    EventId = table.Column<int>(type: "int", nullable: false),
+                    StageId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Lineup", x => x.id);
+                    table.PrimaryKey("PK_EventStageLineup", x => x.id);
                     table.ForeignKey(
-                        name: "FK_Lineup_Artist",
-                        column: x => x.idArtist,
-                        principalTable: "Artist",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Lineup_Event_IdEventNavigationId",
-                        column: x => x.IdEventNavigationId,
+                        name: "FK_EventStageLineup_Event_EventId",
+                        column: x => x.EventId,
                         principalTable: "Event",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Lineup_Stage_idStage",
-                        column: x => x.idStage,
-                        principalTable: "Stage",
                         principalColumn: "id");
+                    table.ForeignKey(
+                        name: "FK_EventStageLineup_Stage_StageId",
+                        column: x => x.StageId,
+                        principalTable: "Stage",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -985,6 +1024,30 @@ namespace Infrastructure_EF_SQLdB.Migrations
                         name: "FK_StageToStageManager_Stage_StageId",
                         column: x => x.StageId,
                         principalTable: "Stage",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DiscountTicket",
+                columns: table => new
+                {
+                    DiscountsId = table.Column<int>(type: "int", nullable: false),
+                    TicketsId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DiscountTicket", x => new { x.DiscountsId, x.TicketsId });
+                    table.ForeignKey(
+                        name: "FK_DiscountTicket_Discount_DiscountsId",
+                        column: x => x.DiscountsId,
+                        principalTable: "Discount",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_DiscountTicket_Ticket_TicketsId",
+                        column: x => x.TicketsId,
+                        principalTable: "Ticket",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -1037,14 +1100,85 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "EventStageDescription",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    descriptiontext = table.Column<string>(type: "nvarchar(2048)", maxLength: 2048, nullable: true),
+                    banddescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    EventStageId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EventStageDescription", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_EventStageDescription_EventStageLineup_EventStageId",
+                        column: x => x.EventStageId,
+                        principalTable: "EventStageLineup",
+                        principalColumn: "id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "EventStageLineupTag",
+                columns: table => new
+                {
+                    EventStageLineupsId = table.Column<int>(type: "int", nullable: false),
+                    TagsId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EventStageLineupTag", x => new { x.EventStageLineupsId, x.TagsId });
+                    table.ForeignKey(
+                        name: "FK_EventStageLineupTag_EventStageLineup_EventStageLineupsId",
+                        column: x => x.EventStageLineupsId,
+                        principalTable: "EventStageLineup",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_EventStageLineupTag_Tag_TagsId",
+                        column: x => x.TagsId,
+                        principalTable: "Tag",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "LineupEntry",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    starttime = table.Column<string>(type: "nvarchar(48)", nullable: false),
+                    endtime = table.Column<string>(type: "nvarchar(48)", nullable: false),
+                    BandId = table.Column<int>(type: "int", nullable: false),
+                    EventStageLineupId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LineupEntry", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_LineupEntry_Band_BandId",
+                        column: x => x.BandId,
+                        principalTable: "Band",
+                        principalColumn: "id");
+                    table.ForeignKey(
+                        name: "FK_LineupEntry_EventStageLineup_EventStageLineupId",
+                        column: x => x.EventStageLineupId,
+                        principalTable: "EventStageLineup",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "SponsorContract",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     sponsortype = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    start = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    end = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    start = table.Column<string>(type: "nvarchar(48)", nullable: false),
+                    end = table.Column<string>(type: "nvarchar(48)", nullable: false),
                     contracttype = table.Column<int>(type: "int", maxLength: 16, nullable: false),
                     SponsorId = table.Column<int>(type: "int", nullable: false),
                     price = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: true),
@@ -1058,14 +1192,14 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 {
                     table.PrimaryKey("PK_SponsorContract", x => x.id);
                     table.ForeignKey(
+                        name: "FK_SponsorContract_EventStageLineup_LineupId",
+                        column: x => x.LineupId,
+                        principalTable: "EventStageLineup",
+                        principalColumn: "id");
+                    table.ForeignKey(
                         name: "FK_SponsorContract_Event_EventId",
                         column: x => x.EventId,
                         principalTable: "Event",
-                        principalColumn: "id");
-                    table.ForeignKey(
-                        name: "FK_SponsorContract_Lineup_LineupId",
-                        column: x => x.LineupId,
-                        principalTable: "Lineup",
                         principalColumn: "id");
                     table.ForeignKey(
                         name: "FK_SponsorContract_Sponsor_SponsorId",
@@ -1182,19 +1316,49 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 column: "id_person");
 
             migrationBuilder.CreateIndex(
-                name: "IX_EventArtist_idArtist",
-                table: "EventArtist",
-                column: "idArtist");
+                name: "IX_DiscountDescription_DiscountId",
+                table: "DiscountDescription",
+                column: "DiscountId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_EventArtist_idEvent",
-                table: "EventArtist",
-                column: "idEvent");
+                name: "IX_DiscountName_DiscountId",
+                table: "DiscountName",
+                column: "DiscountId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_EventDescriptions_EventId",
-                table: "EventDescriptions",
+                name: "IX_DiscountTicket_TicketsId",
+                table: "DiscountTicket",
+                column: "TicketsId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DiscountTicketPool_TicketPoolId",
+                table: "DiscountTicketPool",
+                column: "TicketPoolId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_EventDescription_EventId",
+                table: "EventDescription",
                 column: "EventId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_EventStageDescription_EventStageId",
+                table: "EventStageDescription",
+                column: "EventStageId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_EventStageLineup_EventId",
+                table: "EventStageLineup",
+                column: "EventId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_EventStageLineup_StageId",
+                table: "EventStageLineup",
+                column: "StageId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_EventStageLineupTag_TagsId",
+                table: "EventStageLineupTag",
+                column: "TagsId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_EventTag_TagsId",
@@ -1207,24 +1371,14 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 column: "VenuesId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_FeaturedEvent_idEvent",
-                table: "FeaturedEvent",
-                column: "idEvent");
+                name: "IX_LineupEntry_BandId",
+                table: "LineupEntry",
+                column: "BandId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Lineup_idArtist",
-                table: "Lineup",
-                column: "idArtist");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Lineup_IdEventNavigationId",
-                table: "Lineup",
-                column: "IdEventNavigationId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Lineup_idStage",
-                table: "Lineup",
-                column: "idStage");
+                name: "IX_LineupEntry_EventStageLineupId",
+                table: "LineupEntry",
+                column: "EventStageLineupId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Link_ArtistId",
@@ -1349,14 +1503,14 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 column: "StageManagerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Ticket_idClient",
+                name: "IX_Ticket_ClientId",
                 table: "Ticket",
-                column: "idClient");
+                column: "ClientId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Ticket_idTicketPool",
+                name: "IX_Ticket_TicketPoolId",
                 table: "Ticket",
-                column: "idTicketPool");
+                column: "TicketPoolId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_TicketAgent_TicketAgencyId",
@@ -1364,19 +1518,24 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 column: "TicketAgencyId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TicketPool_idTicketMedia",
-                table: "TicketPool",
-                column: "idTicketMedia");
+                name: "IX_TicketAgentTicketPool_TicketPoolsId",
+                table: "TicketAgentTicketPool",
+                column: "TicketPoolsId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TicketPool_idTicketType",
-                table: "TicketPool",
-                column: "idTicketType");
+                name: "IX_TicketDescription_TicketPoolId",
+                table: "TicketDescription",
+                column: "TicketPoolId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TicketPool_idVendor",
+                name: "IX_TicketPool_EventId",
                 table: "TicketPool",
-                column: "idVendor");
+                column: "EventId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TicketPool_TicketAgencyId",
+                table: "TicketPool",
+                column: "TicketAgencyId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_User_id_group",
@@ -1414,10 +1573,25 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 name: "BookerBookingAgencyBand");
 
             migrationBuilder.DropTable(
-                name: "EventArtist");
+                name: "DiscountDescription");
 
             migrationBuilder.DropTable(
-                name: "EventDescriptions");
+                name: "DiscountName");
+
+            migrationBuilder.DropTable(
+                name: "DiscountTicket");
+
+            migrationBuilder.DropTable(
+                name: "DiscountTicketPool");
+
+            migrationBuilder.DropTable(
+                name: "EventDescription");
+
+            migrationBuilder.DropTable(
+                name: "EventStageDescription");
+
+            migrationBuilder.DropTable(
+                name: "EventStageLineupTag");
 
             migrationBuilder.DropTable(
                 name: "EventTag");
@@ -1426,7 +1600,7 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 name: "EventVenue");
 
             migrationBuilder.DropTable(
-                name: "FeaturedEvent");
+                name: "LineupEntry");
 
             migrationBuilder.DropTable(
                 name: "LinkDescription");
@@ -1459,19 +1633,25 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 name: "StageToStageManager");
 
             migrationBuilder.DropTable(
-                name: "Ticket");
+                name: "TicketAgentTicketPool");
+
+            migrationBuilder.DropTable(
+                name: "TicketDescription");
 
             migrationBuilder.DropTable(
                 name: "User");
-
-            migrationBuilder.DropTable(
-                name: "TicketAgent");
 
             migrationBuilder.DropTable(
                 name: "Booker");
 
             migrationBuilder.DropTable(
                 name: "BookingAgencyBand");
+
+            migrationBuilder.DropTable(
+                name: "Ticket");
+
+            migrationBuilder.DropTable(
+                name: "Discount");
 
             migrationBuilder.DropTable(
                 name: "Tag");
@@ -1495,46 +1675,40 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 name: "StageManager");
 
             migrationBuilder.DropTable(
+                name: "TicketAgent");
+
+            migrationBuilder.DropTable(
+                name: "UserGroup");
+
+            migrationBuilder.DropTable(
+                name: "BookingAgency");
+
+            migrationBuilder.DropTable(
                 name: "Client");
 
             migrationBuilder.DropTable(
                 name: "TicketPool");
 
             migrationBuilder.DropTable(
-                name: "UserGroup");
-
-            migrationBuilder.DropTable(
-                name: "TicketAgency");
-
-            migrationBuilder.DropTable(
-                name: "BookingAgency");
-
-            migrationBuilder.DropTable(
                 name: "Link");
 
             migrationBuilder.DropTable(
-                name: "Lineup");
+                name: "EventStageLineup");
 
             migrationBuilder.DropTable(
                 name: "Person");
 
             migrationBuilder.DropTable(
-                name: "TicketMediaType");
+                name: "TicketAgency");
 
             migrationBuilder.DropTable(
-                name: "TicketType");
-
-            migrationBuilder.DropTable(
-                name: "Vendor");
+                name: "Artist");
 
             migrationBuilder.DropTable(
                 name: "Band");
 
             migrationBuilder.DropTable(
                 name: "Sponsor");
-
-            migrationBuilder.DropTable(
-                name: "Artist");
 
             migrationBuilder.DropTable(
                 name: "Event");
