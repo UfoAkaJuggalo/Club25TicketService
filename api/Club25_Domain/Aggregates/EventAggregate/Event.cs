@@ -1,5 +1,6 @@
 ﻿using Club25_Domain.Aggregates.EventAggregate.Entities;
 using Club25_Domain.Aggregates.SponsorAggregate.Entities;
+using Club25_Domain.Aggregates.TicketPoolAggregate;
 using Club25_Domain.Aggregates.VenueAggregate;
 using Club25_Domain.Common.Entities;
 
@@ -18,5 +19,5 @@ public sealed class Event : Organization
 	public ICollection<EventStageLineup> Lineups { get; set; } = new List<EventStageLineup>();
 
 	public ICollection<SponsorEventContract> SponsorContracts { get; set; } = new List<SponsorEventContract>();
-	//public ICollection<TicketPool> TicketPools { get; init; } = new List<TicketPool>(); powinien byc podpiety do Ticket, a dopiero Ticket do TicketPool
+	public ICollection<TicketPool> TicketPools { get; init; } = new List<TicketPool>();
 }
