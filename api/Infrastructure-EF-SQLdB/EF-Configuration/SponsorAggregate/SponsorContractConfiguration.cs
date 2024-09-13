@@ -3,6 +3,7 @@ using Club25_Domain.Aggregates.SponsorAggregate.Enums;
 using Club25_Domain.Common.VObase;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Infrastructure_EF_SQLdB.EF_Configuration.SponsorAggregate;
 
@@ -49,11 +50,13 @@ public sealed class SponsorContractConfiguration : IEntityTypeConfiguration<Spon
 
 		builder.Property(p => p.Start)
 		       .HasColumnName(nameof(SponsorContract.Start).ToLower())
-		       .HasColumnOrder(columnOrder++);
+		       .HasColumnOrder(columnOrder++)
+		       .HasConversion(new DateTimeToStringConverter());
 
 		builder.Property(p => p.End)
 		       .HasColumnName(nameof(SponsorContract.End).ToLower())
-		       .HasColumnOrder(columnOrder++);
+		       .HasColumnOrder(columnOrder++)
+		       .HasConversion(new DateTimeToStringConverter());
 
 		builder.Property(p => p.ContractType)
 		       .HasColumnName(nameof(SponsorContract.ContractType).ToLower())

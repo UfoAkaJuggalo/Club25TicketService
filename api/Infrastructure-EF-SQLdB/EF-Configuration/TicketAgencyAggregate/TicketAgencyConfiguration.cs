@@ -19,6 +19,11 @@ public sealed class TicketAgencyConfiguration : IEntityTypeConfiguration<TicketA
 		builder.HasMany(m => m.PromoterAgencies)
 		       .WithMany();
 
+		builder.HasMany(m => m.TicketPools)
+		       .WithOne(o => o.TicketAgency)
+		       .HasForeignKey(o => o.TicketAgencyId)
+		       .OnDelete(DeleteBehavior.ClientSetNull);
+
 		builder.OwnsOne(o => o.Contact, navigationBuilder =>
 		{
 			navigationBuilder.Property(p => p.Email)

@@ -1,6 +1,7 @@
 ﻿using Club25_Domain.Aggregates.EventAggregate.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Infrastructure_EF_SQLdB.EF_Configuration.EventAggregate;
 
@@ -20,10 +21,12 @@ public sealed class LineupEntryConfiguration : IEntityTypeConfiguration<LineupEn
 
 		builder.Property(p => p.StartTime)
 		       .HasColumnOrder(columnOrder++)
-		       .HasColumnName(nameof(LineupEntry.StartTime).ToLower());
+		       .HasColumnName(nameof(LineupEntry.StartTime).ToLower())
+		       .HasConversion(new DateTimeToStringConverter());
 
 		builder.Property(p => p.EndTime)
 		       .HasColumnOrder(columnOrder++)
-		       .HasColumnName(nameof(LineupEntry.EndTime).ToLower());
+		       .HasColumnName(nameof(LineupEntry.EndTime).ToLower())
+		       .HasConversion(new DateTimeToStringConverter());
 	}
 }
