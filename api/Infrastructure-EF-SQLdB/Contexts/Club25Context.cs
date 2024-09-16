@@ -3,7 +3,6 @@ using Club25_Domain.Aggregates.BandAggregate;
 using Club25_Domain.Aggregates.BandAggregate.Entities;
 using Club25_Domain.Aggregates.BookingAgencyAggregate;
 using Club25_Domain.Aggregates.BookingAgencyAggregate.Entities;
-using Club25_Domain.Aggregates.ClientAggregate;
 using Club25_Domain.Aggregates.EventAggregate;
 using Club25_Domain.Aggregates.EventAggregate.Entities;
 using Club25_Domain.Aggregates.PromoterAgencyAggregate;
@@ -14,8 +13,6 @@ using Club25_Domain.Aggregates.TicketAgencyAggregate;
 using Club25_Domain.Aggregates.TicketAgencyAggregate.Entities;
 using Club25_Domain.Aggregates.TicketPoolAggregate;
 using Club25_Domain.Aggregates.TicketPoolAggregate.Entities;
-using Club25_Domain.Aggregates.UserAggregate;
-using Club25_Domain.Aggregates.UserAggregate.Entities;
 using Club25_Domain.Aggregates.VenueAggregate;
 using Club25_Domain.Aggregates.VenueAggregate.Entities;
 using Club25_Domain.Common.Entities;
@@ -48,23 +45,15 @@ public partial class Club25Context : DbContext
 
 	public virtual DbSet<Discount> Discounts { get; set; }
 
-	public virtual DbSet<Client> Clients { get; set; }
-
 	public virtual DbSet<Event> Events { get; set; }
 
 	public virtual DbSet<EventStageLineup> Lineups { get; set; }
 
 	public virtual DbSet<LineupEntry> LineupEntries { get; set; }
 
-	public virtual DbSet<Permission> Permissions { get; set; }
-
 	public virtual DbSet<Promoter> Promoters { get; set; }
 
 	public virtual DbSet<PromoterAgency> PromoterAgencies { get; set; }
-
-	//public virtual DbSet<Person> People { get; set; }
-
-	public virtual DbSet<Policy> Policies { get; set; }
 
 	public virtual DbSet<Sponsor> Sponsors { get; set; }
 
@@ -90,10 +79,6 @@ public partial class Club25Context : DbContext
 
 	public virtual DbSet<TicketPool> TicketPools { get; set; }
 
-	public virtual DbSet<User> Users { get; set; }
-
-	public virtual DbSet<UserGroup> UserGroups { get; set; }
-
 	public virtual DbSet<Venue> Venues { get; set; }
 
 	public virtual DbSet<SponsorVenueContract> SponsorVenueContracts { get; set; }
@@ -105,7 +90,8 @@ public partial class Club25Context : DbContext
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{
-		modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+		modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly(),
+		                                             type => type.Namespace.Contains("Club25Context"));
 
 		modelBuilder.Entity<ArtistDescription>()
 		            .ToTable(nameof(ArtistDescription));
