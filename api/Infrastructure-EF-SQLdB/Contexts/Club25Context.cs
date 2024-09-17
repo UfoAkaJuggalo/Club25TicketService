@@ -20,7 +20,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure_EF_SQLdB.Contexts;
 
-public partial class Club25Context : DbContext
+public sealed class Club25Context : DbContext
 {
 	public Club25Context()
 	{
@@ -31,57 +31,32 @@ public partial class Club25Context : DbContext
 	{
 	}
 
-	public virtual DbSet<BookingAgency> BookingAgencies { get; set; }
-
-	public virtual DbSet<Booker> Bookers { get; set; }
-
-	public virtual DbSet<BookingAgencyBand> BookingAgencyBands { get; set; }
-
-	public virtual DbSet<Artist> Artists { get; set; }
-
-	public virtual DbSet<Band> Bands { get; set; }
-
-	public virtual DbSet<Description> Descriptions { get; set; }
-
-	public virtual DbSet<Discount> Discounts { get; set; }
-
-	public virtual DbSet<Event> Events { get; set; }
-
-	public virtual DbSet<EventStageLineup> Lineups { get; set; }
-
-	public virtual DbSet<LineupEntry> LineupEntries { get; set; }
-
-	public virtual DbSet<Promoter> Promoters { get; set; }
-
-	public virtual DbSet<PromoterAgency> PromoterAgencies { get; set; }
-
-	public virtual DbSet<Sponsor> Sponsors { get; set; }
-
-	public virtual DbSet<SponsorRepresentative> SponsorRepresentatives { get; set; }
-
-	public virtual DbSet<SponsorContract> SponsorContracts { get; set; }
-
-	public virtual DbSet<Stage> Stages { get; set; }
-
-	public virtual DbSet<StageManager> StageManagers { get; set; }
-
-	public virtual DbSet<Sector> Sectors { get; set; }
-
-	public virtual DbSet<Seat> Seats { get; set; }
-
-	public virtual DbSet<Tag> Tags { get; set; }
-
-	public virtual DbSet<Ticket> Tickets { get; set; }
-
-	public virtual DbSet<TicketAgency> TicketAgencies { get; set; }
-
-	public virtual DbSet<TicketAgent> TicketAgents { get; set; }
-
-	public virtual DbSet<TicketPool> TicketPools { get; set; }
-
-	public virtual DbSet<Venue> Venues { get; set; }
-
-	public virtual DbSet<SponsorVenueContract> SponsorVenueContracts { get; set; }
+	public DbSet<BookingAgency> BookingAgencies { get; set; }
+	public DbSet<Booker> Bookers { get; set; }
+	public DbSet<BookingAgencyBand> BookingAgencyBands { get; set; }
+	public DbSet<Artist> Artists { get; set; }
+	public DbSet<Band> Bands { get; set; }
+	public DbSet<Description> Descriptions { get; set; }
+	public DbSet<Discount> Discounts { get; set; }
+	public DbSet<Event> Events { get; set; }
+	public DbSet<EventStageLineup> Lineups { get; set; }
+	public DbSet<LineupEntry> LineupEntries { get; set; }
+	public DbSet<Promoter> Promoters { get; set; }
+	public DbSet<PromoterAgency> PromoterAgencies { get; set; }
+	public DbSet<Sponsor> Sponsors { get; set; }
+	public DbSet<SponsorRepresentative> SponsorRepresentatives { get; set; }
+	public DbSet<SponsorContract> SponsorContracts { get; set; }
+	public DbSet<Stage> Stages { get; set; }
+	public DbSet<StageManager> StageManagers { get; set; }
+	public DbSet<Sector> Sectors { get; set; }
+	public DbSet<Seat> Seats { get; set; }
+	public DbSet<Tag> Tags { get; set; }
+	public DbSet<Ticket> Tickets { get; set; }
+	public DbSet<TicketAgency> TicketAgencies { get; set; }
+	public DbSet<TicketAgent> TicketAgents { get; set; }
+	public DbSet<TicketPool> TicketPools { get; set; }
+	public DbSet<Venue> Venues { get; set; }
+	public DbSet<SponsorVenueContract> SponsorVenueContracts { get; set; }
 
 	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https: //go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -110,6 +85,4 @@ public partial class Club25Context : DbContext
 		modelBuilder.Entity<TicketDescription>()
 		            .ToTable(nameof(TicketDescription));
 	}
-
-	partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }
