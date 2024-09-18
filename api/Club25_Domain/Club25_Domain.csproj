@@ -7,29 +7,24 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Agregates\BandAgregate\Events\" />
-      <Folder Include="Agregates\BandAgregate\ValueObjects\" />
-      <Folder Include="Agregates\ClientAgregate\Events\" />
-      <Folder Include="Agregates\ClientAgregate\ValueObjects\" />
-      <Folder Include="Agregates\EventAgregate\Events\" />
-      <Folder Include="Agregates\EventAgregate\ValueObjects\" />
-      <Folder Include="Agregates\SponsorAgregate\Events\" />
-      <Folder Include="Agregates\SponsorAgregate\ValueObjects\" />
-      <Folder Include="Agregates\TagAgregate\Entities\" />
-      <Folder Include="Agregates\TagAgregate\Events\" />
-      <Folder Include="Agregates\TagAgregate\ValueObjects\" />
-      <Folder Include="Agregates\TicketPoolAgregate\Events\" />
-      <Folder Include="Agregates\TicketPoolAgregate\ValueObjects\" />
-      <Folder Include="Agregates\UserAgregate\Events\" />
-      <Folder Include="Agregates\UserAgregate\ValueObjects\" />
-      <Folder Include="Agregates\VenueAgregate\Events\" />
-      <Folder Include="Agregates\VenueAgregate\ValueObjects\" />
+        <Folder Include="Aggregates\BandAggregate\Events\"/>
+        <Folder Include="Aggregates\BandAggregate\ValueObjects\"/>
+        <Folder Include="Aggregates\BookingAgencyAggregate\Events\"/>
+        <Folder Include="Aggregates\ClientAggregate\Events\"/>
+        <Folder Include="Aggregates\EventAggregate\Events\"/>
+        <Folder Include="Aggregates\EventAggregate\ValueObjects\"/>
+        <Folder Include="Aggregates\PromoterAgencyAggregate\Events\"/>
+        <Folder Include="Aggregates\SponsorAggregate\Events\"/>
+        <Folder Include="Aggregates\TicketAgencyAggregate\Events\"/>
+        <Folder Include="Aggregates\TicketPoolAggregate\Events\"/>
+        <Folder Include="Aggregates\UserAggregate\Events\"/>
+        <Folder Include="Aggregates\VenueAggregate\Events\"/>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Azure.Identity" Version="1.12.0" />
-      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.7" />
-      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.7" />
+        <PackageReference Include="Azure.Identity" Version="1.12.0"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.7"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.7"/>
     </ItemGroup>
 
 </Project>
