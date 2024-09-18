@@ -45,11 +45,11 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 {
                     id = table.Column<int>(type: "int", nullable: false),
                     name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    email = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
-                    phone = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: true),
-                    country = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     city = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
-                    address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true)
+                    country = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    email = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
+                    phone = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -75,39 +75,12 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 {
                     id = table.Column<int>(type: "int", nullable: false),
                     name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    startdate = table.Column<string>(type: "nvarchar(48)", nullable: false),
-                    enddate = table.Column<string>(type: "nvarchar(48)", nullable: false)
+                    startdate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    enddate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Event", x => x.id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Permission",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "int", nullable: false),
-                    name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    description = table.Column<string>(type: "nvarchar(160)", maxLength: 160, nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Permission", x => x.id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Person",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "int", nullable: false),
-                    name = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    surname = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Person", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -116,11 +89,11 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 {
                     id = table.Column<int>(type: "int", nullable: false),
                     name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    email = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
-                    phone = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: true),
-                    country = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     city = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
-                    address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true)
+                    country = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    email = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
+                    phone = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -133,11 +106,11 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 {
                     id = table.Column<int>(type: "int", nullable: false),
                     name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    email = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
-                    phone = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: true),
-                    country = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     city = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
-                    address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true)
+                    country = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    email = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
+                    phone = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -148,7 +121,8 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 name: "Tag",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false),
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     name = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
                 },
                 constraints: table =>
@@ -162,27 +136,15 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 {
                     id = table.Column<int>(type: "int", nullable: false),
                     name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    email = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
-                    phone = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: true),
-                    country = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     city = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
-                    address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true)
+                    country = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    email = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
+                    phone = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_TicketAgency", x => x.id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "UserGroup",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "int", nullable: false),
-                    name = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserGroup", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -193,11 +155,11 @@ namespace Infrastructure_EF_SQLdB.Migrations
                     name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     gpslatitude = table.Column<decimal>(type: "decimal(18,15)", precision: 18, scale: 15, nullable: true),
                     gpslongitude = table.Column<decimal>(type: "decimal(18,15)", precision: 18, scale: 15, nullable: true),
-                    email = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
-                    phone = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: true),
-                    country = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     city = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
-                    address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true)
+                    country = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    email = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
+                    phone = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -275,12 +237,12 @@ namespace Infrastructure_EF_SQLdB.Migrations
                     id = table.Column<int>(type: "int", nullable: false),
                     name = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
                     surname = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
-                    email = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
-                    phone = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: true),
-                    country = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
-                    city = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    BookingAgencyId = table.Column<int>(type: "int", nullable: false),
                     address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    BookingAgencyId = table.Column<int>(type: "int", nullable: false)
+                    city = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    country = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    email = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
+                    phone = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -298,10 +260,10 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 {
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PriceMin_Price = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: true),
-                    PriceMin_Currency = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PriceMax_Price = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: true),
-                    PriceMax_Currency = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PriceMin_Price = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
+                    PriceMin_Currency = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PriceMax_Price = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
+                    PriceMax_Currency = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     BandId = table.Column<int>(type: "int", nullable: false),
                     BookingAgencyId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -384,36 +346,18 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Client",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "int", nullable: false),
-                    id_person = table.Column<int>(type: "int", nullable: false),
-                    phone = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Client", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_Client_Person",
-                        column: x => x.id_person,
-                        principalTable: "Person",
-                        principalColumn: "id");
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Promoter",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "int", nullable: false),
                     name = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
                     surname = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
-                    email = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
-                    phone = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: true),
-                    country = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
-                    city = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    PromoterAgencyId = table.Column<int>(type: "int", nullable: false),
                     address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    PromoterAgencyId = table.Column<int>(type: "int", nullable: false)
+                    city = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    country = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    email = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
+                    phone = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -453,12 +397,12 @@ namespace Infrastructure_EF_SQLdB.Migrations
                     id = table.Column<int>(type: "int", nullable: false),
                     name = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
                     surname = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
-                    email = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
-                    phone = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: true),
-                    country = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
-                    city = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    SponsorId = table.Column<int>(type: "int", nullable: false),
                     address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    SponsorId = table.Column<int>(type: "int", nullable: false)
+                    city = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    country = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    email = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
+                    phone = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -574,12 +518,12 @@ namespace Infrastructure_EF_SQLdB.Migrations
                     id = table.Column<int>(type: "int", nullable: false),
                     name = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
                     surname = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
-                    email = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
-                    phone = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: true),
-                    country = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
-                    city = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    TicketAgencyId = table.Column<int>(type: "int", nullable: false),
                     address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    TicketAgencyId = table.Column<int>(type: "int", nullable: false)
+                    city = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    country = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    email = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
+                    phone = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -601,15 +545,15 @@ namespace Infrastructure_EF_SQLdB.Migrations
                     name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     datestart = table.Column<string>(type: "nvarchar(48)", nullable: true),
                     profit = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: true),
-                    eventstart = table.Column<string>(type: "nvarchar(48)", nullable: true),
-                    eventend = table.Column<string>(type: "nvarchar(48)", nullable: true),
+                    eventstart = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    eventend = table.Column<DateTime>(type: "datetime2", nullable: true),
                     tickettype = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     mediatypes = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DateEnd = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    price = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
-                    currency = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TicketAgencyId = table.Column<int>(type: "int", nullable: false),
-                    EventId = table.Column<int>(type: "int", nullable: false)
+                    EventId = table.Column<int>(type: "int", nullable: false),
+                    currency = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    price = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -623,53 +567,6 @@ namespace Infrastructure_EF_SQLdB.Migrations
                         name: "FK_TicketPool_TicketAgency_TicketAgencyId",
                         column: x => x.TicketAgencyId,
                         principalTable: "TicketAgency",
-                        principalColumn: "id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Policy",
-                columns: table => new
-                {
-                    idUserGroup = table.Column<int>(type: "int", nullable: false),
-                    idPermission = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.ForeignKey(
-                        name: "FK_Policy_Permission",
-                        column: x => x.idPermission,
-                        principalTable: "Permission",
-                        principalColumn: "id");
-                    table.ForeignKey(
-                        name: "FK_Policy_UserGroup",
-                        column: x => x.idUserGroup,
-                        principalTable: "UserGroup",
-                        principalColumn: "id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "User",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "int", nullable: false),
-                    name = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
-                    surname = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
-                    id_person = table.Column<int>(type: "int", nullable: false),
-                    id_group = table.Column<int>(type: "int", nullable: false),
-                    password = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_User", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_User_Person",
-                        column: x => x.id_person,
-                        principalTable: "Person",
-                        principalColumn: "id");
-                    table.ForeignKey(
-                        name: "FK_User_UserGroup",
-                        column: x => x.id_group,
-                        principalTable: "UserGroup",
                         principalColumn: "id");
                 });
 
@@ -749,10 +646,10 @@ namespace Infrastructure_EF_SQLdB.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     name = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: true),
                     capacity = table.Column<int>(type: "int", nullable: true),
-                    PriceMin_Price = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: true),
-                    PriceMin_Currency = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PriceMax_Price = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: true),
-                    PriceMax_Currency = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PriceMin_Price = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
+                    PriceMin_Currency = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PriceMax_Price = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
+                    PriceMax_Currency = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     VenueId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -772,12 +669,12 @@ namespace Infrastructure_EF_SQLdB.Migrations
                     id = table.Column<int>(type: "int", nullable: false),
                     name = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
                     surname = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
-                    email = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
-                    phone = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: true),
-                    country = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
-                    city = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    VenueId = table.Column<int>(type: "int", nullable: false),
                     address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    VenueId = table.Column<int>(type: "int", nullable: false)
+                    city = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    country = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    email = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
+                    phone = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -871,19 +768,13 @@ namespace Infrastructure_EF_SQLdB.Migrations
                     seatnumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ticketstatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     mediatype = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    price = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
-                    currency = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TicketPoolId = table.Column<int>(type: "int", nullable: false),
-                    ClientId = table.Column<int>(type: "int", nullable: true)
+                    currency = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    price = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Ticket", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_Ticket_Client_ClientId",
-                        column: x => x.ClientId,
-                        principalTable: "Client",
-                        principalColumn: "id");
                     table.ForeignKey(
                         name: "FK_Ticket_TicketPool_TicketPoolId",
                         column: x => x.TicketPoolId,
@@ -1149,8 +1040,8 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 {
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    starttime = table.Column<string>(type: "nvarchar(48)", nullable: false),
-                    endtime = table.Column<string>(type: "nvarchar(48)", nullable: false),
+                    starttime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    endtime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     BandId = table.Column<int>(type: "int", nullable: false),
                     EventStageLineupId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -1177,13 +1068,13 @@ namespace Infrastructure_EF_SQLdB.Migrations
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     sponsortype = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    start = table.Column<string>(type: "nvarchar(48)", nullable: false),
-                    end = table.Column<string>(type: "nvarchar(48)", nullable: false),
+                    start = table.Column<DateOnly>(type: "date", nullable: false),
+                    end = table.Column<DateOnly>(type: "date", nullable: false),
                     contracttype = table.Column<int>(type: "int", maxLength: 16, nullable: false),
                     SponsorId = table.Column<int>(type: "int", nullable: false),
-                    price = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: true),
-                    currency = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     contracttype1 = table.Column<string>(type: "nvarchar(21)", maxLength: 21, nullable: false),
+                    currency = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    price = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
                     EventId = table.Column<int>(type: "int", nullable: true),
                     LineupId = table.Column<int>(type: "int", nullable: true),
                     VenueId = table.Column<int>(type: "int", nullable: true)
@@ -1311,11 +1202,6 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 column: "BookingAgencyId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Client_id_person",
-                table: "Client",
-                column: "id_person");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_DiscountDescription_DiscountId",
                 table: "DiscountDescription",
                 column: "DiscountId");
@@ -1411,16 +1297,6 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 column: "LinkId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Policy_idPermission",
-                table: "Policy",
-                column: "idPermission");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Policy_idUserGroup",
-                table: "Policy",
-                column: "idUserGroup");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Promoter_PromoterAgencyId",
                 table: "Promoter",
                 column: "PromoterAgencyId");
@@ -1503,11 +1379,6 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 column: "StageManagerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Ticket_ClientId",
-                table: "Ticket",
-                column: "ClientId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Ticket_TicketPoolId",
                 table: "Ticket",
                 column: "TicketPoolId");
@@ -1536,16 +1407,6 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 name: "IX_TicketPool_TicketAgencyId",
                 table: "TicketPool",
                 column: "TicketAgencyId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_User_id_group",
-                table: "User",
-                column: "id_group");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_User_id_person",
-                table: "User",
-                column: "id_person");
         }
 
         /// <inheritdoc />
@@ -1606,9 +1467,6 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 name: "LinkDescription");
 
             migrationBuilder.DropTable(
-                name: "Policy");
-
-            migrationBuilder.DropTable(
                 name: "Promoter");
 
             migrationBuilder.DropTable(
@@ -1639,9 +1497,6 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 name: "TicketDescription");
 
             migrationBuilder.DropTable(
-                name: "User");
-
-            migrationBuilder.DropTable(
                 name: "Booker");
 
             migrationBuilder.DropTable(
@@ -1655,9 +1510,6 @@ namespace Infrastructure_EF_SQLdB.Migrations
 
             migrationBuilder.DropTable(
                 name: "Tag");
-
-            migrationBuilder.DropTable(
-                name: "Permission");
 
             migrationBuilder.DropTable(
                 name: "PromoterAgency");
@@ -1678,13 +1530,7 @@ namespace Infrastructure_EF_SQLdB.Migrations
                 name: "TicketAgent");
 
             migrationBuilder.DropTable(
-                name: "UserGroup");
-
-            migrationBuilder.DropTable(
                 name: "BookingAgency");
-
-            migrationBuilder.DropTable(
-                name: "Client");
 
             migrationBuilder.DropTable(
                 name: "TicketPool");
@@ -1694,9 +1540,6 @@ namespace Infrastructure_EF_SQLdB.Migrations
 
             migrationBuilder.DropTable(
                 name: "EventStageLineup");
-
-            migrationBuilder.DropTable(
-                name: "Person");
 
             migrationBuilder.DropTable(
                 name: "TicketAgency");
