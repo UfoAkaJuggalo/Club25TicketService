@@ -2,7 +2,7 @@
 
 namespace Club25_Domain.Aggregates.EventAggregate.Entities;
 
-public sealed class EventStageDescription : Description
+public sealed record EventStageDescription : Description
 {
 	public EventStageLineup EventStage { get; init; }
 	public int EventStageId { get; init; }

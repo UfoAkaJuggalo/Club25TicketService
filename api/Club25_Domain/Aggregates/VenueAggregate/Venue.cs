@@ -6,7 +6,7 @@ using Club25_Domain.Common.Entities;
 
 namespace Club25_Domain.Aggregates.VenueAggregate;
 
-public sealed class Venue : Organization
+public sealed record Venue : Organization
 {
 	public decimal? GpsLatitude { get; init; }
 	public decimal? GpsLongitude { get; init; }

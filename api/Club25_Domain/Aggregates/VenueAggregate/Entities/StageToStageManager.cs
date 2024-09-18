@@ -1,6 +1,6 @@
 ﻿namespace Club25_Domain.Aggregates.VenueAggregate.Entities;
 
-public sealed class StageToStageManager
+public sealed record StageToStageManager
 {
 	public Stage Stage { get; set; }
 	public int StageId { get; set; }

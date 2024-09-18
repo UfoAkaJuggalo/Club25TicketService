@@ -5,7 +5,7 @@ using Club25_Domain.Aggregates.EventAggregate.Entities;
 
 namespace Club25_Domain.Common.Entities;
 
-public sealed class Tag
+public sealed record Tag
 {
 	public int Id { get; init; }
 	public required string Name { get; init; }

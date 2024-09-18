@@ -5,7 +5,7 @@ using Club25_Domain.Common.Entities;
 
 namespace Club25_Domain.Aggregates.BandAggregate;
 
-public sealed class Band
+public sealed record Band
 {
 	public int Id { get; init; }
 	public required string Name { get; init; }

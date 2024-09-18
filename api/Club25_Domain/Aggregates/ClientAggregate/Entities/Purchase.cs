@@ -2,7 +2,7 @@
 
 namespace Club25_Domain.Aggregates.ClientAggregate.Entities;
 
-public sealed class Purchase
+public sealed record Purchase
 {
 	public Guid Id { get; set; }
 	public PurchaseStatus PurchaseStatus { get; set; }

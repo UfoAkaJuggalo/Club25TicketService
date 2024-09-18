@@ -3,7 +3,7 @@ using Club25_Domain.Common.Entities;
 
 namespace Club25_Domain.Aggregates.BookingAgencyAggregate.Entities;
 
-public sealed class Booker : Person
+public sealed record Booker : Person
 {
 	public required BookingAgency BookingAgency { get; init; }
 	public required BookingAgencyContactVO Contact { get; init; }

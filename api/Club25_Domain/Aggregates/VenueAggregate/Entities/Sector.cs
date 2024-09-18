@@ -3,7 +3,7 @@ using Club25_Domain.Common.Entities;
 
 namespace Club25_Domain.Aggregates.VenueAggregate.Entities;
 
-public sealed class Sector
+public sealed record Sector
 {
 	public int Id { get; init; }
 	public string? Name { get; init; }

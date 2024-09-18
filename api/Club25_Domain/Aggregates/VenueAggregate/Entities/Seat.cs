@@ -1,6 +1,6 @@
 ﻿namespace Club25_Domain.Aggregates.VenueAggregate.Entities;
 
-public sealed class Seat
+public sealed record Seat
 {
 	public int Id { get; init; }
 	public string Number { get; init; } = null!;

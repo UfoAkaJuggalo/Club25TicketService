@@ -6,7 +6,7 @@ using Club25_Domain.Common.Entities;
 
 namespace Club25_Domain.Aggregates.EventAggregate;
 
-public sealed class Event : Organization
+public sealed record Event : Organization
 {
 	public DateTime StartDate { get; init; }
 	public DateTime EndDate { get; init; }

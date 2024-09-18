@@ -3,7 +3,7 @@ using Club25_Domain.Common.Entities;
 
 namespace Club25_Domain.Aggregates.VenueAggregate.Entities;
 
-public sealed class StageManager : Person
+public sealed record StageManager : Person
 {
 	public required VenueContactVO Contact { get; init; }
 	public required Venue Venue { get; init; }

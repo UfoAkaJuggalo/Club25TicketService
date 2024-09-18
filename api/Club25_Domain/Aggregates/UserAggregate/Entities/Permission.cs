@@ -1,6 +1,6 @@
 ﻿namespace Club25_Domain.Aggregates.UserAggregate.Entities;
 
-public sealed class Permission
+public sealed record Permission
 {
 	public int Id { get; init; }
 	public string Name { get; init; } = null!;

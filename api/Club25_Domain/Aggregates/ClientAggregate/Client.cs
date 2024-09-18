@@ -3,7 +3,7 @@ using Club25_Domain.Common.Entities;
 
 namespace Club25_Domain.Aggregates.ClientAggregate;
 
-public sealed class Client : UserAccount
+public sealed record Client : UserAccount
 {
 	public string? Phone { get; init; }
 

@@ -2,4 +2,4 @@
 
 namespace Club25_Domain.Aggregates.SponsorAggregate.ValueObjects;
 
-public sealed class SponsorPriceVO : PriceVO;
+public sealed record SponsorPriceVO : PriceVO;

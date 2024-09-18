@@ -1,7 +1,7 @@
 ﻿namespace Club25_Domain.Aggregates.SponsorAggregate.Entities;
 
 [Obsolete]
-public class MainSponsor
+public record MainSponsor
 {
 	public int IdSponsor { get; init; }
 

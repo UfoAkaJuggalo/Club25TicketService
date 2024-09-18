@@ -6,7 +6,7 @@ using Club25_Domain.Common.Entities;
 
 namespace Club25_Domain.Aggregates.TicketAgencyAggregate;
 
-public sealed class TicketAgency : Organization
+public sealed record TicketAgency : Organization
 {
 	public required TicketAgencyContactVO Contact { get; init; }
 	public ICollection<TicketAgent> TicketAgents { get; init; } = new List<TicketAgent>();

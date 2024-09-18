@@ -2,7 +2,7 @@
 
 namespace Club25_Domain.Aggregates.TicketPoolAggregate.Entities;
 
-public class TicketDescription : Description
+public record TicketDescription : Description
 {
 	public TicketPool TicketPool { get; set; }
 	public int TicketPoolId { get; set; }

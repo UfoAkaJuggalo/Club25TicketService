@@ -2,7 +2,7 @@
 
 namespace Club25_Domain.Aggregates.SponsorAggregate.Entities;
 
-public sealed class SponsorDescription : Description
+public sealed record SponsorDescription : Description
 {
 	public Sponsor Sponsor { get; set; }
 	public int SponsorId { get; set; }

@@ -2,7 +2,7 @@
 
 namespace Club25_Domain.Common.Entities;
 
-public sealed class Link
+public sealed record Link
 {
 	public int Id { get; set; }
 	public required Uri Url { get; set; }

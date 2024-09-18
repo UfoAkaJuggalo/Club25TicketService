@@ -2,4 +2,4 @@
 
 namespace Club25_Domain.Aggregates.TicketAgencyAggregate.ValueObjects;
 
-public sealed class TicketAgencyContactVO : ContactVO;
+public sealed record TicketAgencyContactVO : ContactVO;

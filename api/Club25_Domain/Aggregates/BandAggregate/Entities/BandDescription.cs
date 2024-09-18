@@ -2,7 +2,7 @@
 
 namespace Club25_Domain.Aggregates.BandAggregate.Entities;
 
-public sealed class BandDescription : Description
+public sealed record BandDescription : Description
 {
 	public int BandId { get; init; }
 	public Band Band { get; init; }

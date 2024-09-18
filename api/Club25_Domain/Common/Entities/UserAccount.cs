@@ -1,6 +1,6 @@
 ﻿namespace Club25_Domain.Common.Entities;
 
-public abstract class UserAccount
+public abstract record UserAccount
 {
 	public Guid Id { get; set; }
 	public required string Login { get; set; }

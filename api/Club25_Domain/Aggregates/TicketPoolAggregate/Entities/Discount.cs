@@ -2,7 +2,7 @@
 
 namespace Club25_Domain.Aggregates.TicketPoolAggregate;
 
-public sealed class Discount
+public sealed record Discount
 {
 	public int Id { get; set; }
 	public decimal Multipler { get; set; }

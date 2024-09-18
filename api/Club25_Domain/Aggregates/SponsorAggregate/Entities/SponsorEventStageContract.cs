@@ -2,7 +2,7 @@
 
 namespace Club25_Domain.Aggregates.SponsorAggregate.Entities;
 
-public class SponsorEventStageContract : SponsorContract
+public record SponsorEventStageContract : SponsorContract
 {
 	public EventStageLineup Lineup { get; set; }
 	public int LineupId { get; set; }

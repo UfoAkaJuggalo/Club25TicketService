@@ -3,7 +3,7 @@ using Club25_Domain.Enum;
 
 namespace Club25_Domain.Common.VObase;
 
-public abstract class PriceVO
+public abstract record PriceVO
 {
 	public decimal Price { get; set; }
 	public Currency Currency { get; set; }

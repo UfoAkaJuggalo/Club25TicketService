@@ -1,6 +1,6 @@
 ﻿namespace Club25_Domain.Common.VObase;
 
-public abstract class ContactVO
+public abstract record ContactVO
 {
 	public required string Email { get; set; }
 	public string? Phone { get; set; }

@@ -2,4 +2,4 @@
 
 namespace Club25_Domain.Aggregates.VenueAggregate.ValueObjects;
 
-public class VenuePriceVO : PriceVO;
+public record VenuePriceVO : PriceVO;

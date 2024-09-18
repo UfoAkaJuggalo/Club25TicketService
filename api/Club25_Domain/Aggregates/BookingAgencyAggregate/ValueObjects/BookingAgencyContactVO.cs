@@ -2,4 +2,4 @@
 
 namespace Club25_Domain.Aggregates.BookingAgencyAggregate.ValueObjects;
 
-public sealed class BookingAgencyContactVO : ContactVO;
+public sealed record BookingAgencyContactVO : ContactVO;

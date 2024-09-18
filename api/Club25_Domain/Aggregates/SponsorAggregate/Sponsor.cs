@@ -4,7 +4,7 @@ using Club25_Domain.Common.Entities;
 
 namespace Club25_Domain.Aggregates.SponsorAggregate;
 
-public class Sponsor : Organization
+public record Sponsor : Organization
 {
 	public SponsorContactVO Contact { get; set; }
 	public ICollection<SponsorDescription> Descriptions { get; set; } = new List<SponsorDescription>();

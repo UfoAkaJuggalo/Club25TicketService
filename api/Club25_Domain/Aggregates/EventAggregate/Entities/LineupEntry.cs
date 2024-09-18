@@ -2,7 +2,7 @@
 
 namespace Club25_Domain.Aggregates.EventAggregate.Entities;
 
-public sealed class LineupEntry
+public sealed record LineupEntry
 {
 	public int Id { get; set; }
 	public DateTime StartTime { get; init; }

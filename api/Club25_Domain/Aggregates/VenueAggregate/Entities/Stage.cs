@@ -2,7 +2,7 @@
 
 namespace Club25_Domain.Aggregates.VenueAggregate.Entities;
 
-public sealed class Stage
+public sealed record Stage
 {
 	public int Id { get; init; }
 	public string? Name { get; init; }

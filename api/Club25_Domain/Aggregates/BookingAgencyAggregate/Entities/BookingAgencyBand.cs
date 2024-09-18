@@ -3,7 +3,7 @@ using Club25_Domain.Aggregates.BookingAgencyAggregate.ValueObjects;
 
 namespace Club25_Domain.Aggregates.BookingAgencyAggregate.Entities;
 
-public sealed class BookingAgencyBand
+public sealed record BookingAgencyBand
 {
 	public int Id { get; init; }
 	public BookingAgencyPriceVO? PriceMin { get; init; }

@@ -3,7 +3,7 @@ using Club25_Domain.Common.Entities;
 
 namespace Club25_Domain.Aggregates.SponsorAggregate.Entities;
 
-public sealed class SponsorRepresentative : Person
+public sealed record SponsorRepresentative : Person
 {
 	public SponsorContactVO Contact { get; set; }
 	public Sponsor Sponsor { get; set; }

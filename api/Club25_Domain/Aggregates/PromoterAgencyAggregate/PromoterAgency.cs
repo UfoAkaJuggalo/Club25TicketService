@@ -5,7 +5,7 @@ using Club25_Domain.Common.Entities;
 
 namespace Club25_Domain.Aggregates.PromoterAgencyAggregate;
 
-public class PromoterAgency : Organization
+public record PromoterAgency : Organization
 {
 	public required PromoterAgencyContactVO Contact { get; init; }
 	public ICollection<Promoter> Promoters { get; init; } = new List<Promoter>();

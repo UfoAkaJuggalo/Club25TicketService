@@ -2,7 +2,7 @@
 
 namespace Club25_Domain.Aggregates.BandAggregate.Entities;
 
-public sealed class Artist : Person
+public sealed record Artist : Person
 {
 	public string? StageName { get; init; }
 	public ICollection<ArtistDescription> ArtistDescriptions { get; init; } = new List<ArtistDescription>();

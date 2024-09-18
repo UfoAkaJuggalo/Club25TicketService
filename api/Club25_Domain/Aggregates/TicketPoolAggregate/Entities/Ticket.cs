@@ -3,7 +3,7 @@ using Club25_Domain.Aggregates.TicketPoolAggregate.ValueObjects;
 
 namespace Club25_Domain.Aggregates.TicketPoolAggregate.Entities;
 
-public class Ticket
+public record Ticket
 {
 	public Guid Id { get; init; }
 	public DateTime SoldDate { get; init; }

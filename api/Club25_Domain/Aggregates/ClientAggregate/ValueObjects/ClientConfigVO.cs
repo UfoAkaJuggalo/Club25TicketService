@@ -1,3 +1,3 @@
 ﻿namespace Club25_Domain.Aggregates.ClientAggregate.ValueObjects;
 
-public sealed class ClientConfigVO;
+public sealed record ClientConfigVO;

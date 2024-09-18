@@ -7,7 +7,7 @@ using Club25_Domain.Aggregates.TicketPoolAggregate.ValueObjects;
 
 namespace Club25_Domain.Aggregates.TicketPoolAggregate;
 
-public sealed class TicketPool
+public sealed record TicketPool
 {
 	public int Id { get; init; }
 	public string Name { get; set; }

@@ -2,7 +2,7 @@
 
 namespace Club25_Domain.Common.Entities;
 
-public abstract class Description
+public abstract record Description
 {
 	public int Id { get; init; }
 	public CountryCode LanguageCode { get; init; } = CountryCode.en;

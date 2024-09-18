@@ -4,7 +4,7 @@ using Club25_Domain.Common.Entities;
 
 namespace Club25_Domain.Aggregates.EventAggregate.Entities;
 
-public sealed class EventStageLineup
+public sealed record EventStageLineup
 {
 	public int Id { get; set; }
 	public string? Name { get; set; }
