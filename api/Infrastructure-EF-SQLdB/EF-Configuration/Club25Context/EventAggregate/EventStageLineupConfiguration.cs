@@ -41,7 +41,7 @@ public sealed class EventStageLineupConfiguration : IEntityTypeConfiguration<Eve
 		       .UseIdentityColumn();
 
 		builder.Property(p => p.Name)
-		       .HasColumnOrder(columnOrder++)
+		       .HasColumnOrder(columnOrder)
 		       .HasColumnName(nameof(EventStageLineup.Name).ToLower())
 		       .HasMaxLength(64);
 	}

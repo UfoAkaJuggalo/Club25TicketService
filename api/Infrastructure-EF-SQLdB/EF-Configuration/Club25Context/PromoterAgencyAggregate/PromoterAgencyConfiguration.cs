@@ -20,7 +20,7 @@ public sealed class PromoterAgencyConfiguration : IEntityTypeConfiguration<Promo
 		       .HasForeignKey(f => f.PromoterAgencyId)
 		       .IsRequired();
 
-		builder.OwnsOne(o => o.Contact, navigationBuilder =>
+		builder.ComplexProperty(o => o.Contact, navigationBuilder =>
 		{
 			navigationBuilder.Property(p => p.Email)
 			                 .IsRequired()

@@ -22,7 +22,7 @@ public sealed class BookingAgencyConfiguration : IEntityTypeConfiguration<Bookin
 		       .IsRequired()
 		       .OnDelete(DeleteBehavior.ClientSetNull);
 
-		builder.OwnsOne(o => o.Contact, navigationBuilder =>
+		builder.ComplexProperty(o => o.Contact, navigationBuilder =>
 		{
 			navigationBuilder.Property(p => p.Email)
 			                 .IsRequired()

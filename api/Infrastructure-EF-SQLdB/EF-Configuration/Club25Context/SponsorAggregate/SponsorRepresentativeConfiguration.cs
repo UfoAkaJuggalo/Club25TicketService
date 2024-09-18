@@ -11,7 +11,7 @@ public sealed class SponsorRepresentativeConfiguration : IEntityTypeConfiguratio
 	{
 		builder.ToTable(nameof(SponsorRepresentative));
 
-		builder.OwnsOne(o => o.Contact, navigationBuilder =>
+		builder.ComplexProperty(o => o.Contact, navigationBuilder =>
 		{
 			navigationBuilder.Property(p => p.Email)
 			                 .IsRequired()

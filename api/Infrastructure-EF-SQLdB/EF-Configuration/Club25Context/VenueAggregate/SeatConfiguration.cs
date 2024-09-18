@@ -31,7 +31,7 @@ public sealed class SeatConfiguration : IEntityTypeConfiguration<Seat>
 		       .HasColumnName(nameof(Seat.PlanY).ToLower());
 
 		builder.Property(p => p.Size)
-		       .HasColumnOrder(columnOrder++)
+		       .HasColumnOrder(columnOrder)
 		       .HasColumnName(nameof(Seat.Size).ToLower());
 	}
 }

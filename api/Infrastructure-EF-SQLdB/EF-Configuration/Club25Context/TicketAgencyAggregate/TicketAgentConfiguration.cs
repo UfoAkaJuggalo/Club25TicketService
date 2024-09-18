@@ -14,7 +14,7 @@ public sealed class TicketAgentConfiguration : IEntityTypeConfiguration<TicketAg
 		builder.HasMany(m => m.PromoterAgencies)
 		       .WithMany(m => m.Accountants);
 
-		builder.OwnsOne(o => o.Contact, navigationBuilder =>
+		builder.ComplexProperty(o => o.Contact, navigationBuilder =>
 		{
 			navigationBuilder.Property(p => p.Email)
 			                 .IsRequired()

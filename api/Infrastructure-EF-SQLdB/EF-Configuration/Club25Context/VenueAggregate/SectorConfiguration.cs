@@ -38,7 +38,7 @@ public sealed class SectorConfiguration : IEntityTypeConfiguration<Sector>
 
 		builder.Property(p => p.SectorType)
 		       .HasColumnName(nameof(Sector.SectorType).ToLower())
-		       .HasColumnOrder(columnOrder++)
+		       .HasColumnOrder(columnOrder)
 		       .HasConversion<string>();
 	}
 }

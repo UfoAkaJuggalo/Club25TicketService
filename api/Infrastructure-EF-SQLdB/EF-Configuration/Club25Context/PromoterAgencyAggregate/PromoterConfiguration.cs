@@ -11,7 +11,7 @@ public sealed class PromoterConfiguration : IEntityTypeConfiguration<Promoter>
 	{
 		builder.ToTable(nameof(Promoter));
 
-		builder.OwnsOne(o => o.Contact, navigationBuilder =>
+		builder.ComplexProperty(o => o.Contact, navigationBuilder =>
 		{
 			navigationBuilder.Property(p => p.Email)
 			                 .IsRequired()

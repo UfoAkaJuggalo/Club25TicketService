@@ -25,7 +25,7 @@ public sealed class DiscountConfiguration : IEntityTypeConfiguration<Discount>
 		       .UseIdentityColumn();
 		builder.Property(p => p.Multipler)
 		       .HasColumnName(nameof(Discount.Multipler).ToLower())
-		       .HasColumnOrder(columnOrder++)
+		       .HasColumnOrder(columnOrder)
 		       .HasPrecision(4, 4);
 	}
 }

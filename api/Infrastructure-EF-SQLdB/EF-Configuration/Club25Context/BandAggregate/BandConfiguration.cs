@@ -46,7 +46,7 @@ public sealed class BandConfiguration : IEntityTypeConfiguration<Band>
 
 		builder.Property(p => p.Name)
 		       .IsRequired()
-		       .HasColumnOrder(columnOrder++)
+		       .HasColumnOrder(columnOrder)
 		       .HasMaxLength(100)
 		       .HasColumnName(nameof(Band.Name).ToLower());
 	}

@@ -18,7 +18,7 @@ public sealed class OrganizationConfiguration : IEntityTypeConfiguration<Organiz
 
 		builder.Property(x => x.Name)
 		       .IsRequired()
-		       .HasColumnOrder(columnOrder++)
+		       .HasColumnOrder(columnOrder)
 		       .HasColumnName(nameof(Organization.Name).ToLower())
 		       .HasMaxLength(100);
 	}

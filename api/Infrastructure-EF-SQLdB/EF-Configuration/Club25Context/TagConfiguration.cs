@@ -8,13 +8,18 @@ public sealed class TagConfiguration : IEntityTypeConfiguration<Tag>
 {
 	public void Configure(EntityTypeBuilder<Tag> builder)
 	{
-		builder.ToTable(nameof(Tag));
+		builder.ToTable(nameof(Tag))
+		       .HasKey(k => k.Id);
+
+		var columnOrder = 0;
 
 		builder.Property(e => e.Id)
-		       .ValueGeneratedNever()
+		       .UseIdentityColumn()
+		       .HasColumnOrder(columnOrder++)
 		       .HasColumnName(nameof(Tag.Id).ToLower());
 		builder.Property(e => e.Name)
 		       .HasMaxLength(20)
+		       .HasColumnOrder(columnOrder)
 		       .HasColumnName(nameof(Tag.Name).ToLower());
 	}
 }

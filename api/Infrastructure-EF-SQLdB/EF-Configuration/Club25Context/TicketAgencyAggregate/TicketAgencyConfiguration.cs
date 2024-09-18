@@ -24,7 +24,7 @@ public sealed class TicketAgencyConfiguration : IEntityTypeConfiguration<TicketA
 		       .HasForeignKey(o => o.TicketAgencyId)
 		       .OnDelete(DeleteBehavior.ClientSetNull);
 
-		builder.OwnsOne(o => o.Contact, navigationBuilder =>
+		builder.ComplexProperty(o => o.Contact, navigationBuilder =>
 		{
 			navigationBuilder.Property(p => p.Email)
 			                 .IsRequired()

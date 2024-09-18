@@ -15,7 +15,7 @@ public sealed class StageManagerConfiguration : IEntityTypeConfiguration<StageMa
 		       .WithOne(o => o.StageManager)
 		       .OnDelete(DeleteBehavior.NoAction);
 
-		builder.OwnsOne(o => o.Contact, navigationBuilder =>
+		builder.ComplexProperty(o => o.Contact, navigationBuilder =>
 		{
 			navigationBuilder.Property(p => p.Email)
 			                 .IsRequired()

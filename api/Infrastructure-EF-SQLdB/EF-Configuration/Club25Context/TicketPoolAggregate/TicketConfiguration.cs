@@ -19,12 +19,6 @@ public sealed class TicketConfiguration : IEntityTypeConfiguration<Ticket>
 
 		var columnOrder = 0;
 
-		// builder.HasOne(d => d.IdClientNavigation).WithMany(p => p.Tickets)
-		//        .HasForeignKey(d => d.IdClient)
-		//        .OnDelete(DeleteBehavior.ClientSetNull)
-		//        .HasConstraintName("FK_Ticket_Client");
-
-
 		builder.Property(e => e.Id)
 		       .HasColumnName(nameof(Ticket.Id).ToLower())
 		       .HasColumnOrder(columnOrder++)
@@ -46,7 +40,7 @@ public sealed class TicketConfiguration : IEntityTypeConfiguration<Ticket>
 		       .HasColumnOrder(columnOrder)
 		       .HasConversion(new EnumToStringConverter<TicketMediaType>());
 
-		builder.OwnsOne(o => o.TicketPrice, navigationBuilder =>
+		builder.ComplexProperty(o => o.TicketPrice, navigationBuilder =>
 		{
 			navigationBuilder.Property(p => p.Price)
 			                 .HasColumnName(nameof(PriceVO.Price).ToLower())

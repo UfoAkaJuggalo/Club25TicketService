@@ -3,7 +3,6 @@ using Club25_Domain.Aggregates.SponsorAggregate.Enums;
 using Club25_Domain.Common.VObase;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Infrastructure_EF_SQLdB.EF_Configuration.Club25Context.SponsorAggregate;
 
@@ -33,8 +32,9 @@ public sealed class SponsorContractConfiguration : IEntityTypeConfiguration<Spon
 		       .HasColumnOrder(columnOrder++)
 		       .UseIdentityColumn();
 
-		builder.OwnsOne(o => o.Price, navigationBuilder =>
+		builder.ComplexProperty(o => o.Price, navigationBuilder =>
 		{
+			navigationBuilder.IsRequired();
 			navigationBuilder.Property(p => p.Price)
 			                 .HasColumnName(nameof(PriceVO.Price).ToLower())
 			                 .HasPrecision(10, 2);
@@ -51,12 +51,12 @@ public sealed class SponsorContractConfiguration : IEntityTypeConfiguration<Spon
 		builder.Property(p => p.Start)
 		       .HasColumnName(nameof(SponsorContract.Start).ToLower())
 		       .HasColumnOrder(columnOrder++)
-		       .HasConversion(new DateTimeToStringConverter());
+		       .HasConversion<DateOnly>();
 
 		builder.Property(p => p.End)
 		       .HasColumnName(nameof(SponsorContract.End).ToLower())
 		       .HasColumnOrder(columnOrder++)
-		       .HasConversion(new DateTimeToStringConverter());
+		       .HasConversion<DateOnly>();
 
 		builder.Property(p => p.ContractType)
 		       .HasColumnName(nameof(SponsorContract.ContractType).ToLower())

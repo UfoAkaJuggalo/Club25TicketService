@@ -38,7 +38,7 @@ public sealed class VenueConfiguration : IEntityTypeConfiguration<Venue>
 		       .HasPrecision(18, 15)
 		       .HasColumnName(nameof(Venue.GpsLongitude).ToLower());
 
-		builder.OwnsOne(o => o.Contact, navigationBuilder =>
+		builder.ComplexProperty(o => o.Contact, navigationBuilder =>
 		{
 			navigationBuilder.Property(p => p.Email)
 			                 .IsRequired()

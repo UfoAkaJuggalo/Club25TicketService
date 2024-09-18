@@ -1,7 +1,6 @@
 ﻿using Club25_Domain.Aggregates.EventAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Infrastructure_EF_SQLdB.EF_Configuration.Club25Context.EventAggregate;
 
@@ -42,10 +41,10 @@ public sealed class EventConfiguration : IEntityTypeConfiguration<Event>
 
 		builder.Property(e => e.StartDate)
 		       .HasColumnName(nameof(Event.StartDate).ToLower())
-		       .HasConversion(new DateTimeToStringConverter());
+		       .HasConversion<DateTime>();
 
 		builder.Property(e => e.EndDate)
 		       .HasColumnName(nameof(Event.EndDate).ToLower())
-		       .HasConversion(new DateTimeToStringConverter());
+		       .HasConversion<DateTime>();
 	}
 }

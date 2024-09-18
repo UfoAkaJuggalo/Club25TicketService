@@ -11,7 +11,7 @@ public sealed class BookerConfiguration : IEntityTypeConfiguration<Booker>
 	{
 		builder.ToTable(nameof(Booker));
 
-		builder.OwnsOne(o => o.Contact, navigationBuilder =>
+		builder.ComplexProperty(o => o.Contact, navigationBuilder =>
 		{
 			navigationBuilder.Property(p => p.Email)
 			                 .IsRequired()

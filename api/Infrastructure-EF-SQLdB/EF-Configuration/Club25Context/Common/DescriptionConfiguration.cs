@@ -24,7 +24,7 @@ public sealed class DescriptionConfiguration : IEntityTypeConfiguration<Descript
 
 		builder.Property(e => e.LanguageCode)
 		       .HasColumnName(nameof(BandDescription).ToLower())
-		       .HasColumnOrder(columnOrder++)
+		       .HasColumnOrder(columnOrder)
 		       .HasConversion<string>();
 	}
 }

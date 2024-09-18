@@ -24,7 +24,7 @@ public sealed class PersonConfiguration : IEntityTypeConfiguration<Person>
 
 		builder.Property(x => x.Surname)
 		       .IsRequired()
-		       .HasColumnOrder(columnOrder++)
+		       .HasColumnOrder(columnOrder)
 		       .HasColumnName(nameof(Person.Surname).ToLower())
 		       .HasMaxLength(64);
 	}

@@ -1,6 +1,5 @@
 ﻿using Club25_Domain.Aggregates.TicketPoolAggregate;
 using Club25_Domain.Common.VObase;
-using Infrastructure_EF_SQLdB.Utilities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
@@ -52,24 +51,23 @@ public sealed class TicketPoolConfiguration : IEntityTypeConfiguration<TicketPoo
 		builder.Property(p => p.EventStart)
 		       .HasColumnName(nameof(TicketPool.EventStart).ToLower())
 		       .HasColumnOrder(columnOrder++)
-		       .HasConversion(new DateTimeToStringConverter());
+		       .HasConversion<DateTime>();
 
 		builder.Property(p => p.EventEnd)
 		       .HasColumnOrder(columnOrder++)
 		       .HasColumnName(nameof(TicketPool.EventEnd).ToLower())
-		       .HasConversion(new DateTimeToStringConverter());
+		       .HasConversion<DateTime>();
 
 		builder.Property(p => p.TicketType)
 		       .HasColumnOrder(columnOrder++)
 		       .HasColumnName(nameof(TicketPool.TicketType).ToLower())
 		       .HasConversion<string>();
 
-		builder.Property(p => p.MediaTypes)
+		builder.PrimitiveCollection(p => p.MediaTypes)
 		       .HasColumnOrder(columnOrder)
-		       .HasColumnName(nameof(TicketPool.MediaTypes).ToLower())
-		       .HasConversion(Converters.TicketMediaTypeConverter);
+		       .HasColumnName(nameof(TicketPool.MediaTypes).ToLower());
 
-		builder.OwnsOne(o => o.TicketPrice, navigationBuilder =>
+		builder.ComplexProperty(o => o.TicketPrice, navigationBuilder =>
 		{
 			navigationBuilder.Property(p => p.Price)
 			                 .HasColumnName(nameof(PriceVO.Price).ToLower())

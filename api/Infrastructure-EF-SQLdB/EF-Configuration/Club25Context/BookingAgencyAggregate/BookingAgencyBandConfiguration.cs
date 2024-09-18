@@ -21,8 +21,9 @@ public sealed class BookingAgencyBandConfiguration : IEntityTypeConfiguration<Bo
 		       .HasColumnName(nameof(BookingAgencyBand.Id).ToLower())
 		       .UseIdentityColumn();
 
-		builder.OwnsOne(o => o.PriceMin, navigationBuilder =>
+		builder.ComplexProperty(o => o.PriceMin, navigationBuilder =>
 		{
+			navigationBuilder.IsRequired();
 			navigationBuilder.Property(p => p.Price)
 			                 .HasColumnOrder(columnOrder++)
 			                 .HasPrecision(10, 2);
@@ -31,8 +32,9 @@ public sealed class BookingAgencyBandConfiguration : IEntityTypeConfiguration<Bo
 			                 .HasConversion<string>();
 		});
 
-		builder.OwnsOne(o => o.PriceMax, navigationBuilder =>
+		builder.ComplexProperty(o => o.PriceMax, navigationBuilder =>
 		{
+			navigationBuilder.IsRequired();
 			navigationBuilder.Property(p => p.Price)
 			                 .HasColumnOrder(columnOrder++)
 			                 .HasPrecision(10, 2);
